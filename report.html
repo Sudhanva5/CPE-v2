@@ -147,8 +147,37 @@
   }
   .hero-ai-pill i { font-size: 16px; }
   .hero-ai-pill strong { font-weight: 800; }
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--white);
+    padding: 14px 24px;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .hero-cta-btn:hover { background: transparent; color: var(--white); }
+  .hero-cta-btn i { font-size: 16px; }
+  .hero-cta-note {
+    font-size: 11px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
   .hero-meta {
-    margin-top: 14px;
+    margin-top: 0;
     font-size: 11px;
     font-weight: 600;
     color: var(--gray-500);
@@ -1405,6 +1434,170 @@
     padding: 8px 14px;
   }
 
+  /* ── 10x Engineer grid (§01) ── */
+  .tenx-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+  }
+  .tenx-col {
+    padding: 22px 24px;
+    border-right: 1px solid var(--border);
+  }
+  .tenx-col:last-child { border-right: none; }
+  .tenx-col-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tenx-col-label i { font-size: 15px; }
+  .tenx-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .tenx-row i { font-size: 13px; color: var(--gray-400); margin-top: 2px; flex-shrink: 0; }
+  .tenx-row:last-child { margin-bottom: 0; }
+
+  /* ── 10x Engineer split (§01) ── */
+  .tenx-split {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+  .tenx-pointers {
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-right: 1px solid var(--border);
+  }
+  .tenx-pointer {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    line-height: 1.55;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tenx-pointer:first-child { padding-top: 0; }
+  .tenx-pointer:last-child { border-bottom: none; padding-bottom: 0; }
+  .tenx-pointer i { font-size: 16px; color: var(--gray-400); margin-top: 3px; flex-shrink: 0; }
+  .tenx-stat-col {
+    padding: 0;
+    background: var(--gray-50);
+    display: flex;
+    flex-direction: column;
+  }
+  /* ── Growth chart (§01 right col) ── */
+  .tenx-growth-header {
+    padding: 20px 22px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tenx-growth-eyebrow {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-400);
+    margin-bottom: 8px;
+  }
+  .tenx-growth-headline {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    color: var(--black);
+  }
+  .tenx-growth-sub {
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    margin-top: 7px;
+  }
+  .tenx-growth-chart {
+    padding: 16px 22px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tenx-growth-row {
+    display: grid;
+    grid-template-columns: 34px 1fr 24px;
+    align-items: center;
+    gap: 10px;
+  }
+  .tenx-growth-yr {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-400);
+    letter-spacing: 0.02em;
+  }
+  .tenx-growth-row.now .tenx-growth-yr { color: var(--black); }
+  .tenx-growth-track {
+    height: 5px;
+    background: var(--gray-100);
+    position: relative;
+  }
+  .tenx-growth-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--gray-300);
+  }
+  .tenx-growth-row.now .tenx-growth-fill { background: var(--black); }
+  .tenx-growth-lbl {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--gray-400);
+    text-align: right;
+  }
+  .tenx-growth-row.now .tenx-growth-lbl { color: var(--black); }
+  .tenx-growth-footer {
+    padding: 16px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tenx-growth-footer-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    color: var(--black);
+  }
+  .tenx-growth-footer-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .tenx-growth-footer-source {
+    font-size: 9px;
+    color: var(--gray-400);
+    margin-top: 5px;
+    font-style: italic;
+  }
+
   /* ── 10x with AI strip (below hero) ── */
   .tenx-strip {
     background: var(--gray-100);
@@ -1859,6 +2052,82 @@
     text-align: center;
   }
 
+  /* ── Shift cases (inline company cards in dark section) ── */
+  .shift-divider { height: 1px; background: var(--gray-700); margin-bottom: 24px; }
+  .shift-cases-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-500);
+    margin-bottom: 18px;
+  }
+  .shift-cases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--gray-700);
+  }
+  .shift-case {
+    padding: 20px 20px 18px;
+    border-right: 1px solid var(--gray-700);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .shift-case:last-child { border-right: none; }
+  .shift-case-co {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--gray-400);
+  }
+  .shift-case-quote {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .shift-case-points { display: flex; flex-direction: column; gap: 6px; }
+  .shift-case-point {
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    padding-left: 12px;
+    position: relative;
+  }
+  .shift-case-point::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 6px; height: 1px;
+    background: var(--gray-600);
+  }
+  .shift-case-stats {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-800);
+  }
+  .shift-case-stat {
+    font-size: 10px;
+    color: var(--gray-600);
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+  }
+  .shift-case-stat span {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--gray-300);
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
   /* ── Tools section (own section, rebuilt monochrome) ── */
   .tools-grid {
     display: grid;
@@ -2189,12 +2458,59 @@
   }
   .free-course-card-v2:hover { border-color: var(--black); }
   .free-course-card-v2 i { font-size: 22px; color: var(--black); margin-bottom: 4px; }
+  .free-course-banner {
+    background: var(--black);
+    margin: -18px -18px 14px;
+    height: 76px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .free-course-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(255,255,255,0.03) 8px,
+      rgba(255,255,255,0.03) 9px
+    );
+  }
+  .free-course-banner-logo {
+    font-size: 9px;
+    font-weight: 800;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+  }
+  .free-course-banner-logo i { font-size: 12px; color: var(--gray-600); }
+  .free-course-banner-icon {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 28px;
+    color: var(--gray-800);
+  }
   .free-course-name { font-size: 14px; font-weight: 700; color: var(--black); line-height: 1.3; }
-  .free-course-meta { font-size: 11px; color: var(--gray-500); }
+  .free-course-reason {
+    font-size: 11px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-top: 2px;
+  }
+  .free-course-meta { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
   .free-course-arrow {
     position: absolute;
-    top: 16px; right: 16px;
-    font-size: 16px;
+    top: 94px; right: 16px;
+    font-size: 14px;
     color: var(--gray-400);
   }
 
@@ -2381,6 +2697,7 @@
   }
 
   /* ── PEER CAROUSEL (3 visible) ── */
+  /* ── Alumni carousel — big image card ── */
   .peer-carousel { border: 1px solid var(--border); background: var(--white); }
   .peer-track-wrap { overflow: hidden; }
   .peer-track {
@@ -2388,66 +2705,102 @@
     transition: transform 0.45s cubic-bezier(.6,.05,.25,1);
   }
   .peer-card {
-    flex: 0 0 calc((100% - 2px) / 3);
-    padding: 26px 24px;
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    min-height: 420px;
     background: var(--white);
   }
-  .peer-photo {
-    width: 56px; height: 56px;
+  .peer-card-img {
     background: var(--gray-100);
-    color: var(--gray-500);
-    font-family: var(--font-display);
-    font-size: 26px;
-    font-weight: 800;
-    display: flex; align-items: center; justify-content: center;
-    border: 1px solid var(--border);
-    margin-bottom: 14px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
   }
-  .peer-name {
+  .peer-img-placeholder {
     font-family: var(--font-display);
-    font-size: 18px;
+    font-size: 96px;
+    font-weight: 800;
+    color: var(--gray-300);
+    line-height: 1;
+    user-select: none;
+  }
+  .peer-card-body {
+    padding: 40px 44px;
+    display: flex;
+    flex-direction: column;
+  }
+  .peer-card-name {
+    font-family: var(--font-display);
+    font-size: 28px;
     font-weight: 700;
+    color: var(--black);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+  .peer-card-role {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--gray-600);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  .peer-card-role i { font-size: 15px; color: var(--gray-500); }
+  .peer-card-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 22px 0;
+  }
+  .peer-journey {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .peer-journey-col { display: flex; flex-direction: column; gap: 4px; }
+  .peer-journey-label {
+    font-size: 11px;
+    color: var(--gray-500);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .peer-journey-co {
+    font-size: 18px;
+    font-weight: 800;
     color: var(--black);
     letter-spacing: -0.3px;
   }
-  .peer-role {
-    font-size: 12px;
-    color: var(--gray-600);
-    margin-top: 2px;
+  .peer-journey-pre .peer-journey-co { color: var(--gray-500); }
+  .peer-journey-chevrons {
+    font-size: 20px;
+    color: var(--gray-300);
+    letter-spacing: -4px;
+    flex-shrink: 0;
+    padding: 0 4px;
+    margin-top: 16px;
   }
-  .peer-jump {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 14px 0;
-    padding: 10px 0;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    font-size: 11px;
-    font-weight: 700;
+  .peer-card-quote {
+    font-family: var(--font-display);
+    font-size: 16px;
     color: var(--gray-700);
-  }
-  .peer-jump i { color: var(--gray-400); }
-  .peer-from { color: var(--gray-500); }
-  .peer-to { color: var(--black); font-weight: 800; }
-  .peer-quote {
-    font-size: 12px;
-    color: var(--gray-600);
-    line-height: 1.55;
-    margin-bottom: 16px;
+    line-height: 1.65;
     flex: 1;
+    margin: 0;
+    text-decoration: underline;
+    text-decoration-color: var(--gray-300);
+    text-underline-offset: 4px;
   }
-  .peer-foot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 11px;
+  .peer-card-stars {
+    color: #C49A2C;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-top: 24px;
   }
-  .peer-stars { color: #C49A2C; letter-spacing: 1px; }
-  .peer-salary { font-weight: 800; color: var(--black); }
   .peer-controls {
     display: flex;
     align-items: center;
@@ -2514,6 +2867,8 @@
     bottom: 0; left: 0; right: 0;
     background: var(--black);
     color: var(--white);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
     border-top: 1px solid var(--black);
     padding: 14px 48px;
     z-index: 100;
@@ -2558,6 +2913,7 @@
   }
   .sticky-bar-cta:hover { background: transparent; color: var(--white); }
   .sticky-bar-cta i { font-size: 14px; }
+  .sticky-bar.visible { transform: translateY(0); }
 
   /* ════════════════════════════════════════════════════════ */
   /* PASS 3 — side-by-side skills, AI risk, prominent section */
@@ -2745,9 +3101,11 @@
 
   .free-courses-grid { gap: 10px; }
   .free-course-card-v2 { padding: 14px 14px 12px; }
-  .free-course-card-v2 i { font-size: 18px; }
+  .free-course-banner { margin: -14px -14px 12px; height: 64px; }
   .free-course-name { font-size: 13px; }
+  .free-course-reason { font-size: 10px; }
   .free-course-meta { font-size: 10px; }
+  .free-course-arrow { top: 76px; }
 
   .masterclass-grid-v2 { gap: 10px; }
   .masterclass-card-v2 .mc-v2-title { font-size: 12px; padding: 12px 14px 4px; }
@@ -2767,14 +3125,17 @@
   .program-v2-video-tag { font-size: 8px; padding: 4px 7px; }
   .program-v2-video-cap { font-size: 10px; margin-top: 6px; }
 
-  /* Peer carousel — tighter */
-  .peer-card { padding: 20px 18px; }
-  .peer-photo { width: 44px; height: 44px; font-size: 20px; margin-bottom: 10px; }
-  .peer-name { font-size: 15px; }
-  .peer-role { font-size: 11px; }
-  .peer-jump { margin: 10px 0; padding: 8px 0; font-size: 10px; }
-  .peer-quote { font-size: 11px; margin-bottom: 12px; }
-  .peer-foot { font-size: 10px; }
+  /* Peer carousel — responsive big card */
+  .peer-card { grid-template-columns: 1fr; min-height: unset; }
+  .peer-card-img { min-height: 220px; border-right: none; border-bottom: 1px solid var(--border); }
+  .peer-img-placeholder { font-size: 64px; }
+  .peer-card-body { padding: 24px 22px; }
+  .peer-card-name { font-size: 20px; }
+  .peer-card-role { font-size: 12px; }
+  .peer-journey-co { font-size: 14px; }
+  .peer-card-quote { font-size: 13px; }
+  .peer-card-stars { font-size: 16px; margin-top: 16px; }
+  .peer-card-divider { margin: 14px 0; }
   .peer-controls { padding: 12px; gap: 12px; }
   .peer-arrow { width: 32px; height: 32px; font-size: 12px; }
   .peer-counter { font-size: 10px; }
@@ -2867,6 +3228,10 @@
       <div class="hero-eyebrow">Career Profile Evaluation · Apr 2026</div>
       <h1 class="hero-title">Hey Alex,<br>Become an AI Powered<br>10x Backend Engineer.</h1>
       <p class="hero-subtitle">Your profile. The AI shifts you can't ignore. The fastest path to hired.</p>
+      <div class="hero-cta-row">
+        <button class="hero-cta-btn"><i class="ph ph-phone"></i>Get a Free Career Consultation</button>
+        <div class="hero-cta-note">30 min · Free · With a senior mentor</div>
+      </div>
       <div class="hero-meta">4 min read · 8 chapters</div>
     </div>
     <div class="hero-right">
@@ -2886,64 +3251,56 @@
 </section>
 
 <!-- ════════════════════════════════════════════════ -->
-<!-- 01 · PROFILE SNAPSHOT (rebuilt — v2)              -->
+<!-- 01 · 10X ENGINEER VIEW                            -->
 <!-- ════════════════════════════════════════════════ -->
 <section class="section">
   <div class="section-inner">
     <div class="section-header">
-      <div class="section-eyebrow">01 · Recruiter View</div>
-      <h2 class="section-title">What a <em>Backend Engineer</em> recruiter sees when they open your profile.</h2>
-      <p class="section-subtitle">A hiring manager's first 30 seconds on your profile. Honest.</p>
+      <div class="section-eyebrow">01 · The 10x Engineer</div>
+      <h2 class="section-title">What a 10x <em>Backend Engineer</em> actually looks like in 2026.</h2>
+      <p class="section-subtitle">Not a unicorn. A real engineer who uses AI as leverage — every single day.</p>
     </div>
 
-    <div class="profile-v2">
-      <div class="profile-v2-banner"></div>
-      <div class="profile-v2-head">
-        <div class="profile-v2-photo">A</div>
-        <div class="profile-v2-id">
-          <div class="profile-v2-name">Alex Kumar <i class="ph-fill ph-seal-check"></i></div>
-          <div class="profile-v2-headline">Software Engineer · Target: Backend Engineer at a Product Company</div>
-          <div class="profile-v2-meta">
-            <span><i class="ph ph-map-pin"></i>Bengaluru, India</span>
-            <span><i class="ph ph-briefcase"></i>2–3 yrs</span>
-            <span><i class="ph ph-graduation-cap"></i>B.Tech, CS</span>
-          </div>
-        </div>
+    <div class="tenx-split">
+      <div class="tenx-pointers">
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Uses Cursor or Copilot for every feature — not just autocomplete, full refactors</div>
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Reviews AI-generated code critically — catches hallucinations before they ship</div>
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Ships AI-integrated features: RAG pipelines, agents, AI-assisted workflows</div>
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Designs systems with AI in the architecture — not bolted on after</div>
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Answers "how would AI change your design?" in interviews without hesitation</div>
       </div>
-
-      <div class="profile-v2-skills">
-        <div class="skills-side-grid">
-          <div class="skills-side-col have">
-            <div class="skills-side-label"><i class="ph ph-check-circle"></i>Skills you have</div>
-            <div class="skills-side-list">
-              <div class="skill-line have"><i class="ph-fill ph-check-circle"></i>Python / Django</div>
-              <div class="skill-line have"><i class="ph-fill ph-check-circle"></i>REST APIs</div>
-              <div class="skill-line have"><i class="ph-fill ph-check-circle"></i>Git &amp; GitHub</div>
-              <div class="skill-line have"><i class="ph-fill ph-check-circle"></i>SQL Basics</div>
-              <div class="skill-line have"><i class="ph-fill ph-check-circle"></i>Problem Solving (DSA)</div>
-            </div>
+      <div class="tenx-stat-col">
+        <div class="tenx-growth-header">
+          <div class="tenx-growth-eyebrow">Generative AI in job postings · LinkedIn</div>
+          <div class="tenx-growth-headline">4× growth</div>
+          <div class="tenx-growth-sub">in job postings mentioning generative AI skills — since 2023</div>
+        </div>
+        <div class="tenx-growth-chart">
+          <div class="tenx-growth-row">
+            <div class="tenx-growth-yr">2022</div>
+            <div class="tenx-growth-track"><div class="tenx-growth-fill" style="width:20%"></div></div>
+            <div class="tenx-growth-lbl">1×</div>
           </div>
-          <div class="skills-side-col miss">
-            <div class="skills-side-label"><i class="ph ph-target"></i>Skills Backend Engineer recruiters are asking for</div>
-            <div class="skills-side-list">
-              <div class="skill-line miss"><i class="ph-fill ph-x-circle"></i>System Design</div>
-              <div class="skill-line miss"><i class="ph-fill ph-x-circle"></i>Distributed Systems</div>
-              <div class="skill-line miss"><i class="ph-fill ph-x-circle"></i>Kafka / Message Queues</div>
-              <div class="skill-line miss"><i class="ph-fill ph-x-circle"></i>Docker &amp; Kubernetes</div>
-              <div class="skill-line miss"><i class="ph-fill ph-x-circle"></i>Caching (Redis)</div>
-              <div class="skill-line miss"><i class="ph-fill ph-x-circle"></i>Observability</div>
-            </div>
+          <div class="tenx-growth-row">
+            <div class="tenx-growth-yr">2023</div>
+            <div class="tenx-growth-track"><div class="tenx-growth-fill" style="width:40%"></div></div>
+            <div class="tenx-growth-lbl">2×</div>
+          </div>
+          <div class="tenx-growth-row">
+            <div class="tenx-growth-yr">2024</div>
+            <div class="tenx-growth-track"><div class="tenx-growth-fill" style="width:70%"></div></div>
+            <div class="tenx-growth-lbl">3×</div>
+          </div>
+          <div class="tenx-growth-row now">
+            <div class="tenx-growth-yr">2025</div>
+            <div class="tenx-growth-track"><div class="tenx-growth-fill" style="width:100%"></div></div>
+            <div class="tenx-growth-lbl">4×</div>
           </div>
         </div>
-
-        <div class="ai-risk-block">
-          <div class="ai-risk-label"><i class="ph ph-warning-octagon"></i>What AI is already replacing in Backend work</div>
-          <ul class="ai-risk-points">
-            <li>Hand-writing CRUD endpoints &amp; REST boilerplate — Copilot generates 90% of this layer.</li>
-            <li>Translating SQL from natural language — ChatGPT does it in seconds, with explanations.</li>
-            <li>Writing test scaffolding — Codium &amp; Cursor produce near-perfect templates.</li>
-            <li>Drafting RFCs from scratch — AI ships a 70% version in a single prompt.</li>
-          </ul>
+        <div class="tenx-growth-footer">
+          <div class="tenx-growth-footer-num">66%</div>
+          <div class="tenx-growth-footer-label">of hiring managers won't hire engineers without demonstrated AI skills</div>
+          <div class="tenx-growth-footer-source">LinkedIn Work Trend Index, 2024</div>
         </div>
       </div>
     </div>
@@ -2994,25 +3351,37 @@
     <!-- ── Path 01 · Free ── -->
     <div class="path-block free">
       <div class="path-block-eyebrow">Path 01 · Free</div>
-      <div class="path-block-title">Start free with Scaler Topics</div>
-      <div class="path-block-sub">Three free courses targeted at your biggest gaps: <strong>system design</strong>, <strong>distributed systems</strong>, and <strong>portfolio depth</strong>.</div>
+      <div class="path-block-title">Start with your biggest gaps — free</div>
+      <div class="path-block-sub">You said system design and distributed systems are weak spots. These three courses address exactly that — no fluff, straight to the gaps.</div>
 
       <div class="free-courses-grid">
         <a class="free-course-card-v2" href="#">
-          <i class="ph ph-tree-structure"></i>
+          <div class="free-course-banner">
+            <i class="ph ph-tree-structure free-course-banner-icon"></i>
+            <div class="free-course-banner-logo"><i class="ph ph-hexagon-duotone"></i>Scaler Topics</div>
+          </div>
           <div class="free-course-name">System Design Fundamentals</div>
+          <div class="free-course-reason">Helps you learn how to design scalable systems — because your system design foundation needs work.</div>
           <div class="free-course-meta">Self-paced · 12 hrs · Free</div>
           <span class="free-course-arrow">→</span>
         </a>
         <a class="free-course-card-v2" href="#">
-          <i class="ph ph-broadcast"></i>
+          <div class="free-course-banner">
+            <i class="ph ph-broadcast free-course-banner-icon"></i>
+            <div class="free-course-banner-logo"><i class="ph ph-hexagon-duotone"></i>Scaler Topics</div>
+          </div>
           <div class="free-course-name">Distributed Systems Primer</div>
+          <div class="free-course-reason">Helps you understand how systems talk at scale — because you need to brush up on distributed fundamentals.</div>
           <div class="free-course-meta">Self-paced · 8 hrs · Free</div>
           <span class="free-course-arrow">→</span>
         </a>
         <a class="free-course-card-v2" href="#">
-          <i class="ph ph-database"></i>
+          <div class="free-course-banner">
+            <i class="ph ph-database free-course-banner-icon"></i>
+            <div class="free-course-banner-logo"><i class="ph ph-hexagon-duotone"></i>Scaler Topics</div>
+          </div>
           <div class="free-course-name">Backend with Python &amp; Django</div>
+          <div class="free-course-reason">Helps you build production-grade APIs — because backend fundamentals in Python are a gap worth closing.</div>
           <div class="free-course-meta">Self-paced · 16 hrs · Free</div>
           <span class="free-course-arrow">→</span>
         </a>
@@ -3020,7 +3389,7 @@
 
       <div class="path-block-divider"></div>
 
-      <div class="path-sub-label">Free Masterclasses for you</div>
+      <div class="path-sub-label">Free masterclasses — picked for your gaps</div>
       <div class="masterclass-grid-v2">
         <div class="masterclass-card-v2">
           <div class="mc-v2-thumb">
@@ -3055,8 +3424,8 @@
     <!-- ── Path 02 · Paid / Structured ── -->
     <div class="path-block paid">
       <div class="path-block-eyebrow">Path 02 · Structured</div>
-      <div class="path-block-title">Mentors, mocks &amp; direct placements</div>
-      <div class="path-block-sub">When you want speed, a mentor in your corner, and a placement team that doesn't quit.</div>
+      <div class="path-block-title">Close every gap with a mentor in your corner</div>
+      <div class="path-block-sub">System design, AI fluency, mock interviews, production projects — all of it, structured, with someone accountable to your outcome.</div>
 
       <div class="program-card-v2">
         <div class="program-v2-left">
@@ -3106,54 +3475,111 @@
     <div class="peer-carousel">
       <div class="peer-track-wrap">
         <div class="peer-track" id="peerTrack">
+
+          <!-- Card 1 -->
           <article class="peer-card">
-            <div class="peer-photo">A</div>
-            <div class="peer-name">Ankur Prakash</div>
-            <div class="peer-role">Sr. Data Scientist · Fractal.AI</div>
-            <div class="peer-jump"><span class="peer-from">Milestone</span><i class="ph ph-arrow-right"></i><span class="peer-to">Fractal.AI</span></div>
-            <p class="peer-quote">"7 years at a service company. Scaler flipped the switch."</p>
-            <div class="peer-foot"><div class="peer-stars">★★★★☆</div><div class="peer-salary">2.4× jump</div></div>
+            <div class="peer-card-img">
+              <div class="peer-img-placeholder">A</div>
+            </div>
+            <div class="peer-card-body">
+              <div class="peer-card-name">Ankur Prakash</div>
+              <div class="peer-card-role"><i class="ph ph-briefcase"></i> Senior Data Scientist at Fractal.AI</div>
+              <div class="peer-card-divider"></div>
+              <div class="peer-journey">
+                <div class="peer-journey-col peer-journey-pre">
+                  <div class="peer-journey-label">Pre Scaler</div>
+                  <div class="peer-journey-co">Milestone</div>
+                </div>
+                <div class="peer-journey-chevrons">&rsaquo;&rsaquo;&rsaquo;</div>
+                <div class="peer-journey-col">
+                  <div class="peer-journey-label">Post Scaler</div>
+                  <div class="peer-journey-co">Fractal.AI</div>
+                </div>
+              </div>
+              <div class="peer-card-divider"></div>
+              <p class="peer-card-quote">"As someone who has been working as a software developer for almost 7 long years, I was eager to enhance my skills and strengthen my fundamentals. And, as fate would have it, Scaler was recommended to me by a friend who was already riding the wave."</p>
+              <div class="peer-card-stars">★★★★☆</div>
+            </div>
           </article>
+
+          <!-- Card 2 -->
           <article class="peer-card">
-            <div class="peer-photo">P</div>
-            <div class="peer-name">Priya Nair</div>
-            <div class="peer-role">SDE-2 · Amazon</div>
-            <div class="peer-jump"><span class="peer-from">TCS</span><i class="ph ph-arrow-right"></i><span class="peer-to">Amazon</span></div>
-            <p class="peer-quote">"Mocks were brutal at first. By the fourth, hard problems felt easy."</p>
-            <div class="peer-foot"><div class="peer-stars">★★★★★</div><div class="peer-salary">3.1× jump</div></div>
+            <div class="peer-card-img">
+              <div class="peer-img-placeholder">P</div>
+            </div>
+            <div class="peer-card-body">
+              <div class="peer-card-name">Priya Nair</div>
+              <div class="peer-card-role"><i class="ph ph-briefcase"></i> SDE-2 at Amazon</div>
+              <div class="peer-card-divider"></div>
+              <div class="peer-journey">
+                <div class="peer-journey-col peer-journey-pre">
+                  <div class="peer-journey-label">Pre Scaler</div>
+                  <div class="peer-journey-co">TCS</div>
+                </div>
+                <div class="peer-journey-chevrons">&rsaquo;&rsaquo;&rsaquo;</div>
+                <div class="peer-journey-col">
+                  <div class="peer-journey-label">Post Scaler</div>
+                  <div class="peer-journey-co">Amazon</div>
+                </div>
+              </div>
+              <div class="peer-card-divider"></div>
+              <p class="peer-card-quote">"Mock interviews were brutal at first — I was humbled. By the fourth one, hard problems started feeling familiar. Scaler didn't just teach me DSA; it taught me how to think under pressure. Amazon called two months after I finished the program."</p>
+              <div class="peer-card-stars">★★★★★</div>
+            </div>
           </article>
+
+          <!-- Card 3 -->
           <article class="peer-card">
-            <div class="peer-photo">R</div>
-            <div class="peer-name">Rahul Sharma</div>
-            <div class="peer-role">Backend SDE-2 · Flipkart</div>
-            <div class="peer-jump"><span class="peer-from">Infosys</span><i class="ph ph-arrow-right"></i><span class="peer-to">Flipkart</span></div>
-            <p class="peer-quote">"3 years stuck at service. System design was the gap. Flipkart called in month 8."</p>
-            <div class="peer-foot"><div class="peer-stars">★★★★☆</div><div class="peer-salary">2.4× jump</div></div>
+            <div class="peer-card-img">
+              <div class="peer-img-placeholder">R</div>
+            </div>
+            <div class="peer-card-body">
+              <div class="peer-card-name">Rahul Sharma</div>
+              <div class="peer-card-role"><i class="ph ph-briefcase"></i> Backend SDE-2 at Flipkart</div>
+              <div class="peer-card-divider"></div>
+              <div class="peer-journey">
+                <div class="peer-journey-col peer-journey-pre">
+                  <div class="peer-journey-label">Pre Scaler</div>
+                  <div class="peer-journey-co">Infosys</div>
+                </div>
+                <div class="peer-journey-chevrons">&rsaquo;&rsaquo;&rsaquo;</div>
+                <div class="peer-journey-col">
+                  <div class="peer-journey-label">Post Scaler</div>
+                  <div class="peer-journey-co">Flipkart</div>
+                </div>
+              </div>
+              <div class="peer-card-divider"></div>
+              <p class="peer-card-quote">"3 years at a service company and I was stuck. I knew how to code but had no idea how to design systems. Scaler's system design curriculum was the unlock — Flipkart called in month 8. I went from 8 LPA to 28 LPA."</p>
+              <div class="peer-card-stars">★★★★☆</div>
+            </div>
           </article>
+
+          <!-- Card 4 -->
           <article class="peer-card">
-            <div class="peer-photo">S</div>
-            <div class="peer-name">Sneha Iyer</div>
-            <div class="peer-role">Backend · Razorpay</div>
-            <div class="peer-jump"><span class="peer-from">Wipro</span><i class="ph ph-arrow-right"></i><span class="peer-to">Razorpay</span></div>
-            <p class="peer-quote">"Zero product-co exposure. Scaler placement got me a direct hiring-manager intro."</p>
-            <div class="peer-foot"><div class="peer-stars">★★★★★</div><div class="peer-salary">1.9× jump</div></div>
+            <div class="peer-card-img">
+              <div class="peer-img-placeholder">S</div>
+            </div>
+            <div class="peer-card-body">
+              <div class="peer-card-name">Sneha Iyer</div>
+              <div class="peer-card-role"><i class="ph ph-briefcase"></i> Backend Engineer at Razorpay</div>
+              <div class="peer-card-divider"></div>
+              <div class="peer-journey">
+                <div class="peer-journey-col peer-journey-pre">
+                  <div class="peer-journey-label">Pre Scaler</div>
+                  <div class="peer-journey-co">Wipro</div>
+                </div>
+                <div class="peer-journey-chevrons">&rsaquo;&rsaquo;&rsaquo;</div>
+                <div class="peer-journey-col">
+                  <div class="peer-journey-label">Post Scaler</div>
+                  <div class="peer-journey-co">Razorpay</div>
+                </div>
+              </div>
+              <div class="peer-card-divider"></div>
+              <p class="peer-card-quote">"I had zero product-company exposure. Coming from Wipro, I didn't even know what to prepare for. Scaler's placement team got me a direct hiring-manager intro at Razorpay — no cold applications, no middlemen."</p>
+              <div class="peer-card-stars">★★★★★</div>
+            </div>
           </article>
-          <article class="peer-card">
-            <div class="peer-photo">D</div>
-            <div class="peer-name">Dhruv Mehta</div>
-            <div class="peer-role">SDE-1 · Swiggy</div>
-            <div class="peer-jump"><span class="peer-from">Capgemini</span><i class="ph ph-arrow-right"></i><span class="peer-to">Swiggy</span></div>
-            <p class="peer-quote">"Mentors caught design gaps I didn't know I had."</p>
-            <div class="peer-foot"><div class="peer-stars">★★★★★</div><div class="peer-salary">2.7× jump</div></div>
-          </article>
-          <article class="peer-card">
-            <div class="peer-photo">M</div>
-            <div class="peer-name">Meera Joshi</div>
-            <div class="peer-role">SDE-2 · Walmart</div>
-            <div class="peer-jump"><span class="peer-from">Cognizant</span><i class="ph ph-arrow-right"></i><span class="peer-to">Walmart</span></div>
-            <p class="peer-quote">"Structure made the difference. I knew exactly what to do every week."</p>
-            <div class="peer-foot"><div class="peer-stars">★★★★★</div><div class="peer-salary">3.3× jump</div></div>
-          </article>
+
         </div>
       </div>
       <div class="peer-controls">
@@ -3166,203 +3592,117 @@
 </section>
 
 <!-- ════════════════════════════════════════════════ -->
-<!-- 05 · MARKET CONDITIONS (Why Now, rewritten)       -->
+<!-- 05 · THE AI SHIFT (timeline + companies + cost)   -->
 <!-- ════════════════════════════════════════════════ -->
 <section class="section section-prominent">
   <div class="section-inner">
     <div class="section-header">
-      <div class="section-eyebrow">05 · Market Conditions</div>
-      <h2 class="section-title">The AI shift isn't coming. It's already here.</h2>
-      <p class="section-subtitle">What's already changed, what's next, and the cost of waiting another quarter.</p>
+      <div class="section-eyebrow">05 · The AI Shift</div>
+      <h2 class="section-title">How the top company expectations are changing and rising.</h2>
+      <p class="section-subtitle">The biggest companies already made the shift. This is what they now expect from every engineer they hire.</p>
     </div>
 
-    <div class="whynow-grid">
-      <div class="ai-timeline">
-
-        <div class="ai-timeline-item">
-          <div class="ai-timeline-track">
-            <div class="ai-timeline-dot"></div>
-            <div class="ai-timeline-connector"></div>
-          </div>
-          <div class="ai-timeline-body">
-            <div class="ai-timeline-year">2023</div>
-            <div class="ai-timeline-desc">Copilot became table stakes. Engineers who ignored it started falling behind — quietly.</div>
-          </div>
-        </div>
-
-        <div class="ai-timeline-item">
-          <div class="ai-timeline-track">
-            <div class="ai-timeline-dot"></div>
-            <div class="ai-timeline-connector"></div>
-          </div>
-          <div class="ai-timeline-body">
-            <div class="ai-timeline-year">2024</div>
-            <div class="ai-timeline-desc">AI-using engineers shipped 30–55% faster. The performance gap became visible in reviews and promotions.</div>
-          </div>
-        </div>
-
-        <div class="ai-timeline-item">
-          <div class="ai-timeline-track">
-            <div class="ai-timeline-dot"></div>
-            <div class="ai-timeline-connector"></div>
-          </div>
-          <div class="ai-timeline-body">
-            <div class="ai-timeline-year">2025</div>
-            <div class="ai-timeline-desc">CRUD disappeared from JDs. 27,000+ tech roles cut globally. Engineers without AI fluency went first.</div>
-          </div>
-        </div>
-
-        <div class="ai-timeline-item now">
-          <div class="ai-timeline-track">
-            <div class="ai-timeline-dot"></div>
-            <div class="ai-timeline-connector"></div>
-          </div>
-          <div class="ai-timeline-body">
-            <div class="ai-timeline-year-row">
-              <div class="ai-timeline-year">2026</div>
-              <div class="ai-timeline-now-badge"><i class="ph ph-map-pin-simple-area"></i>&nbsp;You are here</div>
-            </div>
-            <div class="ai-timeline-desc">AI fluency is a hard requirement. Interviews test it. JDs demand it. Your peers already have it.</div>
-          </div>
-        </div>
-
-        <div class="ai-timeline-item future">
-          <div class="ai-timeline-track">
-            <div class="ai-timeline-dot"></div>
-            <div class="ai-timeline-connector"></div>
-          </div>
-          <div class="ai-timeline-body">
-            <div class="ai-timeline-year">2027 — If you wait</div>
-            <div class="ai-timeline-desc">Engineers without AI fluency don't pass initial screening. The window to adapt is closing.</div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="whynow-side">
-        <div class="whynow-side-eyebrow">Cost of waiting</div>
-        <div class="whynow-side-stat">+3 mo</div>
-        <div class="whynow-side-desc">Every quarter you wait, the bar rises another 3 months. The bar moves faster than most people do.</div>
-        <div class="whynow-side-divider"></div>
-        <div class="whynow-side-eyebrow">Peers · this quarter</div>
-        <div class="whynow-side-stat">2,847</div>
-        <div class="whynow-side-desc">engineers with your exact profile enrolled in a structured upskilling program in Q1 2026.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════ -->
-<!-- 06 · COMPANY INSIGHTS (case studies carousel)     -->
-<!-- ════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-eyebrow">06 · Company Insights</div>
-      <h2 class="section-title">How top companies are hiring Backend Engineers today.</h2>
-      <p class="section-subtitle">Public data. Real decisions. No spin.</p>
-    </div>
-
+    <!-- Company case carousel -->
     <div class="case-carousel">
       <div class="case-track-wrap">
         <div class="case-track" id="caseTrack">
 
-          <!-- Slide 1 — Google -->
+          <!-- Slide 1: Google -->
           <div class="case-slide">
             <div>
               <div class="case-company">Google</div>
-              <h3 class="case-headline">"25% of new code at Google is AI-generated — then reviewed by engineers."</h3>
+              <div class="case-headline">"In 2024, 25% of all new code at Google was written by AI — then reviewed and shipped by engineers."</div>
               <div class="case-pointers">
-                <div class="case-pointer">Sundar Pichai, Q3 2024 earnings. The number has only grown.</div>
-                <div class="case-pointer">L4/L5 backend interviews now include AI code review rounds.</div>
-                <div class="case-pointer">Engineers evaluated on AI-augmented output — not raw lines of code.</div>
+                <div class="case-pointer">Sundar Pichai confirmed this at Google I/O 2024. The engineers reviewing that code are still employed; the ones who can't are not.</div>
+                <div class="case-pointer">L4/L5 interviews now include dedicated AI code review rounds — flagging hallucinations is a tested skill.</div>
+                <div class="case-pointer">Output is measured by AI-augmented velocity. Writing code manually, without AI, is now a red flag in reviews.</div>
               </div>
             </div>
             <div class="case-stats">
               <div class="case-stat">
                 <div class="case-stat-num">25<span>%</span></div>
-                <div class="case-stat-label">Of new code at Google written by AI</div>
-                <div class="case-stat-source">Source: Q3 2024 earnings call</div>
+                <div class="case-stat-label">of new code written by AI</div>
+                <div class="case-stat-source">Google I/O 2024</div>
               </div>
               <div class="case-stat">
                 <div class="case-stat-num">12<span>K</span></div>
-                <div class="case-stat-label">Roles cut in Jan 2023 restructure</div>
-                <div class="case-stat-source">Source: Alphabet, layoffs.fyi</div>
+                <div class="case-stat-label">roles cut in 2023</div>
+                <div class="case-stat-source">Reuters, Jan 2023</div>
               </div>
             </div>
           </div>
 
-          <!-- Slide 2 — Amazon -->
+          <!-- Slide 2: Amazon -->
           <div class="case-slide">
             <div>
               <div class="case-company">Amazon</div>
-              <h3 class="case-headline">"Amazon Q saved us 4,500 developer-years — in months."</h3>
+              <div class="case-headline">"Amazon Q saved 4,500 developer-years of migration work — in just a few months."</div>
               <div class="case-pointers">
-                <div class="case-pointer">Amazon Q's Code Transformer migrated 30,000+ Java apps in months.</div>
-                <div class="case-pointer">The new hiring bar: a team of 5 shipping like a team of 15.</div>
-                <div class="case-pointer">Internal tooling teams consolidated. AI absorbed the equivalent of 3 engineers per team.</div>
+                <div class="case-pointer">Amazon Q migrated 30,000 production Java apps autonomously. What would have taken years took months.</div>
+                <div class="case-pointer">The new expectation: a team of 5 ships like a team of 15. Headcount isn't coming back.</div>
+                <div class="case-pointer">Backend JDs now require experience with AI-assisted development, not just familiarity with AWS.</div>
               </div>
             </div>
             <div class="case-stats">
               <div class="case-stat">
                 <div class="case-stat-num">4.5<span>K</span></div>
-                <div class="case-stat-label">Developer-years of work saved by Amazon Q</div>
-                <div class="case-stat-source">Source: Andy Jassy, 2024</div>
+                <div class="case-stat-label">developer-years saved</div>
+                <div class="case-stat-source">AWS re:Invent 2024</div>
               </div>
               <div class="case-stat">
                 <div class="case-stat-num">27<span>K</span></div>
-                <div class="case-stat-label">Corporate roles cut, 2022–2024</div>
-                <div class="case-stat-source">Source: Amazon, layoffs.fyi</div>
+                <div class="case-stat-label">roles cut 2022–2024</div>
+                <div class="case-stat-source">Bloomberg, 2024</div>
               </div>
             </div>
           </div>
 
-          <!-- Slide 3 — Meta -->
+          <!-- Slide 3: Meta -->
           <div class="case-slide">
             <div>
               <div class="case-company">Meta</div>
-              <h3 class="case-headline">"In 2025, AI writes code at mid-level engineer quality. We hire accordingly."</h3>
+              <div class="case-headline">"In 2025, AI will write code at the level of a mid-level engineer — and we're hiring accordingly."</div>
               <div class="case-pointers">
-                <div class="case-pointer">Zuckerberg, Joe Rogan podcast, Jan 2025.</div>
-                <div class="case-pointer">Mid-level engineers are now expected to lead AI-augmented teams, not just write code.</div>
-                <div class="case-pointer">New backend hires screened for RAG, agents, and eval pipelines from day one.</div>
+                <div class="case-pointer">Mark Zuckerberg said this on the Joe Rogan podcast (Jan 2025). Meta has since restructured around AI-augmented teams.</div>
+                <div class="case-pointer">The "Year of Efficiency" cuts the work mid-level engineers used to do — those engineers now need to lead, not implement.</div>
+                <div class="case-pointer">New backend hires are screened for AI-system design: building agents, RAG, and eval pipelines from day one.</div>
               </div>
             </div>
             <div class="case-stats">
               <div class="case-stat">
                 <div class="case-stat-num">21<span>K</span></div>
-                <div class="case-stat-label">Roles cut in 2022–2023 "Year of Efficiency"</div>
-                <div class="case-stat-source">Source: Meta, layoffs.fyi</div>
+                <div class="case-stat-label">roles cut in 2022–23 "Year of Efficiency"</div>
+                <div class="case-stat-source">Meta earnings, layoffs.fyi</div>
               </div>
               <div class="case-stat">
                 <div class="case-stat-num">3<span>×</span></div>
-                <div class="case-stat-label">Internal productivity target for AI-augmented teams</div>
-                <div class="case-stat-source">Source: Meta engineering, 2024</div>
+                <div class="case-stat-label">internal productivity target for AI-augmented teams</div>
+                <div class="case-stat-source">Meta engineering, 2024</div>
               </div>
             </div>
           </div>
 
-          <!-- Slide 4 — Klarna -->
+          <!-- Slide 4: Klarna -->
           <div class="case-slide">
             <div>
               <div class="case-company">Klarna</div>
-              <h3 class="case-headline">"Our AI does the work of 700 agents. We stopped backfilling."</h3>
+              <div class="case-headline">"Our AI assistant does the work of 700 full-time agents. We've stopped backfilling roles."</div>
               <div class="case-pointers">
-                <div class="case-pointer">Klarna's OpenAI-powered assistant handles 2/3 of all customer chats.</div>
-                <div class="case-pointer">Hiring frozen. Engineering reshaped around AI-fluent generalists.</div>
-                <div class="case-pointer">Workforce: 5,000 → 3,800 in 12 months. No drop in output.</div>
+                <div class="case-pointer">Klarna's AI handles 2/3 of all customer service chats — in the first month. The 700 roles it replaced were not rehired.</div>
+                <div class="case-pointer">Engineering headcount dropped from 5,000 to 3,800 in 12 months. Output stayed flat. Costs dropped.</div>
+                <div class="case-pointer">The remaining engineers are expected to own AI-integrated systems — not just maintain legacy ones.</div>
               </div>
             </div>
             <div class="case-stats">
               <div class="case-stat">
                 <div class="case-stat-num">700</div>
-                <div class="case-stat-label">Customer-service jobs replaced by AI</div>
-                <div class="case-stat-source">Source: Klarna, Feb 2024</div>
+                <div class="case-stat-label">jobs replaced by AI in year one</div>
+                <div class="case-stat-source">Klarna press release, 2024</div>
               </div>
               <div class="case-stat">
                 <div class="case-stat-num">$40<span>M</span></div>
-                <div class="case-stat-label">Annual savings from AI assistant</div>
-                <div class="case-stat-source">Source: Klarna investor update</div>
+                <div class="case-stat-label">saved annually on headcount</div>
+                <div class="case-stat-source">Financial Times, 2024</div>
               </div>
             </div>
           </div>
@@ -3370,9 +3710,9 @@
         </div>
       </div>
       <div class="case-controls">
-        <button class="case-arrow" id="caseLeft" aria-label="Previous"><i class="ph ph-arrow-left"></i></button>
+        <button class="case-arrow" id="caseLeft"><i class="ph ph-arrow-left"></i></button>
         <div class="case-counter" id="caseCounter">01 / 04</div>
-        <button class="case-arrow" id="caseRight" aria-label="Next"><i class="ph ph-arrow-right"></i></button>
+        <button class="case-arrow" id="caseRight"><i class="ph ph-arrow-right"></i></button>
       </div>
     </div>
   </div>
@@ -3385,7 +3725,7 @@
   <div class="section-inner">
     <div class="section-header">
       <div class="section-eyebrow">07 · Tools That 10× You</div>
-      <h2 class="section-title">8 tools that separate the 10× engineer from the rest.</h2>
+      <h2 class="section-title">9 tools that separate the 10× engineer from the rest.</h2>
       <p class="section-subtitle">All have free tiers. Start using them this week.</p>
     </div>
 
@@ -3437,6 +3777,12 @@
         <div class="tool-v2-cat">UI prototypes</div>
         <div class="tool-v2-name">v0 / Bolt</div>
         <div class="tool-v2-desc">Sketch → working UI in seconds. Side-project gold.</div>
+      </div>
+      <div class="tool-card-v2">
+        <i class="ph ph-terminal-window"></i>
+        <div class="tool-v2-cat">AI terminal</div>
+        <div class="tool-v2-name">Warp</div>
+        <div class="tool-v2-desc">Autocompletes shell commands, explains errors inline. Never Google a flag again.</div>
       </div>
     </div>
   </div>
@@ -3555,16 +3901,15 @@
     render();
   })();
 
-  // ── Peer carousel (3 visible at a time) ──
+  // ── Peer carousel (1 visible at a time) ──
   (function () {
     const track   = document.getElementById('peerTrack');
     const left    = document.getElementById('peerLeft');
     const right   = document.getElementById('peerRight');
     const counter = document.getElementById('peerCounter');
     if (!track || !left || !right || !counter) return;
-    const visible = 3;
     const total   = track.children.length;
-    const pages   = Math.max(1, Math.ceil(total / visible));
+    const pages   = total;
     let p = 0;
     const pad = n => String(n).padStart(2, '0');
     function render() {
@@ -3576,6 +3921,17 @@
     left.addEventListener('click',  () => { if (p > 0)          { p--; render(); } });
     right.addEventListener('click', () => { if (p < pages - 1)  { p++; render(); } });
     render();
+  })();
+
+  // ── Sticky bar — show after scrolling past hero ──
+  (function () {
+    const bar  = document.querySelector('.sticky-bar');
+    const hero = document.querySelector('.hero');
+    if (!bar || !hero) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      bar.classList.toggle('visible', !entry.isIntersecting);
+    }, { threshold: 0 });
+    observer.observe(hero);
   })();
 </script>
 

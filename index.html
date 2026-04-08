@@ -103,211 +103,249 @@
   /* ── Page layout (full screen, two columns) ── */
   .page {
     display: grid;
-    grid-template-columns: 380px 1fr;
+    grid-template-columns: 360px 1fr;
     min-height: calc(100vh - 73px);
   }
 
   /* ── Sidebar ── */
   .sidebar {
-    padding: 64px 48px;
+    padding: 56px 40px;
     border-right: 1px solid var(--black);
-    background: var(--white);
+    background: var(--gray-50);
     display: flex;
     flex-direction: column;
+    gap: 0;
   }
   .sidebar-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--gray-500);
-    margin-bottom: 16px;
+    color: var(--gray-400);
+    margin-bottom: 14px;
   }
   .sidebar-title {
     font-family: var(--font-display);
-    font-size: 36px;
+    font-size: 34px;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -1px;
     color: var(--black);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .sidebar-desc {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--gray-600);
-    line-height: 1.6;
+    line-height: 1.65;
     margin-bottom: 32px;
   }
-  .sidebar-features {
-    list-style: none;
+
+  /* Screen 1 sidebar — stat cards */
+  .sidebar-stats {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    border: 1px solid var(--black);
+    margin-bottom: 28px;
   }
-  .sidebar-features li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--black);
-    padding-bottom: 12px;
+  .sidebar-stat {
+    padding: 18px 20px;
     border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
   }
-  .sidebar-features li::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--black);
-    flex-shrink: 0;
+  .sidebar-stat:last-child { border-bottom: none; }
+  .sidebar-stat-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--black);
+    line-height: 1;
+  }
+  .sidebar-stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-600);
+    line-height: 1.4;
   }
 
-  .mentor-msg {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
+  /* Steps 2–4 sidebar — insight card */
+  .sidebar-insight {
+    border: 1px solid var(--black);
+    padding: 20px 20px 18px;
+    margin-bottom: 20px;
+    background: var(--white);
   }
-  .mentor-avatar {
-    width: 40px; height: 40px;
-    background: var(--black);
-    color: var(--white);
+  .sidebar-insight-eyebrow {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-400);
+    margin-bottom: 10px;
+  }
+  .sidebar-insight-text {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    color: var(--black);
+  }
+  .sidebar-insight-sub {
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.55;
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  /* Step dots */
+  .sidebar-steps {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
+    gap: 6px;
+    margin-bottom: 24px;
   }
-  .mentor-bubble {
-    background: var(--gray-100);
-    border: 1px solid var(--gray-200);
-    padding: 14px 16px;
-    font-size: 13px;
-    line-height: 1.55;
-    color: var(--black);
-    flex: 1;
+  .sidebar-step-dot {
+    width: 28px;
+    height: 3px;
+    background: var(--gray-200);
   }
+  .sidebar-step-dot.done { background: var(--black); }
+  .sidebar-step-dot.active { background: var(--gray-600); }
 
   .sidebar-footer {
     margin-top: auto;
-    padding-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--gray-200);
   }
   .trusted-label {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--gray-500);
+    font-size: 9px;
+    font-weight: 800;
+    color: var(--gray-400);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 12px;
+    letter-spacing: 0.14em;
+    margin-bottom: 10px;
   }
   .trusted-logos {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
   }
   .trusted-logos span {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
-    color: var(--black);
-    padding: 5px 10px;
+    color: var(--gray-600);
+    padding: 4px 8px;
     border: 1px solid var(--gray-300);
+    background: var(--white);
   }
 
   /* ── Content ── */
   .content {
-    padding: 64px 64px 48px;
+    padding: 56px 64px 48px;
     background: var(--white);
     display: flex;
     flex-direction: column;
   }
   .step-indicator {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--gray-500);
-    margin-bottom: 8px;
+    color: var(--gray-400);
+    margin-bottom: 10px;
   }
   .content-title {
     font-family: var(--font-display);
-    font-size: 30px;
+    font-size: 36px;
     font-weight: 700;
-    letter-spacing: -0.6px;
+    letter-spacing: -0.8px;
+    line-height: 1.15;
     color: var(--black);
     margin-bottom: 40px;
   }
-  .question-block { margin-bottom: 36px; }
+  .question-block { margin-bottom: 32px; }
   .question-block:last-of-type { margin-bottom: 0; }
   .question-label {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    color: var(--black);
-    margin-bottom: 14px;
+    color: var(--gray-700);
+    margin-bottom: 10px;
     display: flex;
     align-items: baseline;
     gap: 10px;
+    line-height: 1.5;
   }
   .question-num {
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 10px;
+    font-weight: 800;
     color: var(--gray-400);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
   }
+
+  /* ── Options — separate boxes, 2-col grid ── */
   .options {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid var(--black);
-    border-left: 1px solid var(--black);
+    gap: 8px;
   }
   .option {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 16px 18px;
-    border-right: 1px solid var(--black);
-    border-bottom: 1px solid var(--black);
+    padding: 15px 18px;
+    border: 1px solid var(--gray-200);
     font-size: 13px;
     font-weight: 500;
     color: var(--black);
     background: var(--white);
-    transition: background 0.12s;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
     cursor: pointer;
-    min-height: 56px;
+    min-height: 52px;
   }
-  .option i { font-size: 18px; flex-shrink: 0; }
-  .option:hover { background: var(--gray-100); }
-  .option.selected { background: var(--black); color: var(--white); }
+  .option:last-child:nth-child(odd) { grid-column: span 2; }
+  .option i { font-size: 17px; color: var(--gray-400); flex-shrink: 0; }
+  .option:hover { background: var(--gray-50); border-color: var(--gray-400); }
+  .option.selected { background: var(--black); color: var(--white); border-color: var(--black); }
+  .option.selected i { color: var(--gray-500); }
 
-  /* Screen 1 — full-width 2-card style */
+  /* Screen 1 — entry card style */
   .options.cards {
     grid-template-columns: 1fr 1fr;
-    max-width: 720px;
-    border: 1px solid var(--black);
+    max-width: 680px;
   }
   .options.cards .option {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
-    padding: 32px;
-    min-height: 180px;
-    border: none;
-    border-right: 1px solid var(--black);
+    gap: 10px;
+    padding: 32px 28px;
+    min-height: 190px;
+    border-bottom: none;
+    border-right: 1px solid var(--gray-200);
+    flex: 1;
   }
   .options.cards .option:last-child { border-right: none; }
   .options.cards .option strong {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     letter-spacing: -0.3px;
+    line-height: 1.2;
   }
   .options.cards .option span {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--gray-500);
     font-weight: 400;
+    line-height: 1.55;
   }
-  .options.cards .option.selected span { color: var(--gray-300); }
+  .options.cards .option.selected span { color: var(--gray-400); }
   .options.cards .option .arrow {
     margin-top: auto;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
   }
 
@@ -315,23 +353,25 @@
   .footer {
     margin-top: auto;
     padding-top: 40px;
+    border-top: 1px solid var(--gray-200);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
   }
   .footer-hint {
-    font-size: 12px;
-    color: var(--gray-500);
+    font-size: 11px;
+    color: var(--gray-400);
+    font-weight: 500;
   }
   .continue-btn {
     background: var(--cta-black);
     color: var(--white);
     border: 1px solid var(--cta-black);
-    padding: 14px 32px;
-    font-size: 13px;
+    padding: 15px 36px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: all 0.15s;
     display: inline-flex;
@@ -524,24 +564,32 @@
   </header>
   <div class="page">
     <aside class="sidebar">
-      <div class="sidebar-eyebrow">Tech Career Assessment · 2 mins</div>
-      <h1 class="sidebar-title">Free Profile Evaluation</h1>
-      <p class="sidebar-desc">A comprehensive evaluation of your profile for tech roles. Discover your strengths, identify gaps, and receive personalised recommendations to accelerate your career growth.</p>
-      <ul class="sidebar-features">
-        <li>Profile Strength Analysis</li>
-        <li>Skill Gap Assessment</li>
-        <li>Career Readiness Timeline</li>
-        <li>Peer Comparison</li>
-      </ul>
+      <div class="sidebar-eyebrow">Free · Takes 3 minutes</div>
+      <h1 class="sidebar-title">Your AI Career Report</h1>
+      <p class="sidebar-desc">Answer a few questions. Get a personalised report showing exactly where you stand — and what to do next.</p>
+      <div class="sidebar-stats">
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-num">50K+</div>
+          <div class="sidebar-stat-label">profiles evaluated in the last 12 months</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-num">2.5×</div>
+          <div class="sidebar-stat-label">average salary jump for Scaler alumni</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-num">73%</div>
+          <div class="sidebar-stat-label">of backend roles now require AI fluency</div>
+        </div>
+      </div>
       <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-label">Alumni working at</div>
         <div class="trusted-logos">
           <span>Google</span><span>Amazon</span><span>Flipkart</span><span>Meta</span>
         </div>
       </div>
     </aside>
     <main class="content">
-      <div class="step-indicator">Get Started</div>
+      <div class="step-indicator">01 · Start</div>
       <h2 class="content-title">What's your current background?</h2>
       <div class="options cards">
         <a href="#screen-nt-1" class="option">
@@ -568,22 +616,29 @@
   <header class="topbar">
     <div class="logo">SCALER↗</div>
     <div class="topbar-center"><a href="#screen-1" class="nav-back">‹</a></div>
-    <div class="topbar-right">Step 1 of 5</div>
-    <div class="progress-track"><div class="progress-fill" style="width:20%"></div></div>
+    <div class="topbar-right">Step 1 of 4</div>
+    <div class="progress-track"><div class="progress-fill" style="width:25%"></div></div>
   </header>
   <div class="page">
     <aside class="sidebar">
-      <div class="mentor-msg">
-        <div class="mentor-avatar">i</div>
-        <div class="mentor-bubble">Hey, let's start with the basics — where you are in your tech journey today.</div>
+      <div class="sidebar-steps">
+        <div class="sidebar-step-dot active"></div>
+        <div class="sidebar-step-dot"></div>
+        <div class="sidebar-step-dot"></div>
+        <div class="sidebar-step-dot"></div>
+      </div>
+      <div class="sidebar-insight">
+        <div class="sidebar-insight-eyebrow">Why we ask</div>
+        <div class="sidebar-insight-text">Your role shapes every gap, every recommendation, every alumni match in your report.</div>
+        <div class="sidebar-insight-sub">We use this to pull the right data — not a generic readiness score.</div>
       </div>
       <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-label">Alumni working at</div>
         <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
       </div>
     </aside>
     <main class="content">
-      <div class="step-indicator">Step 1 of 5 — Your Profile</div>
+      <div class="step-indicator">Step 1 of 4 — Your Profile</div>
       <h2 class="content-title">Tell us about your current role</h2>
 
       <div class="question-block">
@@ -610,14 +665,14 @@
       </div>
 
       <div class="footer">
-        <div class="footer-hint">Step 1 of 5</div>
+        <div class="footer-hint">Step 1 of 4</div>
         <a href="#screen-t-2" class="continue-btn">Continue →</a>
       </div>
     </main>
   </div>
 </section>
 
-<!-- TECH STEP 2 — Role-aware Skills -->
+<!-- TECH STEP 2 — Fundamentals -->
 <section id="screen-t-2" class="screen">
   <header class="topbar">
     <div class="logo">SCALER↗</div>
@@ -625,33 +680,60 @@
       <a href="#screen-t-1" class="nav-back">‹</a>
       <a href="report.html" class="evaluate-btn">Evaluate My Profile</a>
     </div>
-    <div class="topbar-right">Step 2 of 5</div>
-    <div class="progress-track"><div class="progress-fill" style="width:40%"></div></div>
+    <div class="topbar-right">Step 2 of 4</div>
+    <div class="progress-track"><div class="progress-fill" style="width:50%"></div></div>
   </header>
   <div class="page">
     <aside class="sidebar">
-      <div class="mentor-msg">
-        <div class="mentor-avatar">i</div>
-        <div class="mentor-bubble">Tick the skills you actually use — not ones you've heard of. This drives your gap analysis.</div>
+      <div class="sidebar-steps">
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot active"></div>
+        <div class="sidebar-step-dot"></div>
+        <div class="sidebar-step-dot"></div>
+      </div>
+      <div class="sidebar-insight">
+        <div class="sidebar-insight-eyebrow">Why we ask</div>
+        <div class="sidebar-insight-text">Fundamentals are still what separates candidates at the final round.</div>
+        <div class="sidebar-insight-sub">Even in 2026, system design and problem solving come up in every senior interview. Be honest — this calibrates your report.</div>
       </div>
       <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-label">Alumni working at</div>
         <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
       </div>
     </aside>
-    <main class="content dense">
-      <div class="step-indicator">Step 2 of 5 — Your Skills</div>
-      <h2 class="content-title">What do you actually use day-to-day?</h2>
-      <div id="t2-dynamic"></div>
+    <main class="content">
+      <div class="step-indicator">Step 2 of 4 — Your Fundamentals</div>
+      <h2 class="content-title">Where do you stand today?</h2>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">01</span>How much have you been practicing coding problems in the last 3 months?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-fire"></i>Very active — 100+ problems</div>
+          <div class="option"><i class="ph ph-trend-up"></i>Moderately active — 50–100 problems</div>
+          <div class="option"><i class="ph ph-minus"></i>Somewhat active — 10–50 problems</div>
+          <div class="option"><i class="ph ph-moon"></i>Not practicing right now</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">02</span>How comfortable are you with system design?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-crown-simple"></i>I've led design discussions at work</div>
+          <div class="option"><i class="ph ph-users"></i>I've participated in them</div>
+          <div class="option"><i class="ph ph-book-open"></i>Self-learning — done courses or reading</div>
+          <div class="option"><i class="ph ph-map-trifold"></i>Haven't started yet</div>
+        </div>
+      </div>
+
       <div class="footer">
-        <div class="footer-hint">Step 2 of 5</div>
+        <div class="footer-hint">Step 2 of 4</div>
         <a href="#screen-t-3" class="continue-btn">Continue →</a>
       </div>
     </main>
   </div>
 </section>
 
-<!-- TECH STEP 3 — Craft brain tickler + System self-rating -->
+<!-- TECH STEP 3 — AI Fluency (tier-based) -->
 <section id="screen-t-3" class="screen">
   <header class="topbar">
     <div class="logo">SCALER↗</div>
@@ -659,95 +741,84 @@
       <a href="#screen-t-2" class="nav-back">‹</a>
       <a href="report.html" class="evaluate-btn">Evaluate My Profile</a>
     </div>
-    <div class="topbar-right">Step 3 of 5</div>
-    <div class="progress-track"><div class="progress-fill" style="width:60%"></div></div>
+    <div class="topbar-right">Step 3 of 4</div>
+    <div class="progress-track"><div class="progress-fill" style="width:75%"></div></div>
   </header>
   <div class="page">
     <aside class="sidebar">
-      <div class="mentor-msg">
-        <div class="mentor-avatar">i</div>
-        <div class="mentor-bubble">Two quick ones — no right or wrong answers. Just pick what feels most honest.</div>
+      <div class="sidebar-steps">
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot active"></div>
+        <div class="sidebar-step-dot"></div>
+      </div>
+      <div class="sidebar-insight">
+        <div class="sidebar-insight-eyebrow">Why we ask</div>
+        <div class="sidebar-insight-text">AI fluency is now a hard filter — not a bonus.</div>
+        <div class="sidebar-insight-sub">73% of backend roles in 2026 list AI as a requirement. Your answers shape the AI section of your report.</div>
       </div>
       <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-label">Alumni working at</div>
         <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
       </div>
     </aside>
     <main class="content">
-      <div class="step-indicator">Step 3 of 5 — Quick Check</div>
-      <h2 class="content-title">Let's see how you think</h2>
+      <div class="step-indicator">Step 3 of 4 — AI Fluency</div>
+      <h2 class="content-title">How are you working with AI?</h2>
       <div id="t3-dynamic"></div>
       <div class="footer">
-        <div class="footer-hint">Step 3 of 5</div>
+        <div class="footer-hint">Step 3 of 4</div>
         <a href="#screen-t-4" class="continue-btn">Continue →</a>
       </div>
     </main>
   </div>
 </section>
 
-<!-- TECH STEP 4 — AI brain tickler + Real-world self-rating -->
+<!-- TECH STEP 4 — Aspirations -->
 <section id="screen-t-4" class="screen">
   <header class="topbar">
     <div class="logo">SCALER↗</div>
-    <div class="topbar-center">
-      <a href="#screen-t-3" class="nav-back">‹</a>
-      <a href="report.html" class="evaluate-btn">Evaluate My Profile</a>
-    </div>
-    <div class="topbar-right">Step 4 of 5</div>
-    <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
-  </header>
-  <div class="page">
-    <aside class="sidebar">
-      <div class="mentor-msg">
-        <div class="mentor-avatar">i</div>
-        <div class="mentor-bubble">Almost there. These two are about AI and what you've actually shipped.</div>
-      </div>
-      <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
-        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
-      </div>
-    </aside>
-    <main class="content">
-      <div class="step-indicator">Step 4 of 5 — AI Judgment</div>
-      <h2 class="content-title">How you work with AI</h2>
-      <div id="t4-dynamic"></div>
-      <div class="footer">
-        <div class="footer-hint">Step 4 of 5</div>
-        <a href="#screen-t-5" class="continue-btn">Continue →</a>
-      </div>
-    </main>
-  </div>
-</section>
-
-<!-- TECH STEP 5 — Goals -->
-<section id="screen-t-5" class="screen">
-  <header class="topbar">
-    <div class="logo">SCALER↗</div>
-    <div class="topbar-center"><a href="#screen-t-4" class="nav-back">‹</a></div>
-    <div class="topbar-right">Step 5 of 5</div>
+    <div class="topbar-center"><a href="#screen-t-3" class="nav-back">‹</a></div>
+    <div class="topbar-right">Step 4 of 4</div>
     <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
   </header>
   <div class="page">
     <aside class="sidebar">
-      <div class="mentor-msg">
-        <div class="mentor-avatar">i</div>
-        <div class="mentor-bubble">Last bit. Tell me where you want to go — and what's pushing you to act now.</div>
+      <div class="sidebar-steps">
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot active"></div>
+      </div>
+      <div class="sidebar-insight">
+        <div class="sidebar-insight-eyebrow">Last step</div>
+        <div class="sidebar-insight-text">Your goal shapes the entire recommendation in your report.</div>
+        <div class="sidebar-insight-sub">We use this to match you with the right alumni stories, salary targets, and path forward.</div>
       </div>
       <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-label">Alumni working at</div>
         <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
       </div>
     </aside>
     <main class="content">
-      <div class="step-indicator">Step 5 of 5 — Your Goals</div>
+      <div class="step-indicator">Step 4 of 4 — Your Aspirations</div>
       <h2 class="content-title">Where do you want to go?</h2>
 
       <div class="question-block">
-        <div class="question-label"><span class="question-num">01</span>What's your dream role?</div>
+        <div class="question-label"><span class="question-num">01</span>What's your primary goal right now?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-buildings"></i>Move to a better company at the same level</div>
+          <div class="option"><i class="ph ph-trend-up"></i>Get a senior role or promotion</div>
+          <div class="option"><i class="ph ph-currency-inr"></i>Higher comp — same or better company</div>
+          <div class="option"><i class="ph ph-shuffle"></i>Switch to a different tech domain</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">02</span>What's your target role?</div>
         <div class="options">
           <div class="option"><i class="ph ph-database"></i>Senior Backend Engineer</div>
           <div class="option"><i class="ph ph-stack"></i>Senior Full-Stack Engineer</div>
-          <div class="option"><i class="ph ph-paint-brush"></i>Senior Frontend Engineer</div>
           <div class="option"><i class="ph ph-chart-scatter"></i>Data Science / ML Engineer</div>
           <div class="option"><i class="ph ph-robot"></i>AI / ML Engineer</div>
           <div class="option"><i class="ph ph-cloud"></i>DevOps / Cloud Engineer</div>
@@ -756,18 +827,8 @@
         </div>
       </div>
 
-      <div class="question-block">
-        <div class="question-label"><span class="question-num">02</span>What kind of company are you targeting?</div>
-        <div class="options">
-          <div class="option"><i class="ph ph-bank"></i>FAANG / Big Tech</div>
-          <div class="option"><i class="ph ph-sparkle"></i>Product Unicorns</div>
-          <div class="option"><i class="ph ph-rocket-launch"></i>High-Growth Startups</div>
-          <div class="option"><i class="ph ph-buildings"></i>Better Service Company</div>
-        </div>
-      </div>
-
       <div class="footer">
-        <div class="footer-hint">Final step</div>
+        <div class="footer-hint">Your report is ready</div>
         <a href="report.html" class="continue-btn">See My Report →</a>
       </div>
     </main>
@@ -788,17 +849,24 @@
   </header>
   <div class="page">
     <aside class="sidebar">
-      <div class="mentor-msg">
-        <div class="mentor-avatar">i</div>
-        <div class="mentor-bubble">Welcome! Let's start with where you are today, so I can build a roadmap that fits your background.</div>
+      <div class="sidebar-steps">
+        <div class="sidebar-step-dot active"></div>
+        <div class="sidebar-step-dot"></div>
+        <div class="sidebar-step-dot"></div>
+        <div class="sidebar-step-dot"></div>
+      </div>
+      <div class="sidebar-insight">
+        <div class="sidebar-insight-eyebrow">Why we ask</div>
+        <div class="sidebar-insight-text">Your background shapes the roadmap — not just your destination.</div>
+        <div class="sidebar-insight-sub">Career switchers from sales, finance, and design all have different strengths to leverage into tech.</div>
       </div>
       <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-label">Alumni working at</div>
         <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
       </div>
     </aside>
     <main class="content">
-      <div class="step-indicator">Step 1 of 4 — Background</div>
+      <div class="step-indicator">Step 1 of 4 — Your Background</div>
       <h2 class="content-title">Where are you coming from?</h2>
 
       <div class="question-block">
@@ -808,18 +876,17 @@
           <div class="option"><i class="ph ph-clipboard-text"></i>Operations / Consulting / PM</div>
           <div class="option"><i class="ph ph-paint-brush-broad"></i>Design (UI/UX, Graphic, Product)</div>
           <div class="option"><i class="ph ph-bank"></i>Finance / Accounting / Banking</div>
-          <div class="option"><i class="ph ph-graduation-cap"></i>Other Non-Tech / Fresh Grad</div>
+          <div class="option"><i class="ph ph-graduation-cap"></i>Other / Fresh Grad</div>
         </div>
       </div>
 
       <div class="question-block">
         <div class="question-label"><span class="question-num">02</span>How many years of work experience do you have?</div>
         <div class="options">
-          <div class="option" data-tier="tier1"><i class="ph ph-seedling"></i>0 years (Fresh grad)</div>
-          <div class="option" data-tier="tier1"><i class="ph ph-clock"></i>0–2 years</div>
-          <div class="option" data-tier="tier2"><i class="ph ph-clock"></i>2–3 years</div>
-          <div class="option" data-tier="tier2"><i class="ph ph-clock"></i>3–5 years</div>
-          <div class="option" data-tier="tier3"><i class="ph ph-clock"></i>5+ years</div>
+          <div class="option"><i class="ph ph-seedling"></i>0 years — Fresh grad</div>
+          <div class="option"><i class="ph ph-clock"></i>0–2 years</div>
+          <div class="option"><i class="ph ph-clock"></i>2–5 years</div>
+          <div class="option"><i class="ph ph-clock"></i>5+ years</div>
         </div>
       </div>
 
@@ -831,7 +898,7 @@
   </div>
 </section>
 
-<!-- NON-TECH STEP 2 — Target track + basic skills -->
+<!-- NON-TECH STEP 2 — Where You Stand -->
 <section id="screen-nt-2" class="screen">
   <header class="topbar">
     <div class="logo">SCALER↗</div>
@@ -844,33 +911,44 @@
   </header>
   <div class="page">
     <aside class="sidebar">
-      <div class="mentor-msg">
-        <div class="mentor-avatar">i</div>
-        <div class="mentor-bubble">Pick the track that excites you most — then tell me what you already know.</div>
+      <div class="sidebar-steps">
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot active"></div>
+        <div class="sidebar-step-dot"></div>
+        <div class="sidebar-step-dot"></div>
+      </div>
+      <div class="sidebar-insight">
+        <div class="sidebar-insight-eyebrow">Why we ask</div>
+        <div class="sidebar-insight-text">Knowing where you are helps us show you the shortest path forward.</div>
+        <div class="sidebar-insight-sub">No worries if you're just getting started — the report is designed for all starting points.</div>
       </div>
       <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-label">Alumni working at</div>
         <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
       </div>
     </aside>
-    <main class="content dense">
-      <div class="step-indicator">Step 2 of 4 — Your Target</div>
-      <h2 class="content-title">What are you aiming to become?</h2>
+    <main class="content">
+      <div class="step-indicator">Step 2 of 4 — Where You Stand</div>
+      <h2 class="content-title">How far along are you?</h2>
 
       <div class="question-block">
-        <div class="question-label"><span class="question-num">01</span>Which track excites you the most?</div>
+        <div class="question-label"><span class="question-num">01</span>What steps have you taken toward a tech career so far?</div>
         <div class="options">
-          <div class="option" data-nt-track="software"><i class="ph ph-code"></i>Software Engineering</div>
-          <div class="option" data-nt-track="dsml"><i class="ph ph-chart-scatter"></i>Data Science / ML</div>
-          <div class="option" data-nt-track="aiml"><i class="ph ph-robot"></i>AI / ML Engineering</div>
-          <div class="option" data-nt-track="devops"><i class="ph ph-cloud"></i>DevOps / Cloud</div>
+          <div class="option"><i class="ph ph-graduation-cap"></i>Attended a bootcamp or workshop</div>
+          <div class="option"><i class="ph ph-monitor-play"></i>Completed online courses (Udemy, Coursera etc.)</div>
+          <div class="option"><i class="ph ph-code-block"></i>Built 1–2 small projects on my own</div>
+          <div class="option"><i class="ph ph-youtube-logo"></i>Self-learning — YouTube, blogs, docs</div>
+          <div class="option"><i class="ph ph-binoculars"></i>Just exploring — haven't started yet</div>
         </div>
       </div>
 
-      <div id="nt2-skills" style="display:none">
-        <div class="question-block">
-          <div class="question-label"><span class="question-num">02</span>Which of these have you tried or are comfortable with?</div>
-          <div class="chips" id="nt2-skills-chips"></div>
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">02</span>How comfortable are you with coding right now?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-check-fat"></i>Can solve simple problems on my own</div>
+          <div class="option"><i class="ph ph-book-open"></i>Can follow tutorials but struggle alone</div>
+          <div class="option"><i class="ph ph-lightbulb"></i>Understand concepts but can't code yet</div>
+          <div class="option"><i class="ph ph-seedling"></i>Complete beginner — haven't tried yet</div>
         </div>
       </div>
 
@@ -882,7 +960,7 @@
   </div>
 </section>
 
-<!-- NON-TECH STEP 3 — Brain ticklers -->
+<!-- NON-TECH STEP 3 — AI & Blockers -->
 <section id="screen-nt-3" class="screen">
   <header class="topbar">
     <div class="logo">SCALER↗</div>
@@ -895,19 +973,46 @@
   </header>
   <div class="page">
     <aside class="sidebar">
-      <div class="mentor-msg">
-        <div class="mentor-avatar">i</div>
-        <div class="mentor-bubble">Two quick ones — just pick what feels most like you. There are no wrong answers.</div>
+      <div class="sidebar-steps">
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot active"></div>
+        <div class="sidebar-step-dot"></div>
+      </div>
+      <div class="sidebar-insight">
+        <div class="sidebar-insight-eyebrow">Why we ask</div>
+        <div class="sidebar-insight-text">AI tools are giving career switchers a real head start in 2026.</div>
+        <div class="sidebar-insight-sub">Knowing where you're stuck helps us point you to the right resources — not generic advice.</div>
       </div>
       <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-label">Alumni working at</div>
         <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
       </div>
     </aside>
     <main class="content">
-      <div class="step-indicator">Step 3 of 4 — Quick Check</div>
-      <h2 class="content-title">Let's see where you're at</h2>
-      <div id="nt3-dynamic"></div>
+      <div class="step-indicator">Step 3 of 4 — AI & Blockers</div>
+      <h2 class="content-title">A couple more quick ones</h2>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">01</span>How do you use AI tools today?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-pencil-line"></i>For work tasks — writing, research, analysis</div>
+          <div class="option"><i class="ph ph-code"></i>To learn tech and coding concepts</div>
+          <div class="option"><i class="ph ph-timer"></i>Occasionally — nothing consistent</div>
+          <div class="option"><i class="ph ph-question"></i>Haven't started using AI tools yet</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">02</span>What's been the biggest blocker so far?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-map-trifold"></i>Finding the right learning path</div>
+          <div class="option"><i class="ph ph-brain"></i>Not sure if I can actually learn to code</div>
+          <div class="option"><i class="ph ph-repeat"></i>Consistency — I start and stop</div>
+          <div class="option"><i class="ph ph-smiley"></i>No major blocker yet — just getting started</div>
+        </div>
+      </div>
+
       <div class="footer">
         <div class="footer-hint">Step 3 of 4</div>
         <a href="#screen-nt-4" class="continue-btn">Continue →</a>
@@ -916,7 +1021,7 @@
   </div>
 </section>
 
-<!-- NON-TECH STEP 4 — What you've built + Time + Company + Why now -->
+<!-- NON-TECH STEP 4 — Aspirations -->
 <section id="screen-nt-4" class="screen">
   <header class="topbar">
     <div class="logo">SCALER↗</div>
@@ -926,43 +1031,50 @@
   </header>
   <div class="page">
     <aside class="sidebar">
-      <div class="mentor-msg">
-        <div class="mentor-avatar">i</div>
-        <div class="mentor-bubble">Last step. What you've made, how much time you have, and what's driving you.</div>
+      <div class="sidebar-steps">
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot done"></div>
+        <div class="sidebar-step-dot active"></div>
+      </div>
+      <div class="sidebar-insight">
+        <div class="sidebar-insight-eyebrow">Last step</div>
+        <div class="sidebar-insight-text">Tell us where you want to land — we'll show you who got there from where you are.</div>
+        <div class="sidebar-insight-sub">We match you with real alumni who made the same switch from your background.</div>
       </div>
       <div class="sidebar-footer">
-        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-label">Alumni working at</div>
         <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
       </div>
     </aside>
     <main class="content">
-      <div class="step-indicator">Step 4 of 4 — Goals</div>
-      <h2 class="content-title">Almost there — last few</h2>
-
-      <div id="nt4-dynamic"></div>
+      <div class="step-indicator">Step 4 of 4 — Your Aspirations</div>
+      <h2 class="content-title">Where do you want to go?</h2>
 
       <div class="question-block">
-        <div class="question-label"><span class="question-num">02</span>How much time can you actually carve out per week?</div>
+        <div class="question-label"><span class="question-num">01</span>What's driving your move to tech?</div>
         <div class="options">
-          <div class="option"><i class="ph ph-lightning"></i>10+ hours / week</div>
-          <div class="option"><i class="ph ph-clock"></i>6–10 hours / week</div>
-          <div class="option"><i class="ph ph-coffee"></i>3–5 hours / week</div>
-          <div class="option"><i class="ph ph-feather"></i>0–2 hours / week</div>
+          <div class="option"><i class="ph ph-currency-inr"></i>Better salary and growth</div>
+          <div class="option"><i class="ph ph-heart"></i>Genuine interest in technology</div>
+          <div class="option"><i class="ph ph-shield-check"></i>Job stability — future-proofing my career</div>
+          <div class="option"><i class="ph ph-laptop"></i>Flexibility and remote work</div>
+          <div class="option"><i class="ph ph-door-open"></i>Dissatisfied with my current career</div>
         </div>
       </div>
 
       <div class="question-block">
-        <div class="question-label"><span class="question-num">03</span>What type of company would you love to work for?</div>
+        <div class="question-label"><span class="question-num">02</span>Which tech role excites you most?</div>
         <div class="options">
-          <div class="option"><i class="ph ph-star"></i>Any tech company (experience first)</div>
-          <div class="option"><i class="ph ph-package"></i>Product companies</div>
-          <div class="option"><i class="ph ph-buildings"></i>Service companies</div>
-          <div class="option"><i class="ph ph-bank"></i>FAANG / Big Tech (long-term)</div>
+          <div class="option"><i class="ph ph-database"></i>Backend Engineer</div>
+          <div class="option"><i class="ph ph-stack"></i>Full-Stack Engineer</div>
+          <div class="option"><i class="ph ph-paint-brush"></i>Frontend Engineer</div>
+          <div class="option"><i class="ph ph-chart-scatter"></i>Data / ML Engineer</div>
+          <div class="option"><i class="ph ph-compass"></i>Not sure yet — show me options</div>
         </div>
       </div>
 
       <div class="footer">
-        <div class="footer-hint">Final step</div>
+        <div class="footer-hint">Your report is ready</div>
         <a href="report.html" class="continue-btn">See My Report →</a>
       </div>
     </main>
@@ -1374,11 +1486,46 @@ function renderT2() {
   el.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => c.classList.toggle('selected')));
 }
 
-function renderT3() {
+// AI questions by tier (tech screen 3)
+const AI_QUESTIONS = {
+  junior: { // tier1 + tier2
+    q1: { label: 'How does AI show up in your day-to-day work?', options: [
+      'I build agents or AI-powered features as part of my actual job',
+      'I use Cursor / Copilot daily — code, refactors, reviews, the whole loop',
+      'I use it for specific tasks — debugging, docs, quick explanations',
+      'Only when I\'m stuck — ChatGPT for quick answers',
+      'Haven\'t integrated AI into my workflow yet',
+    ]},
+    q2: { label: 'What have you actually built or shipped using AI?', options: [
+      'A production feature — AI is live in my codebase',
+      'An internal tool or side project using an LLM API',
+      'Experimented — prompts, scripts, nothing shipped yet',
+      'Haven\'t built anything with AI yet',
+    ]},
+  },
+  senior: { // tier3
+    q1: { label: 'How are you thinking about AI at the system or team level?', options: [
+      'I\'m designing systems with AI components (RAG, agents, evals) baked into the architecture',
+      'I use AI heavily myself but haven\'t changed how we build as a team',
+      'I\'m actively evaluating where AI fits in our product and stack',
+      'I use AI tools individually — it hasn\'t changed our architecture yet',
+    ]},
+    q2: { label: 'Which of these are you actively working with or evaluating?', options: [
+      'LLM evals and observability (LangSmith, Braintrust, W&B)',
+      'Multi-agent orchestration (LangGraph, CrewAI, AutoGen)',
+      'RAG in production (vector DBs, reranking, chunking strategies)',
+      'None of these yet — still exploring',
+    ]},
+  },
+};
+
+function initT3() {
   const el = document.getElementById('t3-dynamic');
-  if (!el) return;
-  const q = QB.tech[state.track || 'software_easy'][state.tier || 'tier1'];
-  el.innerHTML = optionsBlock('01', q.q1.label, q.q1.options) + optionsBlock('02', q.q3.label, q.q3.options);
+  if (!el || el.hasChildNodes()) return;
+  const tier = state.tier || 'tier1';
+  const qs = (tier === 'tier3') ? AI_QUESTIONS.senior : AI_QUESTIONS.junior;
+  el.innerHTML = optionsBlock('01', qs.q1.label, qs.q1.options) +
+                 optionsBlock('02', qs.q2.label, qs.q2.options);
   wireSingleSelect(el);
 }
 
@@ -1502,11 +1649,7 @@ function initNTStep2() {
 // ══════════════════════════════════════════════════════════════
 function handleHashChange() {
   const h = location.hash;
-  if      (h === '#screen-t-2')  renderT2();
-  else if (h === '#screen-t-3')  renderT3();
-  else if (h === '#screen-t-4')  renderT4();
-  else if (h === '#screen-nt-3') renderNT3();
-  else if (h === '#screen-nt-4') renderNT4();
+  if (h === '#screen-t-3') initT3();
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -1557,14 +1700,17 @@ function initLoader() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initTStep1();
-  initNTStep1();
-  initNTStep2();
-  wireStaticScreen('screen-t-5');
+  wireStaticScreen('screen-t-2');
+  wireStaticScreen('screen-t-4');
+  wireStaticScreen('screen-nt-1');
+  wireStaticScreen('screen-nt-2');
+  wireStaticScreen('screen-nt-3');
   wireStaticScreen('screen-nt-4');
   initLoader();
   window.addEventListener('hashchange', handleHashChange);
   handleHashChange();
 });
+
 </script>
 
 </body>
