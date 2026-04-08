@@ -1279,10 +1279,86 @@ function chipsBlock(num, label, chips) {
 </div>`;
 }
 
+function getOptionIcon(text) {
+  const t = text.toLowerCase();
+  if (t.includes('all of the above') || t.includes('in parallel') || t.includes('in that order')) return 'ph-arrows-out-cardinal';
+  if (t.includes('sort') || t.includes('binary search'))           return 'ph-sort-ascending';
+  if (t.includes('loop') || t.includes('iterate'))                 return 'ph-arrows-clockwise';
+  if (t.includes('hashmap') || t.includes('hash') || t.includes('dictionary') || t.includes('set /')) return 'ph-table';
+  if (t.includes('cache') || t.includes('redis'))                  return 'ph-lightning';
+  if (t.includes('index') && !t.includes('my'))                    return 'ph-magnifying-glass';
+  if (t.includes('replica'))                                        return 'ph-copy';
+  if (t.includes('kubectl') || t.includes('terminal') || t.includes('bash') || t.includes('one-liner')) return 'ph-terminal';
+  if (t.includes('log') && (t.includes('check') || t.includes('look') || t.includes('read'))) return 'ph-scroll';
+  if (t.includes('deploy') || t.includes('deployment') || t.includes('ci/cd') || t.includes('pipeline')) return 'ph-git-branch';
+  if (t.includes('infra') || t.includes('cloud') || t.includes('cpu') || t.includes('memory') || t.includes('host')) return 'ph-cloud';
+  if (t.includes('database') || t.includes('slow query') || t.includes('connection pool') || t.includes('db'))  return 'ph-database';
+  if (t.includes('staging') || t.includes('test directory') || t.includes('test environment')) return 'ph-flask';
+  if (t.includes('run the test') || t.includes('existing test') || t.includes('tests pass')) return 'ph-check-square';
+  if (t.includes('read every line') || t.includes('read it line') || t.includes('every flag') || t.includes('trace the logic')) return 'ph-eye';
+  if (t.includes('plan') && t.includes('terraform'))               return 'ph-file-text';
+  if (t.includes('copilot') || t.includes('cursor') || t.includes('coderabbit')) return 'ph-code';
+  if (t.includes('chatgpt') || t.includes('claude') || t.includes('llm') || t.includes('gpt') || t.includes('openai')) return 'ph-robot';
+  if (t.includes('copy') && t.includes('paste'))                   return 'ph-clipboard-text';
+  if (t.includes('google') || t.includes('stack overflow') || t.includes('look it up')) return 'ph-magnifying-glass';
+  if (t.includes('senior') || t.includes('lead') || t.includes('pair with')) return 'ph-users-three';
+  if (t.includes('own') || t.includes('designed') || t.includes('lead the design')) return 'ph-crown-simple';
+  if (t.includes('production') || t.includes('real users') || t.includes('thousands')) return 'ph-rocket-launch';
+  if (t.includes('side-project') || t.includes('side project') || t.includes('demo') || t.includes('prototype')) return 'ph-wrench';
+  if (t.includes('tutorial') || t.includes('bootcamp') || t.includes('course') || t.includes('class')) return 'ph-book-open';
+  if (t.includes('nothing yet') || t.includes('not yet') || t.includes('haven\'t') || t.includes("haven't")) return 'ph-plant';
+  if (t.includes('hallucination'))                                  return 'ph-warning';
+  if (t.includes('overfit'))                                        return 'ph-chart-line-up';
+  if (t.includes('bias'))                                           return 'ph-scales';
+  if (t.includes('drift'))                                          return 'ph-trend-down';
+  if (t.includes('resample') || t.includes('oversample'))          return 'ph-shuffle';
+  if (t.includes('metric') || t.includes('precision') || t.includes('recall')) return 'ph-chart-bar';
+  if (t.includes('audit') || t.includes('guardrail') || t.includes('confirm')) return 'ph-shield-check';
+  if (t.includes('risky') || t.includes('too risky') || t.includes('avoid pushing') || t.includes('don\'t build')) return 'ph-shield-warning';
+  if (t.includes('pilot') || t.includes('small pilot') || t.includes('measure')) return 'ph-test-tube';
+  if (t.includes('defer') || t.includes('let leadership') || t.includes('ask for')) return 'ph-arrow-bend-right-up';
+  if (t.includes('write it myself') || t.includes("i'd write") || t.includes('myself'))  return 'ph-pencil';
+  if (t.includes("i don't use") || t.includes("i haven't") || t.includes("i rarely")) return 'ph-question';
+  if (t.includes('sketch') || t.includes('draw') || t.includes('whiteboard') || t.includes('design doc')) return 'ph-pencil-ruler';
+  if (t.includes('profil') || t.includes('investigate') || t.includes('look first')) return 'ph-binoculars';
+  if (t.includes('build') && t.includes('prototype'))              return 'ph-hammer';
+  if (t.includes('start coding') || t.includes('figure it out'))   return 'ph-code';
+  if (t.includes('excel') || t.includes('spreadsheet') || t.includes('google sheets')) return 'ph-table';
+  if (t.includes('visuali'))                                        return 'ph-chart-pie';
+  if (t.includes('statistic'))                                      return 'ph-function';
+  if (t.includes('server') || t.includes('load') || t.includes('503')) return 'ph-warning-circle';
+  if (t.includes('retrieval') || t.includes('fetch') || t.includes('rag')) return 'ph-magnifying-glass';
+  if (t.includes('prompt') || t.includes('system prompt'))          return 'ph-chat-circle-dots';
+  if (t.includes('vector'))                                         return 'ph-graph';
+  if (t.includes('bigger model') || t.includes('switch'))          return 'ph-swap';
+  if (t.includes('third-party') || t.includes('vendor'))           return 'ph-plug';
+  if (t.includes('in-house') || t.includes('build everything'))    return 'ph-hammer';
+  if (t.includes('comparison') || t.includes('run a quick'))       return 'ph-scales';
+  if (t.includes('annotator') || t.includes('label'))              return 'ph-tag';
+  if (t.includes('read-only') || t.includes('v1'))                 return 'ph-lock';
+  if (t.includes('followed a tutorial') || t.includes('tutorial end'))  return 'ph-book-open';
+  if (t.includes('followed') || t.includes('follow'))              return 'ph-path';
+  if (t.includes('pieces') || t.includes('chunks') || t.includes('parts')) return 'ph-puzzle-piece';
+  if (t.includes('bug fix') || t.includes('small fix') || t.includes('maintenance')) return 'ph-wrench';
+  if (t.includes('mostly') && t.includes('support'))               return 'ph-headset';
+  if (t.includes('experiment') || t.includes('research'))          return 'ph-flask';
+  if (t.includes('can explain') || t.includes('can navigate') || t.includes('can sketch')) return 'ph-chalkboard-teacher';
+  if (t.includes('fuzzy') || t.includes('black box') || t.includes('get lost') || t.includes('confused')) return 'ph-question';
+  if (t.includes('college') || t.includes('internship'))           return 'ph-graduation-cap';
+  if (t.includes('app') && t.includes('multi'))                    return 'ph-stack';
+  if (t.includes('report') || t.includes('analysis') || t.includes('summary')) return 'ph-file-text';
+  if (t.includes('kaggle'))                                         return 'ph-medal';
+  if (t.includes('notebook'))                                       return 'ph-notebook';
+  if (t.includes('extension') || t.includes('wait for'))           return 'ph-clock';
+  if (t.includes('tell the team') || t.includes('start using'))    return 'ph-megaphone';
+  if (t.includes('no-code') || t.includes('low-code'))             return 'ph-puzzle-piece';
+  return 'ph-caret-right';
+}
+
 function optionsBlock(num, label, options) {
   return `<div class="question-block">
   <div class="question-label"><span class="question-num">${num}</span>${label}</div>
-  <div class="options">${options.map(o => `<div class="option">${o}</div>`).join('')}</div>
+  <div class="options">${options.map(o => `<div class="option"><i class="ph ${getOptionIcon(o)}"></i>${o}</div>`).join('')}</div>
 </div>`;
 }
 
