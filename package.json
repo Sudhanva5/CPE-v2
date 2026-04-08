@@ -1,0 +1,15 @@
+{
+  "name": "cpe-v2",
+  "version": "1.0.0",
+  "description": "Scaler CPE v2 — Career Profile Evaluator Wireframe",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

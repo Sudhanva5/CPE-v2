@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaler — Free Profile Evaluation</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700;8..60,800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  :root {
+    --cta-black: #000000;
+    --black: #1A1A1A;
+    --white: #FFFFFF;
+    --gray-50: #FAFAFA;
+    --gray-100: #F4F4F4;
+    --gray-200: #E8E8E8;
+    --gray-300: #D4D4D4;
+    --gray-400: #A8A8A8;
+    --gray-500: #7A7A7A;
+    --gray-600: #555555;
+    --gray-700: #3D3D3D;
+    --gray-800: #2A2A2A;
+    --gray-900: #1F1F1F;
+    --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-display: 'Source Serif 4', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0 !important; }
+  html, body { height: 100%; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* ── Top bar ── */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--black);
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .logo {
+    font-family: var(--font);
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: var(--black);
+  }
+  .topbar-center { display: flex; align-items: center; gap: 16px; }
+  .nav-back {
+    width: 36px; height: 36px;
+    border: 1px solid var(--black);
+    background: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--black);
+    transition: background 0.15s;
+  }
+  .nav-back:hover { background: var(--black); color: var(--white); }
+  .evaluate-btn {
+    background: var(--cta-black);
+    color: var(--white);
+    border: 1px solid var(--cta-black);
+    padding: 10px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .topbar-right {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .progress-track {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: transparent;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--black);
+    transition: width 0.4s;
+  }
+
+  /* ── Page layout (full screen, two columns) ── */
+  .page {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    min-height: calc(100vh - 73px);
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    padding: 64px 48px;
+    border-right: 1px solid var(--black);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 16px;
+  }
+  .sidebar-title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+  .sidebar-desc {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .sidebar-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sidebar-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--black);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .sidebar-features li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--black);
+    flex-shrink: 0;
+  }
+
+  .mentor-msg {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .mentor-avatar {
+    width: 40px; height: 40px;
+    background: var(--black);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .mentor-bubble {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--black);
+    flex: 1;
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 32px;
+  }
+  .trusted-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+  .trusted-logos {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .trusted-logos span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--black);
+    padding: 5px 10px;
+    border: 1px solid var(--gray-300);
+  }
+
+  /* ── Content ── */
+  .content {
+    padding: 64px 64px 48px;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+  }
+  .step-indicator {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 8px;
+  }
+  .content-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    color: var(--black);
+    margin-bottom: 40px;
+  }
+  .question-block { margin-bottom: 36px; }
+  .question-block:last-of-type { margin-bottom: 0; }
+  .question-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .question-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-400);
+    letter-spacing: 0.05em;
+  }
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--black);
+    border-left: 1px solid var(--black);
+  }
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    border-right: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--black);
+    background: var(--white);
+    transition: background 0.12s;
+    cursor: pointer;
+    min-height: 56px;
+  }
+  .option i { font-size: 18px; flex-shrink: 0; }
+  .option:hover { background: var(--gray-100); }
+  .option.selected { background: var(--black); color: var(--white); }
+
+  /* Screen 1 — full-width 2-card style */
+  .options.cards {
+    grid-template-columns: 1fr 1fr;
+    max-width: 720px;
+    border: 1px solid var(--black);
+  }
+  .options.cards .option {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 32px;
+    min-height: 180px;
+    border: none;
+    border-right: 1px solid var(--black);
+  }
+  .options.cards .option:last-child { border-right: none; }
+  .options.cards .option strong {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .options.cards .option span {
+    font-size: 13px;
+    color: var(--gray-500);
+    font-weight: 400;
+  }
+  .options.cards .option.selected span { color: var(--gray-300); }
+  .options.cards .option .arrow {
+    margin-top: auto;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  /* ── Footer (continue) ── */
+  .footer {
+    margin-top: auto;
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .footer-hint {
+    font-size: 12px;
+    color: var(--gray-500);
+  }
+  .continue-btn {
+    background: var(--cta-black);
+    color: var(--white);
+    border: 1px solid var(--cta-black);
+    padding: 14px 32px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .continue-btn:hover { background: var(--white); color: var(--cta-black); }
+
+  /* ── Multi-select chips ── */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border: 1px solid var(--black);
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+  }
+  .chip:hover { background: var(--gray-100); }
+  .chip.selected { background: var(--black); color: var(--white); }
+  .chip i { font-size: 14px; flex-shrink: 0; }
+
+  /* ── Prep snapshot — 5 quick-tap rows ── */
+  .prep-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .prep-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    align-items: center;
+    padding: 14px 0;
+    border-top: 1px solid var(--gray-200);
+  }
+  .prep-row:first-child { border-top: none; padding-top: 4px; }
+  .prep-row-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--black);
+  }
+  .prep-row-options {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border: 1px solid var(--black);
+  }
+  .prep-option {
+    padding: 12px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--black);
+    background: var(--white);
+    border-right: 1px solid var(--black);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    line-height: 1.25;
+  }
+  .prep-option:last-child { border-right: none; }
+  .prep-option:hover { background: var(--gray-100); }
+  .prep-option.selected { background: var(--black); color: var(--white); }
+
+  /* ── Dense content (Tech Step 2) ── */
+  .content.dense .question-block { margin-bottom: 32px; }
+  .content.dense .question-label { margin-bottom: 12px; }
+
+  /* ── Dynamic question rendering ── */
+  .question-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .question-eyebrow .question-num {
+    color: var(--gray-400);
+  }
+  .question-eyebrow .divider {
+    width: 16px;
+    height: 1px;
+    background: var(--gray-300);
+  }
+  .question-prompt {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+
+  /* ── Screen visibility ── */
+  .screen { display: none; }
+  .screen:target { display: block; }
+  body:not(:has(.screen:target)) #screen-1 { display: block; }
+
+  /* ── Report loader overlay ── */
+  #report-loader {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--cta-black);
+    color: var(--white);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+  #report-loader.active { display: flex; }
+  .loader-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+  }
+  .loader-msg {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    max-width: 480px;
+    line-height: 1.35;
+    min-height: 80px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  .loader-msg.fade { opacity: 0; }
+  .loader-bar-track {
+    width: 240px;
+    height: 2px;
+    background: var(--gray-800);
+  }
+  .loader-bar-fill {
+    height: 2px;
+    background: var(--white);
+    width: 0%;
+    transition: width 2.6s linear;
+  }
+  .loader-bar-fill.run { width: 100%; }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .topbar { padding: 16px 24px; }
+    .page { grid-template-columns: 1fr; }
+    .sidebar {
+      border-right: none;
+      border-bottom: 1px solid var(--black);
+      padding: 40px 24px;
+    }
+    .content { padding: 40px 24px; }
+    .options { grid-template-columns: 1fr; }
+    .options.cards { grid-template-columns: 1fr; }
+    .options.cards .option {
+      border-right: none;
+      border-bottom: 1px solid var(--black);
+    }
+    .options.cards .option:last-child { border-bottom: none; }
+    .content-title { font-size: 22px; }
+    .sidebar-title { font-size: 26px; }
+    .prep-row { grid-template-columns: 1fr; gap: 8px; padding: 16px 0; }
+    .prep-row-options { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SCREEN 1 — Background Selector                           -->
+<!-- ════════════════════════════════════════════════════════ -->
+<section id="screen-1" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-right">Free · 3 mins</div>
+    <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="sidebar-eyebrow">Tech Career Assessment · 2 mins</div>
+      <h1 class="sidebar-title">Free Profile Evaluation</h1>
+      <p class="sidebar-desc">A comprehensive evaluation of your profile for tech roles. Discover your strengths, identify gaps, and receive personalised recommendations to accelerate your career growth.</p>
+      <ul class="sidebar-features">
+        <li>Profile Strength Analysis</li>
+        <li>Skill Gap Assessment</li>
+        <li>Career Readiness Timeline</li>
+        <li>Peer Comparison</li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos">
+          <span>Google</span><span>Amazon</span><span>Flipkart</span><span>Meta</span>
+        </div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="step-indicator">Get Started</div>
+      <h2 class="content-title">What's your current background?</h2>
+      <div class="options cards">
+        <a href="#screen-nt-1" class="option">
+          <strong>Non-Tech / Career Switcher</strong>
+          <span>Looking to transition into tech from a non-technical background.</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="#screen-t-1" class="option">
+          <strong>Software, Data &amp; AI Professional</strong>
+          <span>Working in software, data, ML, AI, or DevOps — and looking to grow.</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- TECH PROFESSIONAL FLOW                                    -->
+<!-- ════════════════════════════════════════════════════════ -->
+
+<!-- TECH STEP 1 — Role + Years -->
+<section id="screen-t-1" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-center"><a href="#screen-1" class="nav-back">‹</a></div>
+    <div class="topbar-right">Step 1 of 5</div>
+    <div class="progress-track"><div class="progress-fill" style="width:20%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="mentor-msg">
+        <div class="mentor-avatar">i</div>
+        <div class="mentor-bubble">Hey, let's start with the basics — where you are in your tech journey today.</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="step-indicator">Step 1 of 5 — Your Profile</div>
+      <h2 class="content-title">Tell us about your current role</h2>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">01</span>What best describes your current role?</div>
+        <div class="options">
+          <div class="option" data-track="software_easy"><i class="ph ph-briefcase"></i>Software Engineer · Service Company</div>
+          <div class="option" data-track="software_medium"><i class="ph ph-buildings"></i>Software Engineer · Product Company</div>
+          <div class="option" data-track="dsml"><i class="ph ph-chart-scatter"></i>Data Scientist / ML Engineer</div>
+          <div class="option" data-track="aiml"><i class="ph ph-robot"></i>AI / ML Engineer · LLMs / RAG / Agents</div>
+          <div class="option" data-track="devops"><i class="ph ph-cloud"></i>DevOps / Cloud / Infra Engineer</div>
+          <div class="option" data-track="software_easy"><i class="ph ph-bug"></i>QA / Support / Other Tech Role</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">02</span>How many years have you been in tech?</div>
+        <div class="options">
+          <div class="option" data-tier="tier1"><i class="ph ph-clock"></i>0–2 years</div>
+          <div class="option" data-tier="tier2"><i class="ph ph-clock"></i>2–3 years</div>
+          <div class="option" data-tier="tier2"><i class="ph ph-clock"></i>3–5 years</div>
+          <div class="option" data-tier="tier3"><i class="ph ph-clock"></i>5–8 years</div>
+          <div class="option" data-tier="tier3"><i class="ph ph-clock"></i>8+ years</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-hint">Step 1 of 5</div>
+        <a href="#screen-t-2" class="continue-btn">Continue →</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- TECH STEP 2 — Role-aware Skills -->
+<section id="screen-t-2" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-center">
+      <a href="#screen-t-1" class="nav-back">‹</a>
+      <a href="report.html" class="evaluate-btn">Evaluate My Profile</a>
+    </div>
+    <div class="topbar-right">Step 2 of 5</div>
+    <div class="progress-track"><div class="progress-fill" style="width:40%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="mentor-msg">
+        <div class="mentor-avatar">i</div>
+        <div class="mentor-bubble">Tick the skills you actually use — not ones you've heard of. This drives your gap analysis.</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
+      </div>
+    </aside>
+    <main class="content dense">
+      <div class="step-indicator">Step 2 of 5 — Your Skills</div>
+      <h2 class="content-title">What do you actually use day-to-day?</h2>
+      <div id="t2-dynamic"></div>
+      <div class="footer">
+        <div class="footer-hint">Step 2 of 5</div>
+        <a href="#screen-t-3" class="continue-btn">Continue →</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- TECH STEP 3 — Craft brain tickler + System self-rating -->
+<section id="screen-t-3" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-center">
+      <a href="#screen-t-2" class="nav-back">‹</a>
+      <a href="report.html" class="evaluate-btn">Evaluate My Profile</a>
+    </div>
+    <div class="topbar-right">Step 3 of 5</div>
+    <div class="progress-track"><div class="progress-fill" style="width:60%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="mentor-msg">
+        <div class="mentor-avatar">i</div>
+        <div class="mentor-bubble">Two quick ones — no right or wrong answers. Just pick what feels most honest.</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="step-indicator">Step 3 of 5 — Quick Check</div>
+      <h2 class="content-title">Let's see how you think</h2>
+      <div id="t3-dynamic"></div>
+      <div class="footer">
+        <div class="footer-hint">Step 3 of 5</div>
+        <a href="#screen-t-4" class="continue-btn">Continue →</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- TECH STEP 4 — AI brain tickler + Real-world self-rating -->
+<section id="screen-t-4" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-center">
+      <a href="#screen-t-3" class="nav-back">‹</a>
+      <a href="report.html" class="evaluate-btn">Evaluate My Profile</a>
+    </div>
+    <div class="topbar-right">Step 4 of 5</div>
+    <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="mentor-msg">
+        <div class="mentor-avatar">i</div>
+        <div class="mentor-bubble">Almost there. These two are about AI and what you've actually shipped.</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="step-indicator">Step 4 of 5 — AI Judgment</div>
+      <h2 class="content-title">How you work with AI</h2>
+      <div id="t4-dynamic"></div>
+      <div class="footer">
+        <div class="footer-hint">Step 4 of 5</div>
+        <a href="#screen-t-5" class="continue-btn">Continue →</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- TECH STEP 5 — Goals -->
+<section id="screen-t-5" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-center"><a href="#screen-t-4" class="nav-back">‹</a></div>
+    <div class="topbar-right">Step 5 of 5</div>
+    <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="mentor-msg">
+        <div class="mentor-avatar">i</div>
+        <div class="mentor-bubble">Last bit. Tell me where you want to go — and what's pushing you to act now.</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="step-indicator">Step 5 of 5 — Your Goals</div>
+      <h2 class="content-title">Where do you want to go?</h2>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">01</span>What's your dream role?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-database"></i>Senior Backend Engineer</div>
+          <div class="option"><i class="ph ph-stack"></i>Senior Full-Stack Engineer</div>
+          <div class="option"><i class="ph ph-paint-brush"></i>Senior Frontend Engineer</div>
+          <div class="option"><i class="ph ph-chart-scatter"></i>Data Science / ML Engineer</div>
+          <div class="option"><i class="ph ph-robot"></i>AI / ML Engineer</div>
+          <div class="option"><i class="ph ph-cloud"></i>DevOps / Cloud Engineer</div>
+          <div class="option"><i class="ph ph-crown-simple"></i>Tech Lead / Staff Engineer</div>
+          <div class="option"><i class="ph ph-compass"></i>Not sure yet</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">02</span>What kind of company are you targeting?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-bank"></i>FAANG / Big Tech</div>
+          <div class="option"><i class="ph ph-sparkle"></i>Product Unicorns</div>
+          <div class="option"><i class="ph ph-rocket-launch"></i>High-Growth Startups</div>
+          <div class="option"><i class="ph ph-buildings"></i>Better Service Company</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-hint">Final step</div>
+        <a href="report.html" class="continue-btn">See My Report →</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- NON-TECH FLOW                                             -->
+<!-- ════════════════════════════════════════════════════════ -->
+
+<!-- NON-TECH STEP 1 — Background + Years -->
+<section id="screen-nt-1" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-center"><a href="#screen-1" class="nav-back">‹</a></div>
+    <div class="topbar-right">Step 1 of 4</div>
+    <div class="progress-track"><div class="progress-fill" style="width:25%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="mentor-msg">
+        <div class="mentor-avatar">i</div>
+        <div class="mentor-bubble">Welcome! Let's start with where you are today, so I can build a roadmap that fits your background.</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="step-indicator">Step 1 of 4 — Background</div>
+      <h2 class="content-title">Where are you coming from?</h2>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">01</span>What's your current professional background?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-megaphone"></i>Sales / Marketing / Business</div>
+          <div class="option"><i class="ph ph-clipboard-text"></i>Operations / Consulting / PM</div>
+          <div class="option"><i class="ph ph-paint-brush-broad"></i>Design (UI/UX, Graphic, Product)</div>
+          <div class="option"><i class="ph ph-bank"></i>Finance / Accounting / Banking</div>
+          <div class="option"><i class="ph ph-graduation-cap"></i>Other Non-Tech / Fresh Grad</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">02</span>How many years of work experience do you have?</div>
+        <div class="options">
+          <div class="option" data-tier="tier1"><i class="ph ph-seedling"></i>0 years (Fresh grad)</div>
+          <div class="option" data-tier="tier1"><i class="ph ph-clock"></i>0–2 years</div>
+          <div class="option" data-tier="tier2"><i class="ph ph-clock"></i>2–3 years</div>
+          <div class="option" data-tier="tier2"><i class="ph ph-clock"></i>3–5 years</div>
+          <div class="option" data-tier="tier3"><i class="ph ph-clock"></i>5+ years</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-hint">Step 1 of 4</div>
+        <a href="#screen-nt-2" class="continue-btn">Continue →</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- NON-TECH STEP 2 — Target track + basic skills -->
+<section id="screen-nt-2" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-center">
+      <a href="#screen-nt-1" class="nav-back">‹</a>
+      <a href="report.html" class="evaluate-btn">Evaluate My Profile</a>
+    </div>
+    <div class="topbar-right">Step 2 of 4</div>
+    <div class="progress-track"><div class="progress-fill" style="width:50%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="mentor-msg">
+        <div class="mentor-avatar">i</div>
+        <div class="mentor-bubble">Pick the track that excites you most — then tell me what you already know.</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
+      </div>
+    </aside>
+    <main class="content dense">
+      <div class="step-indicator">Step 2 of 4 — Your Target</div>
+      <h2 class="content-title">What are you aiming to become?</h2>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">01</span>Which track excites you the most?</div>
+        <div class="options">
+          <div class="option" data-nt-track="software"><i class="ph ph-code"></i>Software Engineering</div>
+          <div class="option" data-nt-track="dsml"><i class="ph ph-chart-scatter"></i>Data Science / ML</div>
+          <div class="option" data-nt-track="aiml"><i class="ph ph-robot"></i>AI / ML Engineering</div>
+          <div class="option" data-nt-track="devops"><i class="ph ph-cloud"></i>DevOps / Cloud</div>
+        </div>
+      </div>
+
+      <div id="nt2-skills" style="display:none">
+        <div class="question-block">
+          <div class="question-label"><span class="question-num">02</span>Which of these have you tried or are comfortable with?</div>
+          <div class="chips" id="nt2-skills-chips"></div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-hint">Step 2 of 4</div>
+        <a href="#screen-nt-3" class="continue-btn">Continue →</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- NON-TECH STEP 3 — Brain ticklers -->
+<section id="screen-nt-3" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-center">
+      <a href="#screen-nt-2" class="nav-back">‹</a>
+      <a href="report.html" class="evaluate-btn">Evaluate My Profile</a>
+    </div>
+    <div class="topbar-right">Step 3 of 4</div>
+    <div class="progress-track"><div class="progress-fill" style="width:75%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="mentor-msg">
+        <div class="mentor-avatar">i</div>
+        <div class="mentor-bubble">Two quick ones — just pick what feels most like you. There are no wrong answers.</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="step-indicator">Step 3 of 4 — Quick Check</div>
+      <h2 class="content-title">Let's see where you're at</h2>
+      <div id="nt3-dynamic"></div>
+      <div class="footer">
+        <div class="footer-hint">Step 3 of 4</div>
+        <a href="#screen-nt-4" class="continue-btn">Continue →</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- NON-TECH STEP 4 — What you've built + Time + Company + Why now -->
+<section id="screen-nt-4" class="screen">
+  <header class="topbar">
+    <div class="logo">SCALER↗</div>
+    <div class="topbar-center"><a href="#screen-nt-3" class="nav-back">‹</a></div>
+    <div class="topbar-right">Step 4 of 4</div>
+    <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <div class="mentor-msg">
+        <div class="mentor-avatar">i</div>
+        <div class="mentor-bubble">Last step. What you've made, how much time you have, and what's driving you.</div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="trusted-label">Trusted by alumni working at</div>
+        <div class="trusted-logos"><span>Google</span><span>Amazon</span><span>Flipkart</span></div>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="step-indicator">Step 4 of 4 — Goals</div>
+      <h2 class="content-title">Almost there — last few</h2>
+
+      <div id="nt4-dynamic"></div>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">02</span>How much time can you actually carve out per week?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-lightning"></i>10+ hours / week</div>
+          <div class="option"><i class="ph ph-clock"></i>6–10 hours / week</div>
+          <div class="option"><i class="ph ph-coffee"></i>3–5 hours / week</div>
+          <div class="option"><i class="ph ph-feather"></i>0–2 hours / week</div>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-label"><span class="question-num">03</span>What type of company would you love to work for?</div>
+        <div class="options">
+          <div class="option"><i class="ph ph-star"></i>Any tech company (experience first)</div>
+          <div class="option"><i class="ph ph-package"></i>Product companies</div>
+          <div class="option"><i class="ph ph-buildings"></i>Service companies</div>
+          <div class="option"><i class="ph ph-bank"></i>FAANG / Big Tech (long-term)</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-hint">Final step</div>
+        <a href="report.html" class="continue-btn">See My Report →</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+
+<!-- ── Report loader overlay ── -->
+<div id="report-loader">
+  <div class="loader-eyebrow">Scaler · Profile Evaluation</div>
+  <div class="loader-msg" id="loader-msg">Reading your answers…</div>
+  <div class="loader-bar-track"><div class="loader-bar-fill" id="loader-bar"></div></div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// QUESTION BANK  (72 questions: 5 tracks × 3 tiers × 4 Qs + non_tech)
+// ══════════════════════════════════════════════════════════════
+const QB = {
+
+  // ── Tech skills (track × tier aware) ────────────────────
+  // tier2/tier3 = base + AI-for-X chips appended
+  skills: {
+    software: {
+      tier1: [
+        { icon: 'ph-code',           text: 'Python' },
+        { icon: 'ph-code',           text: 'Java' },
+        { icon: 'ph-code',           text: 'Go' },
+        { icon: 'ph-code',           text: 'JavaScript' },
+        { icon: 'ph-code',           text: 'TypeScript' },
+        { icon: 'ph-database',       text: 'SQL' },
+        { icon: 'ph-database',       text: 'PostgreSQL' },
+        { icon: 'ph-database',       text: 'MongoDB' },
+        { icon: 'ph-stack',          text: 'Django / Flask' },
+        { icon: 'ph-stack',          text: 'Spring Boot' },
+        { icon: 'ph-stack',          text: 'Node.js / Express' },
+        { icon: 'ph-stack',          text: 'React' },
+        { icon: 'ph-cloud',          text: 'AWS / GCP / Azure' },
+        { icon: 'ph-package',        text: 'Docker' },
+        { icon: 'ph-package',        text: 'Kubernetes' },
+        { icon: 'ph-broadcast',      text: 'Kafka / RabbitMQ' },
+        { icon: 'ph-lightning',      text: 'Redis' },
+        { icon: 'ph-tree-structure', text: 'System Design' },
+        { icon: 'ph-eye',            text: 'Observability' },
+      ],
+      get tier2() {
+        return [...this.tier1,
+          { icon: 'ph-robot',        text: 'AI for coding' },
+          { icon: 'ph-bug',          text: 'AI for debugging' },
+          { icon: 'ph-chat-text',    text: 'AI for code review' },
+        ];
+      },
+      get tier3() {
+        return [...this.tier2,
+          { icon: 'ph-git-pull-request', text: 'AI for PR review' },
+          { icon: 'ph-chart-line-up',    text: 'AI for observability' },
+          { icon: 'ph-test-tube',        text: 'AI for test generation' },
+        ];
+      },
+    },
+    dsml: {
+      tier1: [
+        { icon: 'ph-code',          text: 'Python' },
+        { icon: 'ph-code',          text: 'R' },
+        { icon: 'ph-database',      text: 'SQL' },
+        { icon: 'ph-table',         text: 'Pandas / NumPy' },
+        { icon: 'ph-lightning',     text: 'Spark' },
+        { icon: 'ph-brain',         text: 'TensorFlow / PyTorch' },
+        { icon: 'ph-brain',         text: 'Scikit-learn' },
+        { icon: 'ph-git-branch',    text: 'MLflow' },
+        { icon: 'ph-flow-arrow',    text: 'Airflow' },
+        { icon: 'ph-chart-bar',     text: 'Tableau / Power BI' },
+        { icon: 'ph-chart-line-up', text: 'Statistics' },
+        { icon: 'ph-funnel',        text: 'Feature Engineering' },
+      ],
+      get tier2() {
+        return [...this.tier1,
+          { icon: 'ph-chat-circle-dots', text: 'AI for data analysis' },
+          { icon: 'ph-cloud',            text: 'LLM APIs' },
+        ];
+      },
+      get tier3() {
+        return [...this.tier2,
+          { icon: 'ph-tag',              text: 'AI for data labelling' },
+          { icon: 'ph-magnifying-glass', text: 'AI-assisted EDA' },
+          { icon: 'ph-arrows-clockwise', text: 'AI for pipeline automation' },
+        ];
+      },
+    },
+    aiml: {
+      // AI-native track — same chips across all tiers, already comprehensive
+      tier1: [
+        { icon: 'ph-code',               text: 'Python' },
+        { icon: 'ph-link-simple',        text: 'LangChain / LlamaIndex' },
+        { icon: 'ph-magnifying-glass',   text: 'RAG' },
+        { icon: 'ph-cube',               text: 'Vector Databases' },
+        { icon: 'ph-cloud',              text: 'OpenAI / Claude API' },
+        { icon: 'ph-smiley',             text: 'Hugging Face' },
+        { icon: 'ph-chat-text',          text: 'Prompt Engineering' },
+        { icon: 'ph-test-tube',          text: 'Evals / Benchmarking' },
+        { icon: 'ph-robot',              text: 'Agent Frameworks' },
+        { icon: 'ph-wrench',             text: 'Fine-tuning' },
+      ],
+      get tier2() { return this.tier1; },
+      get tier3() { return this.tier1; },
+    },
+    devops: {
+      tier1: [
+        { icon: 'ph-package',          text: 'Docker' },
+        { icon: 'ph-circles-four',     text: 'Kubernetes' },
+        { icon: 'ph-code',             text: 'Terraform' },
+        { icon: 'ph-anchor',           text: 'Helm' },
+        { icon: 'ph-git-pull-request', text: 'CI/CD (GitHub Actions / Jenkins)' },
+        { icon: 'ph-cloud',            text: 'AWS / GCP / Azure' },
+        { icon: 'ph-terminal',         text: 'Linux' },
+        { icon: 'ph-chart-line-up',    text: 'Prometheus / Grafana' },
+        { icon: 'ph-list-checks',      text: 'Ansible' },
+        { icon: 'ph-terminal-window',  text: 'Bash / Python scripting' },
+        { icon: 'ph-network',          text: 'Networking basics' },
+        { icon: 'ph-lock',             text: 'IAM / Security' },
+      ],
+      get tier2() {
+        return [...this.tier1,
+          { icon: 'ph-robot',        text: 'AI for IaC scripting' },
+          { icon: 'ph-eye',          text: 'AI for log analysis' },
+        ];
+      },
+      get tier3() {
+        return [...this.tier2,
+          { icon: 'ph-siren',        text: 'AI for incident response' },
+          { icon: 'ph-shield-check', text: 'AI for security scanning' },
+          { icon: 'ph-arrows-clockwise', text: 'AI for runbook automation' },
+        ];
+      },
+    },
+  },
+
+  // ── Non-tech basic skills (target-track-aware chips) ─────
+  nt_skills: {
+    software: [
+      { icon: 'ph-code',          text: 'Python' },
+      { icon: 'ph-code',          text: 'JavaScript' },
+      { icon: 'ph-brackets-curly',text: 'HTML / CSS' },
+      { icon: 'ph-git-branch',    text: 'Git' },
+      { icon: 'ph-database',      text: 'Databases (any)' },
+      { icon: 'ph-cloud',         text: 'APIs / REST basics' },
+    ],
+    dsml: [
+      { icon: 'ph-code',          text: 'Python' },
+      { icon: 'ph-table',         text: 'Excel / Google Sheets' },
+      { icon: 'ph-database',      text: 'SQL' },
+      { icon: 'ph-chart-bar',     text: 'Data visualisation (any)' },
+      { icon: 'ph-calculator',    text: 'Statistics basics' },
+    ],
+    aiml: [
+      { icon: 'ph-chat-circle-dots', text: 'ChatGPT / Claude (daily use)' },
+      { icon: 'ph-code',          text: 'Python basics' },
+      { icon: 'ph-chat-text',     text: 'Prompt writing' },
+      { icon: 'ph-brain',         text: 'LLM concepts' },
+      { icon: 'ph-lightning',     text: 'No-code AI tools (v0, Bolt, etc.)' },
+    ],
+    devops: [
+      { icon: 'ph-terminal',      text: 'Linux CLI' },
+      { icon: 'ph-git-branch',    text: 'Git' },
+      { icon: 'ph-package',       text: 'Docker basics' },
+      { icon: 'ph-cloud',         text: 'Cloud platforms (AWS / GCP / Azure)' },
+      { icon: 'ph-terminal-window', text: 'Scripting basics (Bash / Python)' },
+    ],
+  },
+
+  // ── Tech brain ticklers (track × tier) ───────────────────
+  tech: {
+    software_easy: {
+      tier1: {
+        q1: { label: 'You have a list of 100 numbers. You need the largest one. What\'s the simplest way?', options: ['Sort the list, take the last item', 'Loop once, track the biggest as you go', 'Add them all up, divide by count', 'I\'d Google it'] },
+        q2: { label: 'You ask ChatGPT to write a function. It gives you code. What do you do first?', options: ['Copy-paste it and run', 'Read it line by line first', 'Ask ChatGPT to explain what it wrote', 'I haven\'t really used ChatGPT for code yet'] },
+        q3: { label: 'Have you ever built or worked on a multi-file project?', options: ['Yes — built a small app with multiple files and a database', 'Yes — worked inside a small codebase as part of a team', 'Followed a tutorial that touched multiple files', 'Only written single-file scripts so far', 'Not yet'] },
+        q4: { label: 'What\'s the most you\'ve shipped that\'s actually running somewhere?', options: ['A working app or tool with real users (even a few)', 'A side-project that runs on my laptop end-to-end', 'College / bootcamp project, fully working', 'Tutorial follow-alongs only', 'Not yet'] },
+      },
+      tier2: {
+        q1: { label: 'You need to find if a username exists in a list of 1 million users. Which is fastest?', options: ['Loop through the list and check each one', 'Sort the list first, then binary search', 'Put the usernames in a set / hashmap, then check', 'I\'d let the database handle it'] },
+        q2: { label: 'Copilot autocompletes a function for you. It looks right. Before you commit it, what do you do?', options: ['Run the existing tests', 'Read every line and trace the logic', 'Ship it if the tests pass', 'I don\'t use Copilot regularly yet'] },
+        q3: { label: 'How comfortable are you with how a typical web app is wired together?', options: ['Can explain how a request flows from frontend → API → DB and back', 'Know the pieces but get confused about where things break', 'Can build features inside a codebase but the big picture is fuzzy', 'Follow tickets and write code for what I\'m told', 'Haven\'t worked on a real web app yet'] },
+        q4: { label: 'What\'s the most complex thing you\'ve shipped to production?', options: ['A multi-feature module used by real customers', 'A standalone feature inside a larger product', 'A small fix or improvement that went live', 'Internal tools or PoCs only', 'Nothing in production yet'] },
+      },
+      tier3: {
+        q1: { label: 'A page on your app suddenly takes 5 seconds to load. The DB is fine. Where do you look first?', options: ['Network tab — check API call sizes and timings', 'Frontend bundle / render performance', 'Server logs for slow endpoints', 'All of the above, in parallel'] },
+        q2: { label: 'Your team is debating whether to let Copilot write tests for a critical billing flow. Your take?', options: ['Yes — but every test must be reviewed and the suite must catch real bugs', 'Yes — Copilot tests are fine, faster than writing them ourselves', 'No — testing critical flows is too risky to automate', 'I\'d defer to whoever owns the billing module'] },
+        q3: { label: 'You\'re asked to design a small new module for your team\'s product. How do you approach it?', options: ['Sketch the data model + API + integration points, talk it through with the team', 'Build a quick prototype and iterate', 'Ask a senior to walk me through how they\'d do it', 'Start coding and figure it out as I go', 'Haven\'t been asked to design something on my own'] },
+        q4: { label: 'What\'s the most senior thing you\'ve owned end-to-end?', options: ['A full feature or service that I designed, built, and still maintain', 'A feature I built but a senior reviewed the design', 'Pieces of features inside someone else\'s design', 'Bug fixes and small improvements', 'Mostly support / maintenance work'] },
+      },
+    },
+    software_medium: {
+      tier1: {
+        q1: { label: 'You have a list of users and need to look up one by ID, repeatedly. What\'s the fastest way?', options: ['Loop through the list each time', 'Sort the list and binary search', 'Use a hashmap / dictionary keyed by ID', 'I\'d ask the senior dev'] },
+        q2: { label: 'You ask Cursor to write a function that handles user input. It generates the code. What do you do first?', options: ['Run the tests', 'Read every line, especially the validation part', 'Ship it if it compiles cleanly', 'I\'d write it myself, I don\'t trust AI yet'] },
+        q3: { label: 'How comfortable are you with how a typical product company codebase is structured?', options: ['Can navigate a multi-service codebase and find what I need', 'Know my team\'s part well, the rest is a black box', 'Can read code but get lost in big repos', 'Mostly worked on small scripts and college projects', 'Haven\'t worked in a real codebase yet'] },
+        q4: { label: 'What\'s the most you\'ve shipped that real users used?', options: ['A feature or two in production at my current company', 'An internship project that went live', 'A side-project with a few real users', 'College / bootcamp projects only', 'Nothing in production yet'] },
+      },
+      tier2: {
+        q1: { label: 'Your service does 10K reads/sec on a single Postgres table. Latency is climbing. First thing you\'d try?', options: ['Add an index on the most-queried column', 'Add a read replica', 'Cache hot rows in Redis', 'Profile the slow queries first'] },
+        q2: { label: 'Copilot generates a function that handles user payments. It looks correct. What do you do first?', options: ['Run the tests', 'Read every line, especially the auth and money paths', 'Ship it if the tests pass', 'I wouldn\'t trust Copilot for payment code'] },
+        q3: { label: 'How comfortable are you with system design fundamentals?', options: ['Designed services with caching, queues, scaling decisions and defended them in reviews', 'Can sketch the basic shape — DBs, APIs, where data flows', 'Understand the pieces but couldn\'t put one together end-to-end', 'Heard the terms but never tried it myself', 'This area is new to me'] },
+        q4: { label: 'What\'s the most you\'ve shipped that real users actually used?', options: ['Multi-service features in production used by thousands', 'A solo project shipped end-to-end with auth, DB, deploys', 'A feature inside someone else\'s product I\'m proud of', 'Internal tools only', 'Nothing in production yet'] },
+      },
+      tier3: {
+        q1: { label: 'Your team\'s API latency P99 doubled overnight. Nothing changed in your code. First place to look?', options: ['Recent deploys across all upstream services', 'Database — slow query log, connection pool', 'Infra — CPU, memory, network on the hosts', 'All of the above, in parallel'] },
+        q2: { label: 'Your team\'s PR review backlog is killing release velocity. How would you wire AI in to fix it?', options: ['Add CodeRabbit / Copilot review on every PR + lightweight human sign-off for critical paths', 'Use Copilot to write better PR descriptions so humans review faster', 'Use AI to triage which PRs need senior review vs auto-approve', 'I\'m not convinced AI is reliable enough to review code yet'] },
+        q3: { label: 'When you\'re asked to design a new service, how do you approach it?', options: ['Lead the design doc, defend tradeoffs in review, and own the integration points', 'Write the design and get a senior to sanity-check it', 'Follow our team\'s templates and patterns', 'Usually pair with someone more senior on design', 'Haven\'t owned a design end-to-end yet'] },
+        q4: { label: 'What\'s the most senior thing you currently own?', options: ['A whole service or platform that I designed and still maintain', 'A major feature I built end-to-end', 'Pieces of larger systems', 'Bug fixes and small features', 'Mostly support / maintenance'] },
+      },
+    },
+    dsml: {
+      tier1: {
+        q1: { label: 'You build a model. Training accuracy is 95%, test accuracy is 60%. What\'s most likely?', options: ['The model is too simple', 'The model is overfitting to the training data', 'The training data is too small', 'The test data is wrong'] },
+        q2: { label: 'ChatGPT writes you a SQL query that joins three tables and returns "the right number." What do you do first?', options: ['Run it on the full dataset', 'Run it on a sample, sanity-check the joins and counts', 'Trust it if the number looks reasonable', 'I\'d write the query myself, I don\'t trust AI on data'] },
+        q3: { label: 'How comfortable are you with the steps in a typical data pipeline (extract → clean → analyse → model)?', options: ['Built one end-to-end on real data', 'Done parts of it (mostly cleaning + analysis)', 'Followed tutorials but never built one solo', 'Understand the steps but haven\'t done them yet', 'Not yet'] },
+        q4: { label: 'What\'s the most you\'ve actually built with data?', options: ['A real model trained on real data, used by someone', 'A clean analysis report that drove a decision at work / college', 'Notebooks for class / Kaggle competitions', 'Followed tutorials and reproduced examples', 'Nothing yet'] },
+      },
+      tier2: {
+        q1: { label: 'You\'re building a churn model. Massive class imbalance — 98% non-churn. First fix?', options: ['Train on it as-is, the model will figure it out', 'Resample the data (oversample churners or undersample non-churners)', 'Switch to a different metric (precision / recall instead of accuracy)', 'All of the above — and probably try a different model'] },
+        q2: { label: 'ChatGPT writes you a feature engineering pipeline that "should work." Before you train on its output, what do you do?', options: ['Train on it, see if accuracy is good', 'Eyeball the output rows — distributions, nulls, sanity ranges', 'Ask ChatGPT to explain each transformation', 'I\'d write the pipeline myself, AI doesn\'t know my data'] },
+        q3: { label: 'How comfortable are you with the lifecycle of a real ML project (data → train → serve → monitor)?', options: ['Owned at least one model from data through to monitoring in production', 'Trained models end-to-end but never had to serve / monitor them live', 'Done the data + training side, never deployment', 'Mostly do ad-hoc analysis and reports', 'Not yet'] },
+        q4: { label: 'What\'s the most impactful thing you\'ve shipped with data or ML?', options: ['A model in production that real users / systems depend on', 'A model deployed for an internal team', 'A polished analysis that changed a business decision', 'Solid notebooks and Kaggle results', 'Mostly tutorials and class projects'] },
+      },
+      tier3: {
+        q1: { label: 'Your model has been live for 3 months. Accuracy is dropping. What\'s most likely?', options: ['The model is wearing out — needs retraining', 'The data distribution has shifted (data drift)', 'A bug in the inference pipeline', 'All of the above — would investigate in that order'] },
+        q2: { label: '"Should we use an LLM to label our training data instead of paying annotators?" What do you say?', options: ['Yes — but only with human spot-checks and a clear quality threshold', 'Yes — LLMs are accurate enough now, much faster', 'No — LLM labels introduce systematic bias', 'I\'d defer to whoever owns the labelling pipeline'] },
+        q3: { label: 'When your team builds a new ML system, how involved are you in the design?', options: ['Lead the design — data, model, serving, monitoring, ownership', 'Own the modelling part, work closely with platform / infra', 'Handle modelling, others handle serving and infra', 'Do analysis / experiments more than systems', 'Still getting into the systems side'] },
+        q4: { label: 'What\'s the biggest model or system you currently own?', options: ['A production ML system I designed, monitor, and retrain', 'A model I built that someone else now serves', 'Pieces of a larger ML platform', 'Strong analysis work, less production', 'Mostly research / experiments'] },
+      },
+    },
+    aiml: {
+      tier1: {
+        q1: { label: 'You ask GPT a question and it confidently gives you a wrong answer. What\'s that called?', options: ['Overfitting', 'Hallucination', 'Bias', 'Drift'] },
+        q2: { label: 'You\'re using ChatGPT to debug your own code. What\'s the best way to use it?', options: ['Paste the error, copy back the fix', 'Paste the error AND the relevant code, then read what it suggests carefully', 'Describe the problem in plain English, let ChatGPT guess', 'I rarely use it, I\'d rather Stack Overflow'] },
+        q3: { label: 'How comfortable are you with the basic shape of an LLM-powered app?', options: ['Built one — prompt → LLM → parse output → show user', 'Followed a tutorial end-to-end but never built one solo', 'Understand the pieces but haven\'t wired one together', 'Used the OpenAI / Claude API once or twice', 'Haven\'t built anything with LLMs yet'] },
+        q4: { label: 'What\'s the most you\'ve actually built with AI?', options: ['A small AI product or tool that real people have used', 'A side-project (chatbot, summariser, etc.) that works end-to-end', 'Followed tutorials and modified them', 'Used ChatGPT a lot but never built anything', 'Nothing yet'] },
+      },
+      tier2: {
+        q1: { label: 'Your RAG chatbot answers confidently but the answers are wrong. First place to look?', options: ['The LLM model — try a bigger one', 'The retrieval step — are the right documents even being fetched?', 'The prompt — rewrite the system prompt', 'The vector DB — switch providers'] },
+        q2: { label: 'Your team wants to ship an LLM agent that can take actions in your product. What\'s your move?', options: ['Build it with strict per-action confirmation prompts and audit logs', 'Build it with a guardrail LLM that reviews each action first', 'Build it but only allow read-only actions in v1', 'Don\'t build it — too risky for users right now'] },
+        q3: { label: 'How comfortable are you with building production LLM systems?', options: ['Built and shipped a RAG / agent system that real users rely on', 'Built end-to-end prototypes that worked but never went live', 'Built parts (retrieval, prompting, evals) but never the full thing', 'Used LangChain / LlamaIndex tutorials', 'Still in the experimentation phase'] },
+        q4: { label: 'What\'s the most impactful AI thing you\'ve shipped?', options: ['A production AI feature inside a real product, used daily', 'An internal AI tool used by my team', 'A polished side-project (chatbot, agent, RAG demo)', 'Tutorials and prototypes', 'Nothing in production yet'] },
+      },
+      tier3: {
+        q1: { label: 'Your production LLM system was working. Now answers are slower and lower quality. Nothing changed in your code. First check?', options: ['The provider\'s API status — they may have changed the model', 'Your retrieval index — has anything been re-indexed?', 'Your prompt — did anyone touch the system prompt?', 'All of the above, in that order'] },
+        q2: { label: 'Build your own LLM eval pipeline, or trust a third-party (LangSmith, Braintrust)? What do you say?', options: ['Build a thin custom eval suite tailored to our failure modes — third-party for general regressions', 'Use the third-party — eval is hard, don\'t reinvent', 'Build everything in-house — vendor lock-in is risky', 'I\'d run a quick comparison with both before deciding'] },
+        q3: { label: 'When your team designs a new LLM-powered system, how involved are you?', options: ['Lead the design — model choice, retrieval strategy, eval, monitoring, cost', 'Own the LLM and retrieval parts, others handle infra', 'Do prompting and prototypes, others productionise it', 'Mostly do experimentation and research', 'Still learning the systems side'] },
+        q4: { label: 'What\'s the biggest AI system you currently own?', options: ['A production LLM/agent system I designed, evaluate, and improve continuously', 'A live AI feature I built and others now maintain', 'Pieces of a larger AI platform', 'Strong prototypes, less in production', 'Mostly experiments and demos'] },
+      },
+    },
+    devops: {
+      tier1: {
+        q1: { label: 'Your service is returning 503 errors. Where do you look first?', options: ['The application logs', 'CPU / memory metrics on the host', 'Recent deployments', 'All of the above, in parallel'] },
+        q2: { label: 'You ask ChatGPT for a Bash one-liner to clean up old log files. It gives you one. What do you do first?', options: ['Run it in production', 'Run it on a test directory first', 'Read every flag and understand what each part does', 'I\'d write it myself, I don\'t trust AI for shell commands'] },
+        q3: { label: 'How comfortable are you with basic cloud infrastructure (compute, storage, network, IAM)?', options: ['Can spin up and connect these pieces on AWS / GCP without help', 'Can do it with documentation but need to look things up', 'Followed tutorials but never built it solo', 'Know the terms but haven\'t wired things up yet', 'Not yet'] },
+        q4: { label: 'What\'s the most you\'ve actually deployed or run?', options: ['A real service in production with monitoring and alerts', 'A side-project deployed to a cloud provider', 'A working environment for a college / personal project', 'Tutorial walkthroughs only', 'Nothing yet'] },
+      },
+      tier2: {
+        q1: { label: 'A pod in your Kubernetes cluster is stuck in CrashLoopBackOff. First thing you\'d run?', options: ['kubectl logs — check the application output', 'kubectl describe pod — check events and status', 'Restart the pod and see if it self-heals', 'Check the deploy history first'] },
+        q2: { label: 'Claude writes you a Terraform module that "looks fine." You\'re about to apply it to prod. What do you do first?', options: ['terraform plan and read every resource diff carefully', 'Apply it to staging first, then prod', 'Trust it if Claude was confident', 'I\'d rewrite it from scratch — AI can\'t be trusted with infra'] },
+        q3: { label: 'How comfortable are you with designing infrastructure for a new service?', options: ['Can size the cluster, set up CI/CD, monitoring, and alerts on my own', 'Can do parts of it but lean on senior folks for the architecture', 'Follow our team\'s templates and patterns', 'Mostly handle on-call and small infra changes', 'Haven\'t owned new infra yet'] },
+        q4: { label: 'What\'s the most you currently own in infra?', options: ['Multiple services + the CI/CD + monitoring stack around them', 'One service end-to-end (deploy, monitor, on-call)', 'Pieces of a larger platform someone else owns', 'Tickets and small infra work', 'Mostly support / on-call'] },
+      },
+      tier3: {
+        q1: { label: 'Your team\'s deploys have started failing intermittently — about 1 in 10. First place you\'d look?', options: ['The CI/CD pipeline logs across the failed runs', 'The cloud provider\'s status page', 'Recent changes to the deploy scripts or infra', 'All of the above, with the failed-run logs first'] },
+        q2: { label: '"Should we let an AI agent run our incident response runbooks (restart services, scale up, etc.)?" Your take?', options: ['Yes — but only for read-only diagnosis steps; humans approve actions', 'Yes — full agent autonomy for known incidents, page humans on anything new', 'No — an agent making infra changes is too risky', 'I\'d run a small pilot on staging first'] },
+        q3: { label: 'When your team is designing a new platform or major infra change, how involved are you?', options: ['Lead the design — capacity, networking, security, observability, cost', 'Own significant chunks of the design', 'Contribute but follow someone else\'s lead', 'Implement what\'s been designed', 'Still building toward design ownership'] },
+        q4: { label: 'What\'s the biggest thing you currently own in your infra?', options: ['A whole platform / cluster I designed and now operate', 'Major systems I designed alongside a senior', 'Pieces of a larger platform someone else owns', 'Smaller services + on-call', 'Mostly on-call and ticket work'] },
+      },
+    },
+  },
+
+  // ── Non-tech brain ticklers (tier-based) ─────────────────
+  non_tech: {
+    tier1: {
+      q1: { label: 'A friend\'s app crashes every time more than 100 people use it at once. What\'s most likely the problem?', options: ['The app has a bug in the code', 'The server can\'t handle the load', 'Too many users means the internet slows down', 'The database is full'] },
+      q2: { label: 'How much have you actually played with code?', options: ['Followed a beginner course and written some Python / JavaScript', 'Watched videos and tried a few examples', 'Heard the words but never typed code', 'Avoided code so far', 'Not interested in code — more in tools / no-code'] },
+      q3: { label: 'Have you actually built or made anything yet?', options: ['A small website / app / tool I\'m proud of', 'A working tutorial I followed end-to-end', 'Experimented but nothing finished', 'Watched but not tried', 'Nothing yet'] },
+    },
+    tier2: {
+      q1: { label: 'Your manager asks for a one-page summary of a 30-page report by tomorrow morning. How do you handle it?', options: ['Drop the report into Claude / ChatGPT, edit the summary, send', 'Read the report myself, then ask AI to polish my summary', 'Read it cover to cover and write it yourself', 'I\'d ask for an extension'] },
+      q2: { label: 'How comfortable are you with code today?', options: ['Can read simple code and modify small things', 'Followed tutorials and built small things', 'Tried code a few times but it didn\'t stick', 'Know what code is but haven\'t really tried', 'Want to start from zero'] },
+      q3: { label: 'What\'s the most technical thing you\'ve actually built?', options: ['A working tool / app, even a basic one', 'A no-code / low-code project that works', 'A polished tutorial follow-along', 'Explored but not built', 'Nothing yet'] },
+    },
+    tier3: {
+      q1: { label: 'Your team has too much manual reporting work. You suspect AI could help. What\'s your move?', options: ['Pilot Claude / ChatGPT on one workflow first, measure time saved, then expand', 'Tell the team to start using ChatGPT for everything', 'Wait for IT / ops to formally approve a tool', 'I\'d avoid pushing it — let leadership decide'] },
+      q2: { label: 'Where do you stand on technical skills today?', options: ['Used SQL / Python / Excel macros in my current role', 'Worked closely with tech / engineering teams but don\'t write code', 'Purely on the business side, no real tech exposure', 'Tried to learn before but didn\'t stick with it', 'Starting from scratch'] },
+      q3: { label: 'What\'s your most technical accomplishment so far?', options: ['Built or owned a workflow / tool / dashboard at work', 'Driven a project that involved engineering teams closely', 'Used existing tools well but never built anything', 'Explored tech learning but never finished anything', 'Nothing yet'] },
+    },
+  },
+};
+
+// ══════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════
+const state = {
+  flow: null,       // 'tech' | 'nt'
+  track: null,      // 'software_easy' | 'software_medium' | 'dsml' | 'aiml' | 'devops'
+  tier: null,       // 'tier1' | 'tier2' | 'tier3'
+  ntTarget: null,   // 'software' | 'dsml' | 'aiml' | 'devops'
+};
+
+const TRACK_SKILLS = { software_easy: 'software', software_medium: 'software', dsml: 'dsml', aiml: 'aiml', devops: 'devops' };
+
+// ══════════════════════════════════════════════════════════════
+// RENDER HELPERS
+// ══════════════════════════════════════════════════════════════
+function chipsBlock(num, label, chips) {
+  return `<div class="question-block">
+  <div class="question-label"><span class="question-num">${num}</span>${label}</div>
+  <div class="chips">${chips.map(c => `<div class="chip"><i class="ph ${c.icon}"></i>${c.text}</div>`).join('')}</div>
+</div>`;
+}
+
+function optionsBlock(num, label, options) {
+  return `<div class="question-block">
+  <div class="question-label"><span class="question-num">${num}</span>${label}</div>
+  <div class="options">${options.map(o => `<div class="option">${o}</div>`).join('')}</div>
+</div>`;
+}
+
+// ══════════════════════════════════════════════════════════════
+// RENDER FUNCTIONS (called on hash change)
+// ══════════════════════════════════════════════════════════════
+function renderT2() {
+  const el = document.getElementById('t2-dynamic');
+  if (!el) return;
+  const key = TRACK_SKILLS[state.track] || 'software';
+  const tier = state.tier || 'tier1';
+  el.innerHTML = chipsBlock('01', 'Pick the skills you actually use today', QB.skills[key][tier]);
+  el.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => c.classList.toggle('selected')));
+}
+
+function renderT3() {
+  const el = document.getElementById('t3-dynamic');
+  if (!el) return;
+  const q = QB.tech[state.track || 'software_easy'][state.tier || 'tier1'];
+  el.innerHTML = optionsBlock('01', q.q1.label, q.q1.options) + optionsBlock('02', q.q3.label, q.q3.options);
+  wireSingleSelect(el);
+}
+
+function renderT4() {
+  const el = document.getElementById('t4-dynamic');
+  if (!el) return;
+  const q = QB.tech[state.track || 'software_easy'][state.tier || 'tier1'];
+  el.innerHTML = optionsBlock('01', q.q2.label, q.q2.options) + optionsBlock('02', q.q4.label, q.q4.options);
+  wireSingleSelect(el);
+}
+
+function renderNT3() {
+  const el = document.getElementById('nt3-dynamic');
+  if (!el) return;
+  const q = QB.non_tech[state.tier || 'tier1'];
+  el.innerHTML = optionsBlock('01', q.q1.label, q.q1.options) + optionsBlock('02', q.q2.label, q.q2.options);
+  wireSingleSelect(el);
+}
+
+function renderNT4() {
+  const el = document.getElementById('nt4-dynamic');
+  if (!el) return;
+  const q = QB.non_tech[state.tier || 'tier1'];
+  el.innerHTML = optionsBlock('01', q.q3.label, q.q3.options);
+  wireSingleSelect(el);
+}
+
+function renderNT2Skills(track) {
+  const wrapper = document.getElementById('nt2-skills');
+  const chipsEl = document.getElementById('nt2-skills-chips');
+  if (!wrapper || !chipsEl) return;
+  chipsEl.innerHTML = (QB.nt_skills[track] || QB.nt_skills.software)
+    .map(c => `<div class="chip"><i class="ph ${c.icon}"></i>${c.text}</div>`).join('');
+  wrapper.style.display = 'block';
+  chipsEl.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => c.classList.toggle('selected')));
+}
+
+// ══════════════════════════════════════════════════════════════
+// WIRE HELPERS
+// ══════════════════════════════════════════════════════════════
+function wireSingleSelect(container) {
+  container.querySelectorAll('.question-block').forEach(block => {
+    const opts = block.querySelectorAll('.option');
+    opts.forEach(opt => opt.addEventListener('click', () => {
+      opts.forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+    }));
+  });
+}
+
+function wireStaticScreen(screenId) {
+  const screen = document.getElementById(screenId);
+  if (!screen) return;
+  screen.querySelectorAll('.question-block').forEach(block => {
+    const opts = block.querySelectorAll('.option');
+    if (opts.length) {
+      opts.forEach(opt => opt.addEventListener('click', () => {
+        opts.forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+      }));
+    } else {
+      block.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => c.classList.toggle('selected')));
+    }
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+// INIT — STEP 1  (sets state.track + state.tier)
+// ══════════════════════════════════════════════════════════════
+function initTStep1() {
+  const screen = document.getElementById('screen-t-1');
+  if (!screen) return;
+  screen.querySelectorAll('[data-track]').forEach(opt => {
+    opt.addEventListener('click', () => {
+      screen.querySelectorAll('[data-track]').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      state.track = opt.dataset.track;
+    });
+  });
+  screen.querySelectorAll('[data-tier]').forEach(opt => {
+    opt.addEventListener('click', () => {
+      screen.querySelectorAll('[data-tier]').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      state.tier = opt.dataset.tier;
+    });
+  });
+}
+
+function initNTStep1() {
+  const screen = document.getElementById('screen-nt-1');
+  if (!screen) return;
+  // Q1 background — single-select, no state needed
+  const q1opts = screen.querySelectorAll('.question-block:first-of-type .option');
+  q1opts.forEach(opt => opt.addEventListener('click', () => {
+    q1opts.forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+  }));
+  // Q2 years → tier
+  screen.querySelectorAll('[data-tier]').forEach(opt => {
+    opt.addEventListener('click', () => {
+      screen.querySelectorAll('[data-tier]').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      state.tier = opt.dataset.tier;
+    });
+  });
+}
+
+function initNTStep2() {
+  document.querySelectorAll('[data-nt-track]').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('[data-nt-track]').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      state.ntTarget = opt.dataset.ntTrack;
+      renderNT2Skills(state.ntTarget);
+    });
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+// HASH CHANGE → render dynamic screens
+// ══════════════════════════════════════════════════════════════
+function handleHashChange() {
+  const h = location.hash;
+  if      (h === '#screen-t-2')  renderT2();
+  else if (h === '#screen-t-3')  renderT3();
+  else if (h === '#screen-t-4')  renderT4();
+  else if (h === '#screen-nt-3') renderNT3();
+  else if (h === '#screen-nt-4') renderNT4();
+}
+
+// ══════════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════
+// REPORT LOADER
+// ══════════════════════════════════════════════════════════════
+function initLoader() {
+  const MSGS = [
+    'Reading your answers…',
+    'Mapping your skills against market data…',
+    'Calculating your AI exposure score…',
+    'Benchmarking against 50,000+ profiles…',
+    'Your report is ready.',
+  ];
+
+  document.querySelectorAll('a[href="report.html"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const overlay = document.getElementById('report-loader');
+      const msgEl   = document.getElementById('loader-msg');
+      const bar     = document.getElementById('loader-bar');
+
+      overlay.classList.add('active');
+
+      // kick off progress bar
+      requestAnimationFrame(() => bar.classList.add('run'));
+
+      // cycle messages
+      let i = 0;
+      msgEl.textContent = MSGS[0];
+      const interval = setInterval(() => {
+        i++;
+        if (i >= MSGS.length) { clearInterval(interval); return; }
+        msgEl.classList.add('fade');
+        setTimeout(() => {
+          msgEl.textContent = MSGS[i];
+          msgEl.classList.remove('fade');
+        }, 300);
+      }, 560);
+
+      // navigate after bar completes
+      setTimeout(() => { window.location.href = 'report.html'; }, 2800);
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initTStep1();
+  initNTStep1();
+  initNTStep2();
+  wireStaticScreen('screen-t-5');
+  wireStaticScreen('screen-nt-4');
+  initLoader();
+  window.addEventListener('hashchange', handleHashChange);
+  handleHashChange();
+});
+</script>
+
+</body>
+</html>
