@@ -2091,6 +2091,236 @@
       .prog-video {
         min-height: 240px
       }
+
+      /* Timeline mobile */
+      .tl-map {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+      }
+
+      .tl-origin {
+        border-right: none !important;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 28px !important;
+      }
+
+      .tl-branches {
+        display: none !important;
+      }
+
+      .tl-paths {
+        padding-top: 24px !important;
+      }
+
+      .tl-card-head {
+        padding: 24px 20px 16px;
+      }
+
+      .tl-card-timebar {
+        padding: 10px 20px;
+      }
+
+      .tl-card-milestones {
+        padding: 20px 20px 24px;
+      }
+    }
+
+    /* ── CAREER TIMELINE ── */
+    .tl-map {
+      display: grid;
+      grid-template-columns: 260px 120px 1fr;
+      gap: 0;
+      margin-top: 32px;
+      position: relative;
+    }
+
+    .tl-origin {
+      border: 1px solid var(--line);
+      background: var(--white);
+      padding: 28px 24px;
+      align-self: start;
+      position: relative;
+    }
+
+    .tl-origin-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 3px 8px;
+      margin-bottom: 12px;
+    }
+
+    .tl-origin-role {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .tl-origin-detail {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--ink3);
+      margin-bottom: 4px;
+    }
+
+    .tl-origin-detail i {
+      font-size: 14px;
+      color: var(--ink4);
+    }
+
+    /* SVG branch lines (middle column) */
+    .tl-branches {
+      position: relative;
+      min-height: 100%;
+    }
+
+    .tl-branches svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Right column — stacked path cards */
+    .tl-paths {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ── Timeline Card (matches screenshot) ── */
+    .tl-card {
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .tl-card.primary {
+      border-color: #10B981;
+    }
+
+    .tl-card-head {
+      padding: 22px 28px 16px;
+    }
+
+    .tl-card-eyebrow {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 8px;
+    }
+
+    .tl-card.primary .tl-card-eyebrow { color: #065F46; }
+    .tl-card.secondary .tl-card-eyebrow { color: var(--accent); }
+    .tl-card.alt .tl-card-eyebrow { color: #5B21B6; }
+
+    .tl-card-title {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      font-weight: 500;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .tl-card-focus {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      color: var(--ink3);
+    }
+
+    .tl-card-focus i {
+      font-size: 13px;
+      color: var(--ink4);
+    }
+
+    /* Time bar — full-width divider with duration */
+    .tl-card-timebar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 32px;
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .tl-card.primary .tl-card-timebar {
+      background: #ECFDF5;
+      border-color: #10B981;
+    }
+
+    .tl-card.secondary .tl-card-timebar {
+      background: var(--accent-light);
+      border-color: var(--accent);
+    }
+
+    .tl-card.alt .tl-card-timebar {
+      background: #F5F3FF;
+      border-color: #A78BFA;
+    }
+
+    .tl-card-timebar i {
+      font-size: 13px;
+      color: var(--ink3);
+    }
+
+    /* Milestones — M1, M2, M3 */
+    .tl-card-milestones {
+      padding: 20px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .tl-milestone {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .tl-milestone-num {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--ink4);
+      letter-spacing: .04em;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .tl-card.primary .tl-milestone-num { color: #059669; }
+    .tl-card.secondary .tl-milestone-num { color: var(--accent); }
+    .tl-card.alt .tl-milestone-num { color: #7C3AED; }
+
+    .tl-milestone-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .tl-milestone-desc {
+      font-size: 11.5px;
+      color: var(--ink3);
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -2133,7 +2363,7 @@
   <!-- 01 · 10X ENGINEER — REIMAGINED: dark immersive -->
   <section class="tenx-hero">
     <div class="wrap">
-      <p class="sec-eye">01 · The 10x Engineer</p>
+      <p class="sec-eye">02 · The 10x Engineer</p>
       <h2 class="sec-h">What a 10x Backend Engineer actually looks like in 2026.</h2>
       <p class="sec-sub">Not a unicorn. A real engineer who uses AI as leverage — every single day.</p>
 
@@ -2220,7 +2450,7 @@
 
   <section class="section">
     <div class="wrap">
-      <p class="sec-eye">02 · Where You Stand</p>
+      <p class="sec-eye">03 · Where You Stand</p>
       <h2 class="sec-h">Your strengths. Your gaps. No spin.</h2>
       <p class="sec-sub">Based on what you've shipped, your DSA depth, and how you use AI today.</p>
       <div class="stand-grid" data-reveal>
@@ -2245,125 +2475,10 @@
     </div>
   </section>
 
-  <!-- CAREER PATHS -->
-  <section class="section">
-    <div class="wrap">
-      <p class="sec-eye">Your Career Paths</p>
-      <h2 class="sec-h">Three realistic transitions from where you are.</h2>
-      <p class="sec-sub">Based on your profile, experience level, and target — here's what's reachable and what it
-        takes.</p>
-
-      <div class="paths-scroll" data-reveal>
-        <div class="paths-track">
-          <!-- Card 1: Target role -->
-          <div class="path-card featured">
-            <div class="path-card-header">
-              <div class="path-card-tag">Your target role</div>
-              <div class="path-card-role">Backend @ Any Tech Company</div>
-              <div class="path-card-focus"><i class="ph ph-crosshair"></i>Primary focus area</div>
-            </div>
-            <div class="path-card-timeline"><i class="ph ph-timer"></i><span>16–18 months</span></div>
-            <div class="path-card-milestones">
-              <div class="path-milestone">
-                <div class="path-milestone-num">M1</div>
-                <div class="path-milestone-body">
-                  <div class="path-milestone-title">Month 1–2: Deep technical preparation</div>
-                  <div class="path-milestone-desc">Master your specialisation fundamentals — DSA, system design, backend
-                    patterns</div>
-                </div>
-              </div>
-              <div class="path-milestone">
-                <div class="path-milestone-num">M2</div>
-                <div class="path-milestone-body">
-                  <div class="path-milestone-title">Month 3–4: Build portfolio projects</div>
-                  <div class="path-milestone-desc">Create 1–2 substantial projects showcasing your target skills</div>
-                </div>
-              </div>
-              <div class="path-milestone">
-                <div class="path-milestone-num">M3</div>
-                <div class="path-milestone-body">
-                  <div class="path-milestone-title">Month 5+: Interview readiness</div>
-                  <div class="path-milestone-desc">Polish profile, network, practice interviews, and apply to target
-                    roles</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: Easier path -->
-          <div class="path-card">
-            <div class="path-card-header">
-              <div class="path-card-tag">Easier path</div>
-              <div class="path-card-role">Backend @ Service Companies</div>
-              <div class="path-card-focus"><i class="ph ph-lightning"></i>Faster path to your goal</div>
-            </div>
-            <div class="path-card-timeline"><i class="ph ph-timer"></i><span>14–16 months</span></div>
-            <div class="path-card-milestones">
-              <div class="path-milestone">
-                <div class="path-milestone-num">M1</div>
-                <div class="path-milestone-body">
-                  <div class="path-milestone-title">Month 1–2: Foundation building</div>
-                  <div class="path-milestone-desc">Strengthen core technical skills with focused practice</div>
-                </div>
-              </div>
-              <div class="path-milestone">
-                <div class="path-milestone-num">M2</div>
-                <div class="path-milestone-body">
-                  <div class="path-milestone-title">Month 3: Interview preparation</div>
-                  <div class="path-milestone-desc">Prepare for company-specific interview patterns</div>
-                </div>
-              </div>
-              <div class="path-milestone">
-                <div class="path-milestone-num">M3</div>
-                <div class="path-milestone-body">
-                  <div class="path-milestone-title">Month 4+: Apply and negotiate</div>
-                  <div class="path-milestone-desc">Submit applications and work through interview rounds</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3: Alternative -->
-          <div class="path-card">
-            <div class="path-card-header">
-              <div class="path-card-tag">Alternative path</div>
-              <div class="path-card-role">Frontend Engineer @ Any Tech Company</div>
-              <div class="path-card-focus"><i class="ph ph-swap"></i>New specialisation</div>
-            </div>
-            <div class="path-card-timeline"><i class="ph ph-timer"></i><span>15–17 months</span></div>
-            <div class="path-card-milestones">
-              <div class="path-milestone">
-                <div class="path-milestone-num">M1</div>
-                <div class="path-milestone-body">
-                  <div class="path-milestone-title">Month 1–2: Learn new specialisation</div>
-                  <div class="path-milestone-desc">Study fundamentals of the adjacent/alternative role</div>
-                </div>
-              </div>
-              <div class="path-milestone">
-                <div class="path-milestone-num">M2</div>
-                <div class="path-milestone-body">
-                  <div class="path-milestone-title">Month 3–4: Build cross-specialisation projects</div>
-                  <div class="path-milestone-desc">Create projects combining both skill sets</div>
-                </div>
-              </div>
-              <div class="path-milestone">
-                <div class="path-milestone-num">M3</div>
-                <div class="path-milestone-body">
-                  <div class="path-milestone-title">Month 5+: Deepen expertise</div>
-                  <div class="path-milestone-desc">Gain depth in new specialisation and prepare for interviews</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 03 · TWO PATHS -->
   <section class="section">
     <div class="wrap">
-      <p class="sec-eye">03 · Two Paths Forward</p>
+      <p class="sec-eye">04 · Two Paths Forward</p>
       <h2 class="sec-h">Two paths to close your gaps.</h2>
       <p class="sec-sub">One is free. One is faster. Both work.</p>
 
@@ -2519,10 +2634,144 @@
     </div>
   </section>
 
+  <!-- CAREER TIMELINE -->
+  <section class="section">
+    <div class="wrap">
+      <p class="sec-eye">05 · Career Timeline</p>
+      <h2 class="sec-h">Realistic timelines to achieve your target roles based on current skill gaps</h2>
+
+      <div class="tl-map" data-reveal>
+        <!-- LEFT — You Are Here -->
+        <div class="tl-origin">
+          <span class="tl-origin-tag">You Are Here</span>
+          <div class="tl-origin-role">swe-product</div>
+          <div class="tl-origin-detail"><i class="ph ph-buildings"></i> Non-Tech Background</div>
+          <div class="tl-origin-detail"><i class="ph ph-calendar-blank"></i> 0–2 years of experience</div>
+        </div>
+
+        <!-- MIDDLE — SVG Branch Lines -->
+        <div class="tl-branches">
+          <svg viewBox="0 0 120 520" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Primary path (green) -->
+            <path d="M0 50 C60 50, 60 60, 120 60" stroke="#10B981" stroke-width="3" fill="none"/>
+            <!-- Secondary path (blue) -->
+            <path d="M0 50 C40 50, 80 240, 120 240" stroke="#2563EB" stroke-width="3" fill="none"/>
+            <!-- Alt path (purple) -->
+            <path d="M0 50 C30 50, 70 440, 120 440" stroke="#A78BFA" stroke-width="3" fill="none"/>
+          </svg>
+        </div>
+
+        <!-- RIGHT — Stacked Path Cards -->
+        <div class="tl-paths">
+
+          <!-- Path 1 — Your Target Role -->
+          <div class="tl-card primary">
+            <div class="tl-card-head">
+              <div class="tl-card-eyebrow">Your Target Role</div>
+              <h3 class="tl-card-title">Backend @ Any Tech Company</h3>
+              <div class="tl-card-focus"><i class="ph ph-crosshair"></i> Primary focus area</div>
+            </div>
+            <div class="tl-card-timebar"><i class="ph ph-clock"></i> 16–18 months</div>
+            <div class="tl-card-milestones">
+              <div class="tl-milestone">
+                <div class="tl-milestone-num">M1</div>
+                <div>
+                  <div class="tl-milestone-title">Month 1–2: Deep technical preparation</div>
+                  <div class="tl-milestone-desc">Master your specialisation fundamentals — DSA, system design, backend patterns</div>
+                </div>
+              </div>
+              <div class="tl-milestone">
+                <div class="tl-milestone-num">M2</div>
+                <div>
+                  <div class="tl-milestone-title">Month 3–4: Build portfolio projects</div>
+                  <div class="tl-milestone-desc">Create 1–2 substantial projects showcasing your target skills</div>
+                </div>
+              </div>
+              <div class="tl-milestone">
+                <div class="tl-milestone-num">M3</div>
+                <div>
+                  <div class="tl-milestone-title">Month 5+: Interview readiness</div>
+                  <div class="tl-milestone-desc">Polish profile, network, practice interviews, and apply to target roles</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Path 2 — Easier Path -->
+          <div class="tl-card secondary">
+            <div class="tl-card-head">
+              <div class="tl-card-eyebrow">Easier Path</div>
+              <h3 class="tl-card-title">Backend @ Service Companies</h3>
+              <div class="tl-card-focus"><i class="ph ph-crosshair"></i> Faster path to your goal</div>
+            </div>
+            <div class="tl-card-timebar"><i class="ph ph-clock"></i> 14–16 months</div>
+            <div class="tl-card-milestones">
+              <div class="tl-milestone">
+                <div class="tl-milestone-num">M1</div>
+                <div>
+                  <div class="tl-milestone-title">Month 1–2: Foundation building</div>
+                  <div class="tl-milestone-desc">Strengthen core technical skills with focused practice</div>
+                </div>
+              </div>
+              <div class="tl-milestone">
+                <div class="tl-milestone-num">M2</div>
+                <div>
+                  <div class="tl-milestone-title">Month 3: Interview preparation</div>
+                  <div class="tl-milestone-desc">Prepare for company-specific interview patterns</div>
+                </div>
+              </div>
+              <div class="tl-milestone">
+                <div class="tl-milestone-num">M3</div>
+                <div>
+                  <div class="tl-milestone-title">Month 4+: Apply and negotiate</div>
+                  <div class="tl-milestone-desc">Submit applications and work through interview rounds</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Path 3 — Alternative Path -->
+          <div class="tl-card alt">
+            <div class="tl-card-head">
+              <div class="tl-card-eyebrow">Alternative Path</div>
+              <h3 class="tl-card-title">Frontend Engineer @ Any Tech Company</h3>
+              <div class="tl-card-focus"><i class="ph ph-crosshair"></i> New specialisation</div>
+            </div>
+            <div class="tl-card-timebar"><i class="ph ph-clock"></i> 15–17 months</div>
+            <div class="tl-card-milestones">
+              <div class="tl-milestone">
+                <div class="tl-milestone-num">M1</div>
+                <div>
+                  <div class="tl-milestone-title">Month 1–2: Learn new specialisation</div>
+                  <div class="tl-milestone-desc">Study fundamentals of the adjacent/alternative role</div>
+                </div>
+              </div>
+              <div class="tl-milestone">
+                <div class="tl-milestone-num">M2</div>
+                <div>
+                  <div class="tl-milestone-title">Month 3–4: Build cross-specialisation projects</div>
+                  <div class="tl-milestone-desc">Create projects combining both skill sets</div>
+                </div>
+              </div>
+              <div class="tl-milestone">
+                <div class="tl-milestone-num">M3</div>
+                <div>
+                  <div class="tl-milestone-title">Month 5+: Deepen expertise</div>
+                  <div class="tl-milestone-desc">Gain depth in new specialisation and prepare for interviews</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 04 · PEOPLE LIKE YOU -->
   <section class="section">
     <div class="wrap">
-      <p class="sec-eye">04 · People Like You</p>
+      <p class="sec-eye">06 · People Like You</p>
       <h2 class="sec-h">They were exactly where you are. Here's what changed.</h2>
       <p class="sec-sub">Engineers with your exact starting profile. Real numbers.</p>
       <div class="peer-carousel" data-reveal>
@@ -2643,7 +2892,7 @@
   <!-- 05 · THE AI SHIFT (dark) -->
   <section class="section section-dark">
     <div class="wrap">
-      <p class="sec-eye">05 · The AI Shift</p>
+      <p class="sec-eye">07 · The AI Shift</p>
       <h2 class="sec-h">How the top company expectations are changing and rising.</h2>
       <p class="sec-sub">The biggest companies already made the shift. This is what they now expect.</p>
       <div class="case-carousel" data-reveal>
@@ -2825,7 +3074,7 @@
   <!-- 07 · TOOLS -->
   <section class="section">
     <div class="wrap">
-      <p class="sec-eye">06 · Tools That 10× You</p>
+      <p class="sec-eye">08 · Tools That 10× You</p>
       <h2 class="sec-h">9 tools that separate the 10× engineer from the rest.</h2>
       <p class="sec-sub">All have free tiers. Start using them this week.</p>
       <div class="tools-grid" data-reveal>
