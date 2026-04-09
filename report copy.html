@@ -1,0 +1,3955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaler — Career Profile Evaluation Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700;8..60,800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  :root {
+    /* CTAs only — kept pure for visual anchor */
+    --cta-black: #000000;
+    /* Body palette — softened from pure black */
+    --black: #1A1A1A;
+    --white: #FFFFFF;
+    --gray-50: #FAFAFA;
+    --gray-100: #F4F4F4;
+    --gray-200: #E8E8E8;
+    --gray-300: #D4D4D4;
+    --gray-400: #A8A8A8;
+    --gray-500: #7A7A7A;
+    --gray-600: #555555;
+    --gray-700: #3D3D3D;
+    --gray-800: #2A2A2A;
+    --gray-900: #1F1F1F;
+    /* Borders use a softer gray by default */
+    --border: #D4D4D4;
+    --border-strong: #1A1A1A;
+    --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-display: 'Source Serif 4', Georgia, serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0 !important; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  i { display: inline-block; }
+
+  /* ── Top feedback bar ── */
+  .feedback-bar {
+    background: var(--black);
+    color: var(--white);
+    padding: 10px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .feedback-bar a { text-decoration: underline; }
+
+  /* ── Navbar ── */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--black);
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .logo { font-size: 18px; font-weight: 800; letter-spacing: -0.3px; }
+  .navbar-actions { display: flex; gap: 12px; align-items: center; }
+  .btn-ghost {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--black);
+    padding: 10px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.15s;
+  }
+  .btn-ghost:hover { background: var(--black); color: var(--white); }
+  .btn-primary {
+    background: var(--cta-black);
+    color: var(--white);
+    border: 1px solid var(--cta-black);
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.15s;
+  }
+  .btn-primary:hover { background: var(--white); color: var(--cta-black); }
+
+  /* ── HERO (dark report band) ── */
+  .hero {
+    border-bottom: 1px solid var(--black);
+    padding: 48px 48px 52px;
+    background: var(--black);
+    color: var(--white);
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.08;
+    letter-spacing: -1.2px;
+    margin-bottom: 16px;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+    color: var(--gray-300);
+    margin-bottom: 22px;
+    max-width: 520px;
+    line-height: 1.55;
+  }
+  .hero-subtitle strong { color: var(--white); font-weight: 800; }
+  .hero-ai-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gray-100);
+    border: 1px solid var(--black);
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 16px;
+  }
+  .hero-ai-pill i { font-size: 16px; }
+  .hero-ai-pill strong { font-weight: 800; }
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--white);
+    padding: 14px 24px;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .hero-cta-btn:hover { background: transparent; color: var(--white); }
+  .hero-cta-btn i { font-size: 16px; }
+  .hero-cta-note {
+    font-size: 11px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .hero-meta {
+    margin-top: 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-right { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .score-ring { position: relative; width: 200px; height: 200px; }
+  .score-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .score-track { fill: none; stroke: var(--gray-200); stroke-width: 6; }
+  .score-fill { fill: none; stroke: var(--black); stroke-width: 6; stroke-dasharray: 534.07; stroke-dashoffset: 293.74; }
+  .score-label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-num { font-size: 56px; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+  .score-cap { font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+  .journey-tag {
+    border: 1px solid var(--black);
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 240px;
+  }
+  .journey-tag-label {
+    font-size: 10px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .journey-tag-value { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+
+  /* ── Mentor strip ── */
+  .mentor-strip {
+    border-bottom: 1px solid var(--black);
+    padding: 32px 48px;
+    background: var(--gray-50);
+  }
+  .mentor-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .mentor-avatar {
+    width: 52px; height: 52px;
+    background: var(--black);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .mentor-bubble {
+    background: var(--white);
+    border: 1px solid var(--black);
+    padding: 20px 24px;
+    font-size: 14px;
+    line-height: 1.7;
+    flex: 1;
+  }
+  .mentor-bubble strong { font-weight: 700; }
+
+  /* ── Section (document feel) ── */
+  .section {
+    padding: 44px 48px;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header {
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: var(--font);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.4px;
+    line-height: 1.25;
+    margin-bottom: 6px;
+    max-width: 780px;
+  }
+  .section-title em { font-style: normal; font-family: var(--font-display); font-weight: 700; }
+  .section-subtitle {
+    font-size: 13px;
+    color: var(--gray-500);
+    max-width: 640px;
+    line-height: 1.55;
+  }
+
+  /* ════════════════════════════════════════════ */
+  /* SECTION 1 — LINKEDIN-STYLE PROFILE SNAPSHOT  */
+  /* ════════════════════════════════════════════ */
+  .profile-card {
+    border: 1px solid var(--black);
+    background: var(--white);
+    overflow: hidden;
+  }
+  .profile-banner {
+    height: 140px;
+    background: var(--black);
+    background-image:
+      repeating-linear-gradient(45deg, transparent 0, transparent 12px, rgba(255,255,255,0.06) 12px, rgba(255,255,255,0.06) 13px);
+    position: relative;
+  }
+  .profile-header {
+    padding: 0 32px 28px;
+    border-bottom: 1px solid var(--black);
+    position: relative;
+  }
+  .profile-photo {
+    width: 140px; height: 140px;
+    background: var(--white);
+    border: 4px solid var(--white);
+    margin-top: -70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    font-size: 56px;
+    font-weight: 800;
+    box-shadow: 0 0 0 1px var(--black);
+  }
+  .profile-name {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .profile-verified { font-size: 22px; }
+  .profile-headline {
+    font-size: 16px;
+    color: var(--black);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .profile-meta {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .profile-meta span { display: flex; align-items: center; gap: 5px; }
+  .profile-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .profile-actions button {
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+    padding: 9px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .profile-actions button.outline {
+    background: var(--white);
+    color: var(--black);
+  }
+
+  /* Profile sub-sections */
+  .profile-section {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--black);
+  }
+  .profile-section:last-child { border-bottom: none; }
+  .profile-section-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .profile-section-title i { font-size: 20px; }
+
+  .profile-about {
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.7;
+  }
+
+  /* Skills — Side-by-side compare (Have vs Industry asking) */
+  .skills-block { display: flex; flex-direction: column; gap: 24px; }
+  .skills-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--black);
+  }
+  .skills-section {
+    padding: 24px;
+  }
+  .skills-section:first-child {
+    border-right: 1px solid var(--black);
+  }
+  .skills-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+  .skills-section-label {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .skills-section-label i { font-size: 16px; }
+  .skills-section-count {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-500);
+    padding: 4px 10px;
+    border: 1px solid var(--gray-300);
+  }
+  .skills-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .skill-tag {
+    padding: 9px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--black);
+  }
+  .skill-tag.have {
+    background: var(--black);
+    color: var(--white);
+  }
+  .skill-tag.missing {
+    background: var(--white);
+    color: var(--gray-400);
+    text-decoration: line-through;
+    border-color: var(--gray-300);
+    border-style: dashed;
+  }
+
+  /* AI replaceable callout — single row, no explanations */
+  .ai-replaceable {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 18px 22px;
+    background: var(--gray-50);
+    border: 1px solid var(--black);
+  }
+  .ai-replaceable-header {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .ai-replaceable-header i { font-size: 16px; }
+
+  /* ════════════════════════════════════════════ */
+  /* SECTION 2 — YOU VS INDUSTRY (3-col grid)     */
+  /* ════════════════════════════════════════════ */
+  .vs-container {
+    border: 1px solid var(--black);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .vs-row {
+    padding: 22px 24px;
+    border-right: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .vs-row:nth-child(3n) { border-right: none; }
+  .vs-row:nth-last-child(-n+3) { border-bottom: none; }
+  .vs-row-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+    margin-bottom: 14px;
+    min-height: 36px;
+  }
+  .vs-pair {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .vs-line {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) 50px;
+    align-items: center;
+    gap: 12px;
+  }
+  .vs-line-label {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+  .vs-line.you .vs-line-label { color: var(--black); }
+  .vs-line.bench .vs-line-label { color: var(--gray-500); }
+  .vs-line-bar {
+    height: 8px;
+    background: var(--gray-100);
+    position: relative;
+  }
+  .vs-line-fill {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+  }
+  .vs-line.you .vs-line-fill { background: var(--black); }
+  .vs-line.bench .vs-line-fill {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--gray-500) 0,
+      var(--gray-500) 3px,
+      var(--gray-300) 3px,
+      var(--gray-300) 6px
+    );
+  }
+  .vs-line-num {
+    font-size: 13px;
+    font-weight: 800;
+    text-align: right;
+    line-height: 1;
+    letter-spacing: -0.2px;
+  }
+  .vs-line.you .vs-line-num { color: var(--black); }
+  .vs-line.bench .vs-line-num { color: var(--gray-500); }
+  .vs-summary {
+    grid-column: 1 / -1;
+    background: var(--gray-50);
+    padding: 22px 28px;
+    border-top: 1px solid var(--black);
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+  .vs-summary strong { font-weight: 800; color: var(--black); }
+
+  /* ════════════════════════════════════════════ */
+  /* SECTION 3 — AI RESHAPING ROLE (merged)       */
+  /* ════════════════════════════════════════════ */
+  .ai-narrative {
+    background: var(--black);
+    color: var(--white);
+    padding: 48px;
+    border: 1px solid var(--black);
+  }
+  .ai-narrative-top {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+    align-items: center;
+  }
+  .ai-narrative-headline {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .ai-narrative-sub {
+    font-size: 14px;
+    color: var(--gray-400);
+    line-height: 1.7;
+  }
+
+  /* Video card */
+  .ai-video-card {
+    border: 1px solid var(--white);
+    background: var(--gray-900);
+  }
+  .ai-video-thumb {
+    aspect-ratio: 16/9;
+    background:
+      radial-gradient(circle at center, var(--gray-800) 0%, var(--black) 80%),
+      repeating-linear-gradient(0deg, transparent 0, transparent 24px, rgba(255,255,255,0.04) 24px, rgba(255,255,255,0.04) 25px);
+    background-blend-mode: screen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--white);
+    cursor: pointer;
+  }
+  .ai-video-thumb i {
+    font-size: 80px;
+    color: var(--white);
+    transition: transform 0.2s;
+  }
+  .ai-video-thumb:hover i { transform: scale(1.08); }
+  .ai-video-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--white);
+    color: var(--black);
+    padding: 5px 10px;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .ai-video-duration {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    background: var(--black);
+    border: 1px solid var(--white);
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+  .ai-video-meta {
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ai-video-info { flex: 1; min-width: 0; }
+  .ai-video-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+  .ai-video-author {
+    font-size: 11px;
+    color: var(--gray-400);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ai-video-author span { display: flex; align-items: center; gap: 4px; }
+  .ai-video-watch {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--white);
+    padding: 12px 18px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .ai-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--white);
+  }
+  .ai-side { padding: 28px; }
+  .ai-side:first-child { border-right: 1px solid var(--white); }
+  .ai-side-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray-400);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ai-skill-row {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-700);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .ai-skill-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .ai-skill-row > i { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .ai-skill-row-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .ai-skill-row-reason { font-size: 12px; color: var(--gray-400); line-height: 1.5; }
+
+  /* ── AI Case Study — Company expectations ── */
+  .ai-case {
+    margin-top: 0;
+  }
+  .ai-case-eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray-400);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ai-case-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gray-400);
+  }
+  .ai-case-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--gray-700);
+  }
+  .ai-case-logo {
+    width: 64px;
+    height: 64px;
+    background: var(--white);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .ai-case-company {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  .ai-case-role {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  .ai-case-quote {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--white);
+    margin-bottom: 10px;
+    max-width: 820px;
+    border-left: 2px solid var(--white);
+    padding-left: 22px;
+  }
+  .ai-case-source {
+    font-size: 11px;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 32px;
+    margin-left: 24px;
+    font-weight: 600;
+  }
+  .ai-case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--white);
+  }
+  .ai-case-col {
+    padding: 26px;
+  }
+  .ai-case-col:first-child {
+    border-right: 1px solid var(--white);
+  }
+  .ai-case-col-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-400);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ai-case-col-label i { font-size: 14px; }
+  .ai-case-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--gray-700);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--white);
+  }
+  .ai-case-row:nth-of-type(2) { border-top: none; padding-top: 0; }
+  .ai-case-row i { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .ai-case-bar {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 20px;
+    padding: 20px 26px;
+    background: var(--white);
+    color: var(--black);
+  }
+  .ai-case-bar-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    flex-shrink: 0;
+    padding: 6px 10px;
+    border: 1px solid var(--black);
+  }
+  .ai-case-bar-text {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  /* AI Tools (must-learn) */
+  .ai-tools-section { padding-top: 48px; }
+  .ai-tools-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gray-700);
+  }
+  .ai-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--white);
+  }
+  .ai-tool {
+    padding: 24px;
+    border-right: 1px solid var(--white);
+  }
+  .ai-tool:last-child { border-right: none; }
+  .ai-tool i { font-size: 28px; margin-bottom: 14px; }
+  .ai-tool-name { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+  .ai-tool-cat { font-size: 10px; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .ai-tool-use { font-size: 12px; color: var(--gray-300); line-height: 1.5; }
+
+  /* ════════════════════════════════════════════ */
+  /* SECTION 4 — WHERE YOU CAN LAND (market view) */
+  /* ════════════════════════════════════════════ */
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--black);
+  }
+  .market-card {
+    padding: 32px 28px;
+    border-right: 1px solid var(--black);
+  }
+  .market-card:last-child { border-right: none; }
+  .market-card-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border: 1px solid var(--black);
+    margin-bottom: 16px;
+  }
+  .market-card-tag.best { background: var(--black); color: var(--white); }
+  .market-role { font-family: var(--font-display); font-size: 24px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 6px; }
+  .market-level { font-size: 12px; color: var(--gray-500); margin-bottom: 22px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+  .market-stats {
+    display: flex;
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+    margin-bottom: 22px;
+  }
+  .market-stat-val { font-size: 20px; font-weight: 800; letter-spacing: -0.4px; }
+  .market-stat-label { font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; }
+
+  .market-milestones-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+  }
+  .market-milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .market-milestone {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--gray-200);
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.45;
+  }
+  .market-milestone:first-child { border-top: none; padding-top: 4px; }
+  .market-milestone-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--black);
+    flex-shrink: 0;
+    width: 16px;
+    line-height: 1.4;
+  }
+
+  /* ════════════════════════════════════════════ */
+  /* SECTION 5 — ALUMNI STORIES                   */
+  /* ════════════════════════════════════════════ */
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--black);
+  }
+  .story-card {
+    padding: 28px;
+    border-right: 1px solid var(--black);
+  }
+  .story-card:last-child { border-right: none; }
+  .story-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .story-avatar {
+    width: 56px; height: 56px;
+    background: var(--black);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .story-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+  .story-role { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+  .story-transition {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0;
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .story-transition i { font-size: 14px; color: var(--gray-500); }
+  .story-from, .story-to { flex: 1; }
+  .story-from-label, .story-to-label {
+    font-size: 9px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .story-desc { font-size: 13px; color: var(--gray-700); line-height: 1.65; font-style: italic; margin-bottom: 16px; }
+  .story-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ════════════════════════════════════════════ */
+  /* SECTION 6 — YOUR PATH FORWARD (dual track)   */
+  /* ════════════════════════════════════════════ */
+  .quickwins-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--black);
+  }
+  .track { border-right: 1px solid var(--black); }
+  .track:last-child { border-right: none; }
+  .track-header {
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--black);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .track-header.dark { background: var(--black); color: var(--white); }
+  .track-header i { font-size: 28px; }
+  .track-header-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+  .track-header-sub { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+  .track-header.dark .track-header-sub { color: var(--gray-400); }
+  .track-body { padding: 28px; }
+
+  .masterclass-card {
+    background: var(--black);
+    color: var(--white);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mc-banner {
+    aspect-ratio: 16 / 7;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(255,255,255,0.08) 0%, transparent 60%),
+      repeating-linear-gradient(135deg, transparent 0, transparent 18px, rgba(255,255,255,0.04) 18px, rgba(255,255,255,0.04) 19px),
+      var(--black);
+    border-bottom: 1px solid var(--white);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mc-banner-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .mc-banner-icon {
+    width: 56px;
+    height: 56px;
+    border: 1.5px solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 26px;
+  }
+  .mc-banner-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--white);
+    color: var(--black);
+    padding: 5px 10px;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .mc-banner-tag i { font-size: 10px; }
+  .mc-banner-corner {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .mc-content {
+    padding: 22px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .mc-avatar {
+    width: 52px; height: 52px;
+    background: var(--white);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .mc-body { flex: 1; min-width: 0; }
+  .mc-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--white);
+    padding: 4px 8px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .mc-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+  .mc-meta { font-size: 12px; color: var(--gray-400); margin-bottom: 6px; }
+  .mc-instructor { font-size: 12px; color: var(--gray-300); }
+  .mc-cta {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--white);
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .free-courses-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .free-block-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--black);
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .free-block-label > span:first-child { display: flex; align-items: center; gap: 8px; }
+  .free-block-label i { font-size: 14px; }
+  .free-block-tag {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-500);
+    padding: 4px 8px;
+    border: 1px solid var(--gray-300);
+    letter-spacing: 0.06em;
+  }
+  .free-course-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border: 1px solid var(--black);
+    margin-bottom: 10px;
+    transition: all 0.15s;
+  }
+  .free-course-item:hover { background: var(--black); color: var(--white); }
+  .free-course-item i { font-size: 18px; }
+  .free-course-name { font-size: 13px; font-weight: 600; flex: 1; }
+  .free-course-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border: 1px solid currentColor;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .program-card { border: 1px solid var(--black); }
+  .program-hero {
+    background: var(--black);
+    color: var(--white);
+    padding: 28px;
+  }
+  .program-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--white);
+    padding: 4px 10px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .program-name { font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .program-tagline { font-size: 13px; color: var(--gray-400); margin-bottom: 20px; }
+  .program-stats { display: flex; gap: 24px; border-top: 1px solid var(--gray-700); padding-top: 20px; }
+  .program-stat-val { font-size: 20px; font-weight: 800; }
+  .program-stat-label { font-size: 10px; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+  .program-body { padding: 24px 28px; }
+  .program-outcomes-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+  }
+  .program-outcome {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--gray-700);
+    margin-bottom: 10px;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .program-outcome i { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .program-cta {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-200);
+  }
+  .btn-explore {
+    flex: 1;
+    background: var(--cta-black);
+    color: var(--white);
+    border: 1px solid var(--cta-black);
+    padding: 14px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.15s;
+  }
+  .btn-explore:hover { background: var(--white); color: var(--cta-black); }
+  .btn-syllabus {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--black);
+    padding: 14px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .btn-syllabus:hover { background: var(--black); color: var(--white); }
+
+  /* ════════════════════════════════════════════ */
+  /* SECTION 7 — URGENCY CTA                      */
+  /* ════════════════════════════════════════════ */
+  .cta-section {
+    background: var(--black);
+    color: var(--white);
+    padding: 96px 48px;
+    border-bottom: 1px solid var(--black);
+  }
+  .cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 64px;
+    align-items: center;
+  }
+  .cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--white);
+    padding: 6px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1.4px;
+    margin-bottom: 16px;
+  }
+  .cta-title em { font-style: normal; text-decoration: underline; text-underline-offset: 4px; }
+  .cta-desc { font-size: 15px; color: var(--gray-400); line-height: 1.7; max-width: 600px; }
+  .cta-chips { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  .cta-chip {
+    border: 1px solid var(--gray-700);
+    padding: 8px 14px;
+    font-size: 12px;
+    color: var(--gray-300);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cta-chip strong { color: var(--white); font-weight: 700; }
+  .cta-btn-wrap { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .btn-cta-main {
+    background: var(--white);
+    color: var(--cta-black);
+    border: 1px solid var(--white);
+    padding: 20px 36px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .btn-cta-main:hover { background: transparent; color: var(--white); }
+  .cta-sub { font-size: 11px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* Floating CTA — always visible bottom-center */
+  .float-cta {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: var(--cta-black);
+    color: var(--white);
+    border: 1px solid var(--cta-black);
+    padding: 16px 28px;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .float-cta:hover {
+    background: var(--white);
+    color: var(--cta-black);
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.3);
+  }
+  .float-cta i { font-size: 18px; }
+
+  .footer-cta {
+    padding: 48px;
+    text-align: center;
+    background: var(--white);
+  }
+  .footer-tagline {
+    font-size: 14px;
+    color: var(--gray-600);
+    margin-bottom: 16px;
+  }
+  .btn-footer {
+    background: var(--cta-black);
+    color: var(--white);
+    border: 1px solid var(--cta-black);
+    padding: 18px 40px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.15s;
+  }
+  .btn-footer:hover { background: var(--white); color: var(--cta-black); }
+
+  @media (max-width: 960px) {
+    .hero { padding: 56px 24px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-title { font-size: 40px; }
+    .navbar { padding: 16px 24px; }
+    .feedback-bar { padding: 10px 24px; }
+    .mentor-strip, .section, .cta-section { padding-left: 24px; padding-right: 24px; }
+    .section { padding-top: 64px; padding-bottom: 64px; }
+    .section-title { font-size: 30px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skills-compare { grid-template-columns: 1fr; }
+    .skills-section:first-child { border-right: none; border-bottom: 1px solid var(--black); }
+    .profile-stats { grid-template-columns: 1fr 1fr; }
+    .vs-header, .vs-row-top { grid-template-columns: 1fr 70px 70px; }
+    .ai-narrative { padding: 32px 24px; }
+    .ai-narrative-headline { font-size: 22px; }
+    .ai-narrative-top { grid-template-columns: 1fr; gap: 32px; }
+    .ai-split, .ai-tools-grid, .market-grid, .stories-grid, .quickwins-grid { grid-template-columns: 1fr; }
+    .ai-case-grid { grid-template-columns: 1fr; }
+    .ai-case-col:first-child { border-right: none; border-bottom: 1px solid var(--white); }
+    .ai-case-quote { font-size: 17px; padding-left: 16px; }
+    .ai-case-company { font-size: 22px; }
+    .vs-container { grid-template-columns: 1fr; }
+    .vs-row {
+      border-right: none !important;
+      border-bottom: 1px solid var(--gray-200) !important;
+      padding: 20px 24px;
+    }
+    .vs-row:last-child { border-bottom: none !important; }
+    .vs-row-name { min-height: auto; }
+    .ai-side:first-child, .ai-tool, .market-card, .story-card, .track { border-right: none !important; border-bottom: 1px solid currentColor; }
+    .cta-inner { grid-template-columns: 1fr; }
+    .cta-title { font-size: 32px; }
+  }
+  /* ════════════════════════════════════════════════════════ */
+  /* REPORT-STYLE COMPONENTS (added in restructure)            */
+  /* ════════════════════════════════════════════════════════ */
+
+  /* ── Hero gauge (right side of dark hero) ── */
+  .hero-gauge { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .gauge-wrap { position: relative; width: 240px; height: 140px; }
+  .gauge-wrap svg { width: 100%; height: 100%; overflow: visible; }
+  .gauge-track { fill: none; stroke: var(--gray-700); stroke-width: 14; }
+  .gauge-fill  { fill: none; stroke: var(--white); stroke-width: 14; stroke-linecap: butt; }
+  .gauge-tick  { stroke: var(--gray-500); stroke-width: 1; stroke-dasharray: 2 4; fill: none; }
+  .gauge-num {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 6px;
+    text-align: center;
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -2px;
+    font-family: var(--font);
+  }
+  .gauge-of { font-size: 13px; color: var(--gray-400); margin-top: 2px; }
+  .gauge-cap {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-300);
+    border: 1px solid var(--gray-500);
+    padding: 8px 14px;
+  }
+
+  /* ── 10x Engineer grid (§01) ── */
+  .tenx-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+  }
+  .tenx-col {
+    padding: 22px 24px;
+    border-right: 1px solid var(--border);
+  }
+  .tenx-col:last-child { border-right: none; }
+  .tenx-col-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tenx-col-label i { font-size: 15px; }
+  .tenx-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .tenx-row i { font-size: 13px; color: var(--gray-400); margin-top: 2px; flex-shrink: 0; }
+  .tenx-row:last-child { margin-bottom: 0; }
+
+  /* ── 10x Engineer split (§01) ── */
+  .tenx-split {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+  .tenx-pointers {
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-right: 1px solid var(--border);
+  }
+  .tenx-pointer {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    line-height: 1.55;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tenx-pointer:first-child { padding-top: 0; }
+  .tenx-pointer:last-child { border-bottom: none; padding-bottom: 0; }
+  .tenx-pointer i { font-size: 16px; color: var(--gray-400); margin-top: 3px; flex-shrink: 0; }
+  .tenx-stat-col {
+    padding: 0;
+    background: var(--gray-50);
+    display: flex;
+    flex-direction: column;
+  }
+  /* ── Growth chart (§01 right col) ── */
+  .tenx-growth-header {
+    padding: 20px 22px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tenx-growth-eyebrow {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-400);
+    margin-bottom: 8px;
+  }
+  .tenx-growth-headline {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    color: var(--black);
+  }
+  .tenx-growth-sub {
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    margin-top: 7px;
+  }
+  .tenx-growth-chart {
+    padding: 16px 22px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tenx-growth-row {
+    display: grid;
+    grid-template-columns: 34px 1fr 24px;
+    align-items: center;
+    gap: 10px;
+  }
+  .tenx-growth-yr {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-400);
+    letter-spacing: 0.02em;
+  }
+  .tenx-growth-row.now .tenx-growth-yr { color: var(--black); }
+  .tenx-growth-track {
+    height: 5px;
+    background: var(--gray-100);
+    position: relative;
+  }
+  .tenx-growth-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--gray-300);
+  }
+  .tenx-growth-row.now .tenx-growth-fill { background: var(--black); }
+  .tenx-growth-lbl {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--gray-400);
+    text-align: right;
+  }
+  .tenx-growth-row.now .tenx-growth-lbl { color: var(--black); }
+  .tenx-growth-footer {
+    padding: 16px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tenx-growth-footer-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    color: var(--black);
+  }
+  .tenx-growth-footer-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .tenx-growth-footer-source {
+    font-size: 9px;
+    color: var(--gray-400);
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  /* ── 10x with AI strip (below hero) ── */
+  .tenx-strip {
+    background: var(--gray-100);
+    border-bottom: 1px solid var(--black);
+    padding: 24px 48px;
+  }
+  .tenx-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .tenx-left { display: flex; align-items: center; gap: 18px; }
+  .tenx-icon {
+    width: 48px; height: 48px;
+    background: var(--black);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .tenx-text { font-size: 16px; font-weight: 600; color: var(--black); }
+  .tenx-text strong { font-weight: 800; }
+  .tenx-text span { display: block; font-size: 12px; font-weight: 500; color: var(--gray-600); margin-top: 2px; }
+  .tenx-cta {
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+    padding: 12px 22px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+  .tenx-cta:hover { background: var(--white); color: var(--black); }
+
+  /* ── Where you stand (pros/cons) ── */
+  .stand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .stand-col-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .stand-col.strength .stand-col-label { color: #1F7A4D; border-bottom-color: #1F7A4D; }
+  .stand-col.improve  .stand-col-label { color: #B23A3A; border-bottom-color: #B23A3A; }
+  .stand-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .stand-card i {
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .stand-card.strength { background: #EFF8F2; border-color: #BFE3CD; color: #1A4F32; }
+  .stand-card.strength i { color: #1F7A4D; }
+  .stand-card.improve  { background: #FBEFEF; border-color: #EFC9C9; color: #5A1F1F; }
+  .stand-card.improve i { color: #B23A3A; }
+
+  /* ── Why now (year-over-year + peer urgency) ── */
+  .whynow-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* ── AI Timeline ── */
+  .ai-timeline { display: flex; flex-direction: column; }
+  .ai-timeline-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .ai-timeline-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 12px;
+  }
+  .ai-timeline-dot {
+    width: 10px; height: 10px;
+    border: 1px solid var(--gray-500);
+    background: var(--gray-800);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .ai-timeline-item.now .ai-timeline-dot {
+    width: 14px; height: 14px;
+    background: var(--white);
+    border-color: var(--white);
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.15);
+    margin-top: 3px;
+    margin-left: -2px;
+  }
+  .ai-timeline-item.future .ai-timeline-dot {
+    background: #6B3333;
+    border-color: #8B4444;
+    box-shadow: 0 0 0 3px rgba(139,68,68,0.15);
+    width: 11px; height: 11px;
+    margin-top: 4px;
+  }
+  .ai-timeline-connector {
+    width: 1px;
+    flex: 1;
+    min-height: 20px;
+    background: var(--gray-700);
+    margin: 5px 0;
+  }
+  .ai-timeline-item.future .ai-timeline-connector { background: transparent; border-left: 1px dashed #4A1010; }
+  .ai-timeline-item:last-child .ai-timeline-connector { display: none; }
+  .ai-timeline-body { padding-bottom: 22px; flex: 1; }
+  .ai-timeline-item:last-child .ai-timeline-body { padding-bottom: 0; }
+  .ai-timeline-year {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 6px;
+  }
+  .ai-timeline-item.now .ai-timeline-year { color: var(--gray-300); }
+  .ai-timeline-item.future .ai-timeline-year { color: var(--gray-600); font-size: 12px; }
+  .ai-timeline-year-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .ai-timeline-year-row .ai-timeline-year { margin-bottom: 0; }
+  .ai-timeline-now-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--white);
+    color: var(--black);
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    margin-bottom: 0;
+  }
+  .ai-timeline-desc {
+    font-size: 13px;
+    color: var(--gray-400);
+    line-height: 1.6;
+  }
+  .ai-timeline-item.now .ai-timeline-desc {
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 600;
+    line-height: 1.55;
+  }
+  .ai-timeline-item.future .ai-timeline-desc { color: var(--gray-600); }
+  .whynow-side {
+    border: 1px solid var(--black);
+    padding: 28px;
+    background: var(--gray-50);
+  }
+  .whynow-side-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+  }
+  .whynow-side-stat {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+  .whynow-side-desc { font-size: 14px; color: var(--gray-700); line-height: 1.6; margin-bottom: 22px; }
+  .whynow-side-divider { height: 1px; background: var(--border); margin: 22px 0; }
+  .whynow-side-foot { font-size: 12px; color: var(--gray-600); }
+  .whynow-side-foot strong { color: var(--black); font-weight: 800; }
+
+  /* ── Alumni v2 (Ankur Prakash style) ── */
+  .alumni-v2-grid { display: flex; flex-direction: column; gap: 24px; }
+  .alumni-v2-card {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    border: 1px solid var(--black);
+    background: var(--white);
+    overflow: hidden;
+  }
+  .alumni-v2-photo {
+    background: var(--gray-200);
+    background-image:
+      repeating-linear-gradient(45deg, var(--gray-200) 0, var(--gray-200) 12px, var(--gray-100) 12px, var(--gray-100) 13px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-500);
+    font-size: 80px;
+    font-weight: 800;
+    font-family: var(--font-display);
+    border-right: 1px solid var(--black);
+    min-height: 280px;
+  }
+  .alumni-v2-body { padding: 28px 32px; display: flex; flex-direction: column; }
+  .alumni-v2-name {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    color: var(--black);
+  }
+  .alumni-v2-role {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--gray-600);
+    margin-top: 4px;
+    margin-bottom: 20px;
+  }
+  .alumni-v2-transition {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .alumni-v2-leg { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .alumni-v2-leg-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gray-500); font-weight: 700; }
+  .alumni-v2-leg-name { font-size: 15px; font-weight: 700; color: var(--black); }
+  .alumni-v2-arrow { color: var(--gray-400); font-size: 22px; }
+  .alumni-v2-quote {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.65;
+    margin-bottom: 18px;
+    flex: 1;
+  }
+  .alumni-v2-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .alumni-v2-stars { display: flex; gap: 3px; color: #C49A2C; font-size: 18px; }
+  .alumni-v2-stars i.empty { color: var(--gray-300); }
+  .alumni-v2-salary { font-size: 12px; font-weight: 700; color: var(--black); display: flex; align-items: center; gap: 6px; }
+  .alumni-v2-salary i { color: #1F7A4D; }
+
+  /* ── Video placeholder section ── */
+  .video-wrap {
+    border: 1px solid var(--black);
+    background: var(--gray-900);
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--white);
+    background-image:
+      repeating-linear-gradient(45deg, transparent 0, transparent 24px, rgba(255,255,255,0.04) 24px, rgba(255,255,255,0.04) 25px);
+  }
+  .video-play {
+    width: 96px; height: 96px;
+    background: var(--white);
+    color: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px;
+    border: 1px solid var(--white);
+  }
+  .video-meta {
+    position: absolute;
+    left: 28px;
+    bottom: 24px;
+    right: 28px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .video-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    max-width: 520px;
+    line-height: 1.25;
+  }
+  .video-author { font-size: 12px; color: var(--gray-400); margin-top: 6px; }
+  .video-duration {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 6px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .video-tag {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--black);
+    background: var(--white);
+    padding: 7px 12px;
+  }
+
+  /* ── Case studies carousel (full-width, monochrome) ── */
+  .case-carousel {
+    border: 1px solid var(--black);
+    background: var(--gray-50);
+    overflow: hidden;
+  }
+  .case-track-wrap { overflow: hidden; }
+  .case-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(.6,.05,.25,1);
+  }
+  .case-slide {
+    flex: 0 0 100%;
+    padding: 56px 64px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .case-company {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .case-company::after { content: ''; flex: 1; height: 1px; background: var(--gray-300); max-width: 80px; }
+  .case-headline {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    color: var(--black);
+    margin-bottom: 22px;
+  }
+  .case-pointers { display: flex; flex-direction: column; gap: 12px; }
+  .case-pointer {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+  }
+  .case-pointer::before {
+    content: '';
+    width: 18px; height: 1px;
+    background: var(--gray-500);
+    margin-top: 11px;
+    flex-shrink: 0;
+  }
+  .case-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .case-stat {
+    border: 1px solid var(--black);
+    background: var(--white);
+    padding: 24px 20px;
+    text-align: left;
+  }
+  .case-stat-num {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    color: var(--black);
+  }
+  .case-stat-num span { font-size: 22px; font-weight: 700; }
+  .case-stat-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  .case-stat-source {
+    font-size: 10px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    font-style: italic;
+  }
+  .case-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 22px;
+    border-top: 1px solid var(--black);
+    background: var(--white);
+  }
+  .case-arrow {
+    width: 44px; height: 44px;
+    border: 1px solid var(--black);
+    background: var(--white);
+    color: var(--black);
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .case-arrow:hover { background: var(--black); color: var(--white); }
+  .case-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+  .case-counter {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-600);
+    letter-spacing: 0.1em;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  /* ── Shift cases (inline company cards in dark section) ── */
+  .shift-divider { height: 1px; background: var(--gray-700); margin-bottom: 24px; }
+  .shift-cases-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-500);
+    margin-bottom: 18px;
+  }
+  .shift-cases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--gray-700);
+  }
+  .shift-case {
+    padding: 20px 20px 18px;
+    border-right: 1px solid var(--gray-700);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .shift-case:last-child { border-right: none; }
+  .shift-case-co {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--gray-400);
+  }
+  .shift-case-quote {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .shift-case-points { display: flex; flex-direction: column; gap: 6px; }
+  .shift-case-point {
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    padding-left: 12px;
+    position: relative;
+  }
+  .shift-case-point::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 6px; height: 1px;
+    background: var(--gray-600);
+  }
+  .shift-case-stats {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-800);
+  }
+  .shift-case-stat {
+    font-size: 10px;
+    color: var(--gray-600);
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+  }
+  .shift-case-stat span {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--gray-300);
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  /* ── Tools section (own section, rebuilt monochrome) ── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .tool-card {
+    border: 1px solid var(--black);
+    background: var(--white);
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 200px;
+  }
+  .tool-card i { font-size: 26px; color: var(--black); margin-bottom: 6px; }
+  .tool-card .tool-name { font-size: 16px; font-weight: 800; color: var(--black); }
+  .tool-card .tool-cat {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray-500);
+  }
+  .tool-card .tool-desc { font-size: 13px; color: var(--gray-600); line-height: 1.55; margin-top: auto; }
+
+  /* ── Career transitions (replaces market view) ── */
+  .transitions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .transition-card {
+    border: 1px solid var(--black);
+    background: var(--white);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .transition-card.featured { background: var(--black); color: var(--white); }
+  .transition-tag {
+    align-self: flex-start;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 6px 10px;
+    border: 1px solid var(--black);
+    background: var(--white);
+    color: var(--black);
+  }
+  .transition-card.featured .transition-tag { background: var(--white); color: var(--black); border-color: var(--white); }
+  .transition-role {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.6px;
+    margin-top: 6px;
+  }
+  .transition-level { font-size: 13px; color: var(--gray-500); }
+  .transition-card.featured .transition-level { color: var(--gray-400); }
+  .transition-divider { height: 1px; background: var(--border); margin: 6px 0; }
+  .transition-card.featured .transition-divider { background: var(--gray-700); }
+  .transition-ai-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-700);
+  }
+  .transition-card.featured .transition-ai-line { color: var(--gray-300); }
+  .transition-ai-line i { font-size: 16px; }
+  .transition-milestones { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  .transition-milestone {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+  .transition-card.featured .transition-milestone { color: var(--gray-300); }
+  .transition-milestone i {
+    color: var(--gray-500);
+    font-size: 14px;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .transition-card.featured .transition-milestone i { color: var(--gray-400); }
+  .transition-time {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-500);
+  }
+  .transition-card.featured .transition-time { border-top-color: var(--gray-700); color: var(--gray-400); }
+  .transition-time strong { color: var(--black); font-size: 14px; }
+  .transition-card.featured .transition-time strong { color: var(--white); }
+
+  /* ════════════════════════════════════════════════════════ */
+  /* DECLUTTER PASS — document feel + new components          */
+  /* ════════════════════════════════════════════════════════ */
+
+  /* Hide old global CTAs (replaced by sticky bar) */
+  .footer-cta, .float-cta { display: none !important; }
+
+  /* Body gets a soft paper background — content sits in white */
+  body { background: var(--gray-100); padding-bottom: 88px; }
+  .feedback-bar, .navbar, .hero, .section { background-clip: padding-box; }
+  .navbar { padding: 16px 48px; }
+  .navbar .navbar-actions { display: none; }
+
+  /* Profile snapshot v2 — name beside photo, light/bold/warn skill rows */
+  .profile-v2 {
+    border: 1px solid var(--border);
+    background: var(--white);
+  }
+  .profile-v2-banner {
+    height: 88px;
+    background: var(--black);
+    background-image:
+      repeating-linear-gradient(45deg, transparent 0, transparent 12px, rgba(255,255,255,0.06) 12px, rgba(255,255,255,0.06) 13px);
+  }
+  .profile-v2-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0 32px 24px;
+    border-bottom: 1px solid var(--border);
+    margin-top: -48px;
+  }
+  .profile-v2-photo {
+    width: 96px; height: 96px;
+    background: var(--white);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 1px var(--border);
+    color: var(--black);
+    font-size: 38px;
+    font-weight: 800;
+    font-family: var(--font-display);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .profile-v2-id { padding-bottom: 4px; }
+  .profile-v2-name {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .profile-v2-name i { font-size: 18px; color: var(--gray-500); }
+  .profile-v2-headline {
+    font-size: 13px;
+    color: var(--gray-700);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .profile-v2-meta {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .profile-v2-meta span { display: flex; align-items: center; gap: 4px; }
+  .profile-v2-skills {
+    padding: 28px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .profile-v2-block-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray-600);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .profile-v2-block-label.bold { color: var(--black); font-weight: 800; }
+  .profile-v2-block-label.warn { color: #B23A3A; }
+  .profile-v2-block-label i { font-size: 14px; }
+  .skill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag-v2 {
+    display: inline-block;
+    padding: 7px 12px;
+    font-size: 12px;
+    border: 1px solid var(--border);
+    background: var(--gray-50);
+    color: var(--gray-600);
+    font-weight: 500;
+  }
+  .skill-tag-v2.bold {
+    border-color: var(--black);
+    background: var(--white);
+    color: var(--black);
+    font-weight: 700;
+  }
+  .skill-tag-v2.warn {
+    border-color: #E0B0B0;
+    background: #FBEFEF;
+    color: #7A2222;
+    font-weight: 600;
+  }
+  .profile-v2-points {
+    list-style: none;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .profile-v2-points li {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.55;
+    padding-left: 16px;
+    position: relative;
+  }
+  .profile-v2-points li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 9px;
+    width: 8px; height: 1px;
+    background: #B23A3A;
+  }
+
+  /* Smaller "Where you stand" cards (override earlier) */
+  .stand-grid { gap: 32px; }
+  .stand-col-label { font-size: 10px; margin-bottom: 14px; padding-bottom: 10px; }
+  .stand-card { padding: 14px 16px; font-size: 13px; margin-bottom: 10px; }
+  .stand-card i { width: 22px; height: 22px; font-size: 15px; }
+
+  /* Crisper Why-Now timeline */
+  .whynow-grid { gap: 36px; }
+  .whynow-row { padding: 16px 0; gap: 18px; grid-template-columns: 80px 1fr auto; }
+  .whynow-year { font-size: 22px; }
+  .whynow-desc { font-size: 13px; line-height: 1.55; }
+  .whynow-pct { font-size: 11px; padding: 5px 10px; }
+  .whynow-side { padding: 22px; }
+  .whynow-side-eyebrow { font-size: 10px; }
+  .whynow-side-stat { font-size: 42px; }
+  .whynow-side-desc { font-size: 12px; line-height: 1.55; }
+  .whynow-side-foot { font-size: 11px; }
+
+  /* ── PATH BLOCKS (stacked Two Paths) ── */
+  .path-block {
+    border: 1px solid var(--border);
+    background: var(--white);
+    padding: 32px 36px;
+    margin-bottom: 24px;
+  }
+  .path-block.paid { background: var(--gray-50); }
+  .path-block-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+  }
+  .path-block-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -0.6px;
+    line-height: 1.2;
+  }
+  .path-block-sub {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-top: 6px;
+    margin-bottom: 22px;
+    max-width: 720px;
+  }
+  .path-block-sub strong { color: var(--black); font-weight: 700; }
+  .path-block-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0 18px;
+  }
+  .path-sub-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+  }
+
+  /* Free course cards (3 per row) */
+  .free-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .free-course-card-v2 {
+    border: 1px solid var(--border);
+    background: var(--white);
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    transition: border-color 0.15s;
+  }
+  .free-course-card-v2:hover { border-color: var(--black); }
+  .free-course-card-v2 i { font-size: 22px; color: var(--black); margin-bottom: 4px; }
+  .free-course-banner {
+    background: var(--black);
+    margin: -18px -18px 14px;
+    height: 76px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .free-course-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(255,255,255,0.03) 8px,
+      rgba(255,255,255,0.03) 9px
+    );
+  }
+  .free-course-banner-logo {
+    font-size: 9px;
+    font-weight: 800;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+  }
+  .free-course-banner-logo i { font-size: 12px; color: var(--gray-600); }
+  .free-course-banner-icon {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 28px;
+    color: var(--gray-800);
+  }
+  .free-course-name { font-size: 14px; font-weight: 700; color: var(--black); line-height: 1.3; }
+  .free-course-reason {
+    font-size: 11px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-top: 2px;
+  }
+  .free-course-meta { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
+  .free-course-arrow {
+    position: absolute;
+    top: 94px; right: 16px;
+    font-size: 14px;
+    color: var(--gray-400);
+  }
+
+  /* Masterclass cards */
+  .masterclass-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .masterclass-card-v2 {
+    border: 1px solid var(--border);
+    background: var(--white);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .mc-v2-thumb {
+    background: var(--black);
+    color: var(--white);
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 32px;
+    background-image:
+      repeating-linear-gradient(45deg, transparent 0, transparent 14px, rgba(255,255,255,0.05) 14px, rgba(255,255,255,0.05) 15px);
+  }
+  .mc-v2-tag {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: var(--white);
+    color: var(--black);
+    font-size: 9px;
+    font-weight: 800;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .masterclass-card-v2 .mc-v2-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.35;
+    padding: 14px 16px 4px;
+  }
+  .masterclass-card-v2 .mc-v2-author {
+    font-size: 11px;
+    color: var(--gray-500);
+    padding: 0 16px 12px;
+  }
+  .mc-v2-cta {
+    border: none;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+    color: var(--black);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: auto;
+    transition: all 0.15s;
+  }
+  .mc-v2-cta:hover { background: var(--black); color: var(--white); }
+
+  /* Paid path program card */
+  .program-card-v2 {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 32px;
+    border: 1px solid var(--black);
+    background: var(--white);
+    padding: 28px 32px;
+    align-items: start;
+  }
+  .program-v2-name {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -0.4px;
+  }
+  .program-v2-tagline {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-top: 6px;
+    line-height: 1.55;
+  }
+  .program-v2-stats {
+    display: flex;
+    gap: 24px;
+    margin: 20px 0;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .program-v2-stats div { display: flex; flex-direction: column; }
+  .program-v2-stats strong {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1;
+  }
+  .program-v2-stats span {
+    font-size: 10px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+  .program-v2-points { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+  .program-v2-points li {
+    font-size: 12px;
+    color: var(--gray-700);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .program-v2-points li i { font-size: 13px; color: var(--gray-500); margin-top: 3px; flex-shrink: 0; }
+  .program-v2-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-program-primary {
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+    padding: 11px 18px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .btn-program-primary:hover { background: var(--white); color: var(--black); }
+  .btn-program-secondary {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--black);
+    padding: 11px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .btn-program-secondary:hover { background: var(--black); color: var(--white); }
+  .program-v2-video {
+    background: var(--gray-900);
+    color: var(--white);
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image:
+      repeating-linear-gradient(45deg, transparent 0, transparent 16px, rgba(255,255,255,0.06) 16px, rgba(255,255,255,0.06) 17px);
+  }
+  .program-v2-video i {
+    width: 56px; height: 56px;
+    background: var(--white);
+    color: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .program-v2-video-tag {
+    position: absolute;
+    bottom: 10px; left: 10px;
+    background: var(--white);
+    color: var(--black);
+    font-size: 9px;
+    font-weight: 800;
+    padding: 5px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .program-v2-video-cap {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+
+  /* ── PEER CAROUSEL (3 visible) ── */
+  /* ── Alumni carousel — big image card ── */
+  .peer-carousel { border: 1px solid var(--border); background: var(--white); }
+  .peer-track-wrap { overflow: hidden; }
+  .peer-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(.6,.05,.25,1);
+  }
+  .peer-card {
+    flex: 0 0 calc(100% / 3);
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    min-height: 380px;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+  }
+  .peer-card:last-child { border-right: none; }
+  .peer-card-img {
+    background: var(--gray-100);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .peer-img-placeholder {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--gray-300);
+    line-height: 1;
+    user-select: none;
+  }
+  .peer-card-body {
+    padding: 24px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .peer-card-name {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+  }
+  .peer-card-role {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--gray-600);
+    margin-top: 5px;
+    font-weight: 500;
+  }
+  .peer-card-role i { font-size: 12px; color: var(--gray-500); }
+  .peer-card-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 16px 0;
+  }
+  .peer-journey {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .peer-journey-col { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .peer-journey-label {
+    font-size: 9px;
+    color: var(--gray-500);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .peer-journey-co {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .peer-journey-pre .peer-journey-co { color: var(--gray-500); }
+  .peer-journey-chevrons {
+    font-size: 14px;
+    color: var(--gray-300);
+    letter-spacing: -3px;
+    flex-shrink: 0;
+    padding: 0 2px;
+    margin-top: 12px;
+  }
+  .peer-card-quote {
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: var(--gray-700);
+    line-height: 1.6;
+    flex: 1;
+    margin: 0;
+    text-decoration: underline;
+    text-decoration-color: var(--gray-300);
+    text-underline-offset: 3px;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .peer-card-stars {
+    color: #C49A2C;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 16px;
+  }
+  .peer-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    background: var(--gray-50);
+  }
+  .peer-arrow {
+    width: 36px; height: 36px;
+    border: 1px solid var(--black);
+    background: var(--white);
+    color: var(--black);
+    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .peer-arrow:hover { background: var(--black); color: var(--white); }
+  .peer-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+  .peer-counter { font-size: 11px; font-weight: 700; color: var(--gray-600); letter-spacing: 0.1em; min-width: 50px; text-align: center; }
+
+  /* Tools grid v2 — 8 tools, 3 per row, smaller */
+  .tools-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .tool-card-v2 {
+    border: 1px solid var(--border);
+    background: var(--white);
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: border-color 0.15s;
+  }
+  .tool-card-v2:hover { border-color: var(--black); }
+  .tool-card-v2 i { font-size: 22px; color: var(--black); margin-bottom: 4px; }
+  .tool-v2-name { font-size: 14px; font-weight: 700; color: var(--black); }
+  .tool-v2-cat { font-size: 11px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+
+  /* Career transition cards — tighter */
+  .transitions-grid { gap: 16px; }
+  .transition-card { padding: 22px; }
+  .transition-role { font-size: 22px; }
+  .transition-level { font-size: 12px; }
+  .transition-milestone { font-size: 12px; }
+  .transition-time { font-size: 10px; }
+  .transition-time strong { font-size: 13px; }
+
+  /* Case carousel — slightly tighter for document feel */
+  .case-slide { padding: 44px 48px; gap: 44px; }
+  .case-headline { font-size: 26px; }
+  .case-pointer { font-size: 13px; }
+  .case-stat-num { font-size: 36px; }
+  .case-stat-label { font-size: 10px; }
+  .case-stat { padding: 20px 18px; }
+
+  /* Smaller alumni v2 (legacy) — unused now but harmless */
+
+  /* ── STICKY BOTTOM BAR ── */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--black);
+    color: var(--white);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    border-top: 1px solid var(--black);
+    padding: 14px 48px;
+    z-index: 100;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+  }
+  .sticky-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .sticky-bar-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+  }
+  .sticky-bar-text strong {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--white);
+  }
+  .sticky-bar-text span {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 2px;
+  }
+  .sticky-bar-cta {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--white);
+    padding: 13px 22px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .sticky-bar-cta:hover { background: transparent; color: var(--white); }
+  .sticky-bar-cta i { font-size: 14px; }
+  .sticky-bar.visible { transform: translateY(0); }
+
+  /* ════════════════════════════════════════════════════════ */
+  /* PASS 3 — side-by-side skills, AI risk, prominent section */
+  /* ════════════════════════════════════════════════════════ */
+
+  /* Allow the hero title to use a slightly tighter layout */
+  .hero-title { font-size: 40px; }
+
+  /* Skills side-by-side (have ✓ vs missing ✗) */
+  .skills-side-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    background: var(--white);
+  }
+  .skills-side-col { padding: 22px 24px; }
+  .skills-side-col.have { background: var(--gray-50); border-right: 1px solid var(--border); }
+  .skills-side-col.miss { background: var(--white); }
+  .skills-side-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray-600);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skills-side-col.miss .skills-side-label { color: var(--black); }
+  .skills-side-label i { font-size: 14px; }
+  .skills-side-list { display: flex; flex-direction: column; gap: 9px; }
+  .skill-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .skill-line i { font-size: 16px; flex-shrink: 0; }
+  .skill-line.have { color: var(--gray-500); font-weight: 500; }
+  .skill-line.have i { color: #1F7A4D; }
+  .skill-line.miss { color: var(--black); font-weight: 700; }
+  .skill-line.miss i { color: #B23A3A; }
+
+  /* AI risk pointer block (no pills, just bullets) */
+  .ai-risk-block {
+    margin-top: 18px;
+    border: 1px solid #EFC9C9;
+    background: #FBEFEF;
+    padding: 20px 24px;
+  }
+  .ai-risk-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #7A2222;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .ai-risk-label i { font-size: 15px; }
+  .ai-risk-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ai-risk-points li {
+    font-size: 13px;
+    color: #5A1F1F;
+    line-height: 1.55;
+    padding-left: 18px;
+    position: relative;
+  }
+  .ai-risk-points li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10px;
+    width: 10px; height: 1px;
+    background: #B23A3A;
+  }
+
+  /* Tool descriptions */
+  .tool-card-v2 .tool-v2-desc {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.55;
+    margin-top: 6px;
+  }
+  .tool-card-v2 { min-height: 150px; }
+
+  /* Section · prominent (Market Conditions) */
+  .section-prominent {
+    background: var(--black);
+    color: var(--white);
+    border-bottom: 1px solid var(--black);
+    padding: 84px 48px;
+  }
+  .section-prominent .section-header {
+    border-bottom-color: var(--gray-700);
+    padding-bottom: 28px;
+    margin-bottom: 40px;
+  }
+  .section-prominent .section-eyebrow { color: var(--gray-400); }
+  .section-prominent .section-title { color: var(--white); font-size: 30px; max-width: 820px; }
+  .section-prominent .section-title em { color: var(--white); }
+  .section-prominent .section-subtitle { color: var(--gray-400); font-size: 14px; }
+
+  /* Adjust timeline visuals for dark prominent section */
+  .section-prominent .ai-timeline-desc { color: var(--gray-500); }
+  .section-prominent .ai-timeline-connector { background: var(--gray-800); }
+  .section-prominent .ai-timeline-item.future .ai-timeline-connector { border-left-color: var(--gray-800); }
+  .section-prominent .whynow-pct {
+    background: transparent;
+    border-color: var(--gray-600);
+    color: var(--white);
+  }
+  .section-prominent .whynow-side {
+    background: var(--gray-900);
+    border-color: var(--gray-700);
+    color: var(--white);
+  }
+  .section-prominent .whynow-side-eyebrow { color: var(--gray-400); }
+  .section-prominent .whynow-side-stat { color: var(--white); }
+  .section-prominent .whynow-side-desc { color: var(--gray-300); }
+  .section-prominent .whynow-side-desc strong { color: var(--white); }
+  .section-prominent .whynow-side-divider { background: var(--gray-700); }
+  .section-prominent .whynow-side-foot { color: var(--gray-400); }
+  .section-prominent .whynow-side-foot strong { color: var(--white); }
+
+  /* ════════════════════════════════════════════════════════ */
+  /* PASS 4 — DENSITY: shrink components, kill scroll depth   */
+  /* ════════════════════════════════════════════════════════ */
+
+  body { padding-bottom: 76px; }
+
+  /* Section header text scale */
+  .section-title { font-size: 22px; }
+  .section-subtitle { font-size: 12px; }
+
+  /* Profile snapshot — tighter */
+  .profile-v2-banner { height: 64px; }
+  .profile-v2-head {
+    margin-top: -36px;
+    padding: 0 24px 18px;
+    gap: 8px;
+  }
+  .profile-v2-photo {
+    width: 76px; height: 76px;
+    font-size: 30px;
+  }
+  .profile-v2-name { font-size: 20px; }
+  .profile-v2-headline { font-size: 12px; margin-top: 3px; }
+  .profile-v2-meta { margin-top: 6px; gap: 12px; font-size: 10px; }
+  .profile-v2-skills { padding: 20px 24px 22px; gap: 16px; }
+  .skills-side-col { padding: 16px 18px; }
+  .skills-side-label { font-size: 10px; margin-bottom: 10px; padding-bottom: 8px; }
+  .skill-line { font-size: 12px; gap: 8px; }
+  .skill-line i { font-size: 14px; }
+  .skills-side-list { gap: 7px; }
+  .ai-risk-block { padding: 16px 20px; margin-top: 14px; }
+  .ai-risk-label { font-size: 10px; margin-bottom: 10px; }
+  .ai-risk-points li { font-size: 12px; }
+  .ai-risk-points { gap: 6px; }
+
+  /* Where you stand — tighter */
+  .stand-grid { gap: 22px; }
+  .stand-col-label { font-size: 10px; margin-bottom: 10px; padding-bottom: 8px; }
+  .stand-card { padding: 11px 14px; font-size: 12px; margin-bottom: 8px; }
+  .stand-card i { width: 18px; height: 18px; font-size: 13px; }
+
+  /* Two paths — tighter */
+  .path-block { padding: 24px 28px; margin-bottom: 16px; }
+  .path-block-title { font-size: 22px; }
+  .path-block-sub { font-size: 12px; margin-top: 4px; margin-bottom: 16px; }
+  .path-block-eyebrow { font-size: 9px; }
+  .path-block-divider { margin: 18px 0 14px; }
+  .path-sub-label { font-size: 10px; margin-bottom: 10px; }
+
+  .free-courses-grid { gap: 10px; }
+  .free-course-card-v2 { padding: 14px 14px 12px; }
+  .free-course-banner { margin: -14px -14px 12px; height: 64px; }
+  .free-course-name { font-size: 13px; }
+  .free-course-reason { font-size: 10px; }
+  .free-course-meta { font-size: 10px; }
+  .free-course-arrow { top: 76px; }
+
+  .masterclass-grid-v2 { gap: 10px; }
+  .masterclass-card-v2 .mc-v2-title { font-size: 12px; padding: 12px 14px 4px; }
+  .masterclass-card-v2 .mc-v2-author { font-size: 10px; padding: 0 14px 10px; }
+  .mc-v2-cta { padding: 10px 14px; font-size: 10px; }
+
+  .program-card-v2 { padding: 22px 26px; gap: 24px; }
+  .program-v2-name { font-size: 20px; }
+  .program-v2-tagline { font-size: 12px; margin-top: 4px; }
+  .program-v2-stats { margin: 14px 0; padding: 12px 0; gap: 20px; }
+  .program-v2-stats strong { font-size: 18px; }
+  .program-v2-stats span { font-size: 9px; }
+  .program-v2-points li { font-size: 11px; }
+  .program-v2-points { gap: 6px; margin-bottom: 16px; }
+  .btn-program-primary, .btn-program-secondary { padding: 9px 14px; font-size: 10px; }
+  .program-v2-video i { width: 44px; height: 44px; font-size: 18px; }
+  .program-v2-video-tag { font-size: 8px; padding: 4px 7px; }
+  .program-v2-video-cap { font-size: 10px; margin-top: 6px; }
+
+  /* Peer carousel — responsive big card */
+  .peer-card { flex: 0 0 100%; grid-template-columns: 1fr; min-height: unset; border-right: none; }
+  .peer-card-img { min-height: 220px; border-right: none; border-bottom: 1px solid var(--border); }
+  .peer-img-placeholder { font-size: 64px; }
+  .peer-card-body { padding: 24px 22px; }
+  .peer-card-name { font-size: 20px; }
+  .peer-card-role { font-size: 12px; }
+  .peer-journey-co { font-size: 14px; }
+  .peer-card-quote { font-size: 13px; }
+  .peer-card-stars { font-size: 16px; margin-top: 16px; }
+  .peer-card-divider { margin: 14px 0; }
+  .peer-controls { padding: 12px; gap: 12px; }
+  .peer-arrow { width: 32px; height: 32px; font-size: 12px; }
+  .peer-counter { font-size: 10px; }
+
+  /* Market conditions (prominent) — tighter */
+  .section-prominent { padding: 56px 48px; }
+  .section-prominent .section-title { font-size: 26px; }
+  .section-prominent .section-subtitle { font-size: 13px; }
+  .whynow-grid { gap: 28px; }
+  .ai-timeline-desc { font-size: 12px; }
+  .ai-timeline-item.now .ai-timeline-desc { font-size: 13px; }
+  .ai-timeline-body { padding-bottom: 18px; }
+  .whynow-side { padding: 18px; }
+  .whynow-side-eyebrow { font-size: 9px; }
+  .whynow-side-stat { font-size: 36px; }
+  .whynow-side-desc { font-size: 11px; }
+  .whynow-side-foot { font-size: 10px; }
+  .whynow-side-divider { margin: 16px 0; }
+
+  /* Case carousel — tighter */
+  .case-slide { padding: 32px 40px; gap: 36px; }
+  .case-company { font-size: 10px; margin-bottom: 10px; }
+  .case-headline { font-size: 22px; margin-bottom: 16px; }
+  .case-pointer { font-size: 12px; }
+  .case-pointers { gap: 9px; }
+  .case-stats { gap: 12px; }
+  .case-stat { padding: 16px 14px; }
+  .case-stat-num { font-size: 30px; }
+  .case-stat-num span { font-size: 16px; }
+  .case-stat-label { font-size: 9px; margin-top: 6px; }
+  .case-stat-source { font-size: 9px; margin-top: 6px; }
+  .case-controls { padding: 14px; }
+  .case-arrow { width: 36px; height: 36px; font-size: 14px; }
+  .case-counter { font-size: 10px; }
+
+  /* Tools — tighter, descriptions stay legible */
+  .tools-grid-v2 { gap: 10px; }
+  .tool-card-v2 { padding: 14px 16px 14px; min-height: 130px; gap: 4px; }
+  .tool-card-v2 i { font-size: 18px; margin-bottom: 2px; }
+  .tool-v2-name { font-size: 13px; }
+  .tool-v2-cat { font-size: 9px; }
+  .tool-card-v2 .tool-v2-desc { font-size: 11px; line-height: 1.5; margin-top: 4px; }
+
+  /* Career transitions — tighter */
+  .transitions-grid { gap: 12px; }
+  .transition-card { padding: 18px; gap: 10px; }
+  .transition-tag { font-size: 9px; padding: 4px 8px; }
+  .transition-role { font-size: 18px; margin-top: 4px; }
+  .transition-level { font-size: 11px; }
+  .transition-milestone { font-size: 11px; }
+  .transition-milestones { gap: 7px; }
+  .transition-time { font-size: 9px; padding-top: 12px; }
+  .transition-time strong { font-size: 12px; }
+
+  /* CTA section — tighter */
+  .cta-section { padding: 48px 48px !important; }
+  .cta-inner { gap: 32px !important; }
+  .cta-eyebrow { font-size: 10px !important; margin-bottom: 8px !important; }
+  .cta-title { font-size: 24px !important; line-height: 1.2 !important; max-width: 700px !important; }
+  .cta-desc { font-size: 12px !important; margin-top: 8px !important; max-width: 580px !important; }
+  .cta-chips { gap: 8px !important; margin-top: 14px !important; }
+  .cta-chip { font-size: 11px !important; padding: 6px 12px !important; }
+  .btn-cta-main { font-size: 11px !important; padding: 13px 20px !important; }
+  .cta-sub { font-size: 10px !important; margin-top: 8px !important; }
+
+  /* Sticky bar — tighter */
+  .sticky-bar { padding: 11px 48px; }
+  .sticky-bar-text strong { font-size: 13px; }
+  .sticky-bar-text span { font-size: 11px; }
+  .sticky-bar-cta { padding: 11px 18px; font-size: 11px; }
+
+</style>
+</head>
+<body>
+
+<!-- Feedback bar -->
+<div class="feedback-bar">
+  Honest feedback in 30 seconds? <a href="#">Tell us what we got right (or wrong)</a>
+</div>
+
+<!-- Navbar (decluttered) -->
+<nav class="navbar">
+  <div class="logo">SCALER↗</div>
+</nav>
+
+<!-- HERO (dark report band) -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Career Profile Evaluation · Apr 2026</div>
+      <h1 class="hero-title">Hey Alex,<br>Become an AI Powered<br>10x Backend Engineer.</h1>
+      <p class="hero-subtitle">Your profile. The AI shifts you can't ignore. The fastest path to hired.</p>
+      <div class="hero-cta-row">
+        <button class="hero-cta-btn"><i class="ph ph-phone"></i>Get a Free Career Consultation</button>
+        <div class="hero-cta-note">30 min · Free · With a senior mentor</div>
+      </div>
+      <div class="hero-meta">4 min read · 8 chapters</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-gauge">
+        <div class="gauge-wrap">
+          <svg viewBox="0 0 240 140">
+            <path class="gauge-track" d="M 20 120 A 100 100 0 0 1 220 120" />
+            <path class="gauge-fill"  d="M 20 120 A 100 100 0 0 1 220 120"
+                  stroke-dasharray="314.16" stroke-dashoffset="106.81" />
+          </svg>
+          <div class="gauge-num">66<div class="gauge-of">out of 100</div></div>
+        </div>
+        <div class="gauge-cap">Career &amp; AI Readiness</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- 01 · 10X ENGINEER VIEW                            -->
+<!-- ════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">01 · The 10x Engineer</div>
+      <h2 class="section-title">What a 10x <em>Backend Engineer</em> actually looks like in 2026.</h2>
+      <p class="section-subtitle">Not a unicorn. A real engineer who uses AI as leverage — every single day.</p>
+    </div>
+
+    <div class="tenx-split">
+      <div class="tenx-pointers">
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Uses Cursor or Copilot for every feature — not just autocomplete, full refactors</div>
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Reviews AI-generated code critically — catches hallucinations before they ship</div>
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Ships AI-integrated features: RAG pipelines, agents, AI-assisted workflows</div>
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Designs systems with AI in the architecture — not bolted on after</div>
+        <div class="tenx-pointer"><i class="ph ph-caret-right"></i>Answers "how would AI change your design?" in interviews without hesitation</div>
+      </div>
+      <div class="tenx-stat-col">
+        <div class="tenx-growth-header">
+          <div class="tenx-growth-eyebrow">Generative AI in job postings · LinkedIn</div>
+          <div class="tenx-growth-headline">4× growth</div>
+          <div class="tenx-growth-sub">in job postings mentioning generative AI skills — since 2023</div>
+        </div>
+        <div class="tenx-growth-chart">
+          <div class="tenx-growth-row">
+            <div class="tenx-growth-yr">2022</div>
+            <div class="tenx-growth-track"><div class="tenx-growth-fill" style="width:20%"></div></div>
+            <div class="tenx-growth-lbl">1×</div>
+          </div>
+          <div class="tenx-growth-row">
+            <div class="tenx-growth-yr">2023</div>
+            <div class="tenx-growth-track"><div class="tenx-growth-fill" style="width:40%"></div></div>
+            <div class="tenx-growth-lbl">2×</div>
+          </div>
+          <div class="tenx-growth-row">
+            <div class="tenx-growth-yr">2024</div>
+            <div class="tenx-growth-track"><div class="tenx-growth-fill" style="width:70%"></div></div>
+            <div class="tenx-growth-lbl">3×</div>
+          </div>
+          <div class="tenx-growth-row now">
+            <div class="tenx-growth-yr">2025</div>
+            <div class="tenx-growth-track"><div class="tenx-growth-fill" style="width:100%"></div></div>
+            <div class="tenx-growth-lbl">4×</div>
+          </div>
+        </div>
+        <div class="tenx-growth-footer">
+          <div class="tenx-growth-footer-num">66%</div>
+          <div class="tenx-growth-footer-label">of hiring managers won't hire engineers without demonstrated AI skills</div>
+          <div class="tenx-growth-footer-source">LinkedIn Work Trend Index, 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- 02 · WHERE YOU STAND TODAY (pros / cons)          -->
+<!-- ════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">02 · Where You Stand</div>
+      <h2 class="section-title">Your strengths. Your gaps. No spin.</h2>
+      <p class="section-subtitle">Based on what you've shipped, your DSA depth, and how you use AI today.</p>
+    </div>
+
+    <div class="stand-grid">
+      <div class="stand-col strength">
+        <div class="stand-col-label">Your Strengths</div>
+        <div class="stand-card strength"><i class="ph-fill ph-check-circle"></i>Strong problem-solving instincts</div>
+        <div class="stand-card strength"><i class="ph-fill ph-check-circle"></i>Comfortable shipping in a real codebase</div>
+        <div class="stand-card strength"><i class="ph-fill ph-check-circle"></i>Daily Copilot &amp; Cursor user</div>
+        <div class="stand-card strength"><i class="ph-fill ph-check-circle"></i>Clear, focused backend ambition</div>
+      </div>
+      <div class="stand-col improve">
+        <div class="stand-col-label">Areas to Improve</div>
+        <div class="stand-card improve"><i class="ph-fill ph-target"></i>System design depth — caches, queues, scale</div>
+        <div class="stand-card improve"><i class="ph-fill ph-target"></i>Production portfolio (1 today, target 3–4)</div>
+        <div class="stand-card improve"><i class="ph-fill ph-target"></i>AI code review &amp; evaluation skills</div>
+        <div class="stand-card improve"><i class="ph-fill ph-target"></i>Public visibility — GitHub, blog, OSS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- 03 · TWO PATHS (stacked: free above paid)         -->
+<!-- ════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">03 · Two Paths Forward</div>
+      <h2 class="section-title">Two paths to close your gaps.</h2>
+      <p class="section-subtitle">One is free. One is faster. Both work.</p>
+    </div>
+
+    <!-- ── Path 01 · Free ── -->
+    <div class="path-block free">
+      <div class="path-block-eyebrow">Path 01 · Free</div>
+      <div class="path-block-title">Start with your biggest gaps — free</div>
+      <div class="path-block-sub">You said system design and distributed systems are weak spots. These three courses address exactly that — no fluff, straight to the gaps.</div>
+
+      <div class="free-courses-grid">
+        <a class="free-course-card-v2" href="#">
+          <div class="free-course-banner">
+            <i class="ph ph-tree-structure free-course-banner-icon"></i>
+            <div class="free-course-banner-logo"><i class="ph ph-hexagon-duotone"></i>Scaler Topics</div>
+          </div>
+          <div class="free-course-name">System Design Fundamentals</div>
+          <div class="free-course-reason">Helps you learn how to design scalable systems — because your system design foundation needs work.</div>
+          <div class="free-course-meta">Self-paced · 12 hrs · Free</div>
+          <span class="free-course-arrow">→</span>
+        </a>
+        <a class="free-course-card-v2" href="#">
+          <div class="free-course-banner">
+            <i class="ph ph-broadcast free-course-banner-icon"></i>
+            <div class="free-course-banner-logo"><i class="ph ph-hexagon-duotone"></i>Scaler Topics</div>
+          </div>
+          <div class="free-course-name">Distributed Systems Primer</div>
+          <div class="free-course-reason">Helps you understand how systems talk at scale — because you need to brush up on distributed fundamentals.</div>
+          <div class="free-course-meta">Self-paced · 8 hrs · Free</div>
+          <span class="free-course-arrow">→</span>
+        </a>
+        <a class="free-course-card-v2" href="#">
+          <div class="free-course-banner">
+            <i class="ph ph-database free-course-banner-icon"></i>
+            <div class="free-course-banner-logo"><i class="ph ph-hexagon-duotone"></i>Scaler Topics</div>
+          </div>
+          <div class="free-course-name">Backend with Python &amp; Django</div>
+          <div class="free-course-reason">Helps you build production-grade APIs — because backend fundamentals in Python are a gap worth closing.</div>
+          <div class="free-course-meta">Self-paced · 16 hrs · Free</div>
+          <span class="free-course-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="path-block-divider"></div>
+
+      <div class="path-sub-label">Free masterclasses — picked for your gaps</div>
+      <div class="masterclass-grid-v2">
+        <div class="masterclass-card-v2">
+          <div class="mc-v2-thumb">
+            <i class="ph-fill ph-broadcast"></i>
+            <span class="mc-v2-tag">Live · Sat 7 PM IST</span>
+          </div>
+          <div class="mc-v2-title">How to crack backend interviews at product companies</div>
+          <div class="mc-v2-author">Anshuman Singh · Ex-Google</div>
+          <button class="mc-v2-cta">Save my seat →</button>
+        </div>
+        <div class="masterclass-card-v2">
+          <div class="mc-v2-thumb">
+            <i class="ph-fill ph-broadcast"></i>
+            <span class="mc-v2-tag">Live · Sun 6 PM IST</span>
+          </div>
+          <div class="mc-v2-title">System design fundamentals: caches, queues, tradeoffs</div>
+          <div class="mc-v2-author">Naman Bhalla · Ex-Atlassian</div>
+          <button class="mc-v2-cta">Save my seat →</button>
+        </div>
+        <div class="masterclass-card-v2">
+          <div class="mc-v2-thumb">
+            <i class="ph-fill ph-broadcast"></i>
+            <span class="mc-v2-tag">Live · Wed 8 PM IST</span>
+          </div>
+          <div class="mc-v2-title">AI in your day-to-day backend workflow</div>
+          <div class="mc-v2-author">Tarun Beriwal · Scaler instructor</div>
+          <button class="mc-v2-cta">Save my seat →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Path 02 · Paid / Structured ── -->
+    <div class="path-block paid">
+      <div class="path-block-eyebrow">Path 02 · Structured</div>
+      <div class="path-block-title">Close every gap with a mentor in your corner</div>
+      <div class="path-block-sub">System design, AI fluency, mock interviews, production projects — all of it, structured, with someone accountable to your outcome.</div>
+
+      <div class="program-card-v2">
+        <div class="program-v2-left">
+          <div class="program-v2-name">Scaler Software Engineering</div>
+          <div class="program-v2-tagline">The fastest proven path to a Backend Engineer offer at a product company. Built by ex-Google, ex-Flipkart engineers.</div>
+          <div class="program-v2-stats">
+            <div><strong>8 mo</strong><span>Job-ready</span></div>
+            <div><strong>900+</strong><span>Placed alumni</span></div>
+            <div><strong>2.5×</strong><span>Avg salary jump</span></div>
+          </div>
+          <ul class="program-v2-points">
+            <li><i class="ph ph-check"></i>1:1 mentors from Google, Amazon, Flipkart</li>
+            <li><i class="ph ph-check"></i>20+ mock interviews with sharp feedback</li>
+            <li><i class="ph ph-check"></i>5 production-grade resume projects</li>
+            <li><i class="ph ph-check"></i>Direct referrals to 400+ companies</li>
+            <li><i class="ph ph-check"></i>Pay after placement (income share)</li>
+          </ul>
+          <div class="program-v2-ctas">
+            <button class="btn-program-primary">Go to program page →</button>
+            <button class="btn-program-secondary">Download full curriculum</button>
+          </div>
+        </div>
+        <div class="program-v2-right">
+          <div class="program-v2-video">
+            <i class="ph-fill ph-play"></i>
+            <span class="program-v2-video-tag">2 min · Walkthrough</span>
+          </div>
+          <div class="program-v2-video-cap">Hear from Anshuman in 2 minutes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- 04 · PEOPLE LIKE YOU (horizontal carousel)        -->
+<!-- ════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">04 · People Like You</div>
+      <h2 class="section-title">They were exactly where you are. Here's what changed.</h2>
+      <p class="section-subtitle">Engineers with your exact starting profile. Real numbers.</p>
+    </div>
+
+    <div class="peer-carousel">
+      <div class="peer-track-wrap">
+        <div class="peer-track" id="peerTrack">
+
+          <!-- Card 1 -->
+          <article class="peer-card">
+            <div class="peer-card-img">
+              <div class="peer-img-placeholder">A</div>
+            </div>
+            <div class="peer-card-body">
+              <div class="peer-card-name">Ankur Prakash</div>
+              <div class="peer-card-role"><i class="ph ph-briefcase"></i> Senior Data Scientist at Fractal.AI</div>
+              <div class="peer-card-divider"></div>
+              <div class="peer-journey">
+                <div class="peer-journey-col peer-journey-pre">
+                  <div class="peer-journey-label">Pre Scaler</div>
+                  <div class="peer-journey-co">Milestone</div>
+                </div>
+                <div class="peer-journey-chevrons">&rsaquo;&rsaquo;&rsaquo;</div>
+                <div class="peer-journey-col">
+                  <div class="peer-journey-label">Post Scaler</div>
+                  <div class="peer-journey-co">Fractal.AI</div>
+                </div>
+              </div>
+              <div class="peer-card-divider"></div>
+              <p class="peer-card-quote">"As someone who has been working as a software developer for almost 7 long years, I was eager to enhance my skills and strengthen my fundamentals. And, as fate would have it, Scaler was recommended to me by a friend who was already riding the wave."</p>
+              <div class="peer-card-stars">★★★★☆</div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="peer-card">
+            <div class="peer-card-img">
+              <div class="peer-img-placeholder">P</div>
+            </div>
+            <div class="peer-card-body">
+              <div class="peer-card-name">Priya Nair</div>
+              <div class="peer-card-role"><i class="ph ph-briefcase"></i> SDE-2 at Amazon</div>
+              <div class="peer-card-divider"></div>
+              <div class="peer-journey">
+                <div class="peer-journey-col peer-journey-pre">
+                  <div class="peer-journey-label">Pre Scaler</div>
+                  <div class="peer-journey-co">TCS</div>
+                </div>
+                <div class="peer-journey-chevrons">&rsaquo;&rsaquo;&rsaquo;</div>
+                <div class="peer-journey-col">
+                  <div class="peer-journey-label">Post Scaler</div>
+                  <div class="peer-journey-co">Amazon</div>
+                </div>
+              </div>
+              <div class="peer-card-divider"></div>
+              <p class="peer-card-quote">"Mock interviews were brutal at first — I was humbled. By the fourth one, hard problems started feeling familiar. Scaler didn't just teach me DSA; it taught me how to think under pressure. Amazon called two months after I finished the program."</p>
+              <div class="peer-card-stars">★★★★★</div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="peer-card">
+            <div class="peer-card-img">
+              <div class="peer-img-placeholder">R</div>
+            </div>
+            <div class="peer-card-body">
+              <div class="peer-card-name">Rahul Sharma</div>
+              <div class="peer-card-role"><i class="ph ph-briefcase"></i> Backend SDE-2 at Flipkart</div>
+              <div class="peer-card-divider"></div>
+              <div class="peer-journey">
+                <div class="peer-journey-col peer-journey-pre">
+                  <div class="peer-journey-label">Pre Scaler</div>
+                  <div class="peer-journey-co">Infosys</div>
+                </div>
+                <div class="peer-journey-chevrons">&rsaquo;&rsaquo;&rsaquo;</div>
+                <div class="peer-journey-col">
+                  <div class="peer-journey-label">Post Scaler</div>
+                  <div class="peer-journey-co">Flipkart</div>
+                </div>
+              </div>
+              <div class="peer-card-divider"></div>
+              <p class="peer-card-quote">"3 years at a service company and I was stuck. I knew how to code but had no idea how to design systems. Scaler's system design curriculum was the unlock — Flipkart called in month 8. I went from 8 LPA to 28 LPA."</p>
+              <div class="peer-card-stars">★★★★☆</div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="peer-card">
+            <div class="peer-card-img">
+              <div class="peer-img-placeholder">S</div>
+            </div>
+            <div class="peer-card-body">
+              <div class="peer-card-name">Sneha Iyer</div>
+              <div class="peer-card-role"><i class="ph ph-briefcase"></i> Backend Engineer at Razorpay</div>
+              <div class="peer-card-divider"></div>
+              <div class="peer-journey">
+                <div class="peer-journey-col peer-journey-pre">
+                  <div class="peer-journey-label">Pre Scaler</div>
+                  <div class="peer-journey-co">Wipro</div>
+                </div>
+                <div class="peer-journey-chevrons">&rsaquo;&rsaquo;&rsaquo;</div>
+                <div class="peer-journey-col">
+                  <div class="peer-journey-label">Post Scaler</div>
+                  <div class="peer-journey-co">Razorpay</div>
+                </div>
+              </div>
+              <div class="peer-card-divider"></div>
+              <p class="peer-card-quote">"I had zero product-company exposure. Coming from Wipro, I didn't even know what to prepare for. Scaler's placement team got me a direct hiring-manager intro at Razorpay — no cold applications, no middlemen."</p>
+              <div class="peer-card-stars">★★★★★</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+      <div class="peer-controls">
+        <button class="peer-arrow" id="peerLeft" aria-label="Previous"><i class="ph ph-arrow-left"></i></button>
+        <div class="peer-counter" id="peerCounter">01 / 02</div>
+        <button class="peer-arrow" id="peerRight" aria-label="Next"><i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- 05 · THE AI SHIFT (timeline + companies + cost)   -->
+<!-- ════════════════════════════════════════════════ -->
+<section class="section section-prominent">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">05 · The AI Shift</div>
+      <h2 class="section-title">How the top company expectations are changing and rising.</h2>
+      <p class="section-subtitle">The biggest companies already made the shift. This is what they now expect from every engineer they hire.</p>
+    </div>
+
+    <!-- Company case carousel -->
+    <div class="case-carousel">
+      <div class="case-track-wrap">
+        <div class="case-track" id="caseTrack">
+
+          <!-- Slide 1: Google -->
+          <div class="case-slide">
+            <div>
+              <div class="case-company">Google</div>
+              <div class="case-headline">"In 2024, 25% of all new code at Google was written by AI — then reviewed and shipped by engineers."</div>
+              <div class="case-pointers">
+                <div class="case-pointer">Sundar Pichai confirmed this at Google I/O 2024. The engineers reviewing that code are still employed; the ones who can't are not.</div>
+                <div class="case-pointer">L4/L5 interviews now include dedicated AI code review rounds — flagging hallucinations is a tested skill.</div>
+                <div class="case-pointer">Output is measured by AI-augmented velocity. Writing code manually, without AI, is now a red flag in reviews.</div>
+              </div>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-num">25<span>%</span></div>
+                <div class="case-stat-label">of new code written by AI</div>
+                <div class="case-stat-source">Google I/O 2024</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-num">12<span>K</span></div>
+                <div class="case-stat-label">roles cut in 2023</div>
+                <div class="case-stat-source">Reuters, Jan 2023</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Amazon -->
+          <div class="case-slide">
+            <div>
+              <div class="case-company">Amazon</div>
+              <div class="case-headline">"Amazon Q saved 4,500 developer-years of migration work — in just a few months."</div>
+              <div class="case-pointers">
+                <div class="case-pointer">Amazon Q migrated 30,000 production Java apps autonomously. What would have taken years took months.</div>
+                <div class="case-pointer">The new expectation: a team of 5 ships like a team of 15. Headcount isn't coming back.</div>
+                <div class="case-pointer">Backend JDs now require experience with AI-assisted development, not just familiarity with AWS.</div>
+              </div>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-num">4.5<span>K</span></div>
+                <div class="case-stat-label">developer-years saved</div>
+                <div class="case-stat-source">AWS re:Invent 2024</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-num">27<span>K</span></div>
+                <div class="case-stat-label">roles cut 2022–2024</div>
+                <div class="case-stat-source">Bloomberg, 2024</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Meta -->
+          <div class="case-slide">
+            <div>
+              <div class="case-company">Meta</div>
+              <div class="case-headline">"In 2025, AI will write code at the level of a mid-level engineer — and we're hiring accordingly."</div>
+              <div class="case-pointers">
+                <div class="case-pointer">Mark Zuckerberg said this on the Joe Rogan podcast (Jan 2025). Meta has since restructured around AI-augmented teams.</div>
+                <div class="case-pointer">The "Year of Efficiency" cuts the work mid-level engineers used to do — those engineers now need to lead, not implement.</div>
+                <div class="case-pointer">New backend hires are screened for AI-system design: building agents, RAG, and eval pipelines from day one.</div>
+              </div>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-num">21<span>K</span></div>
+                <div class="case-stat-label">roles cut in 2022–23 "Year of Efficiency"</div>
+                <div class="case-stat-source">Meta earnings, layoffs.fyi</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-num">3<span>×</span></div>
+                <div class="case-stat-label">internal productivity target for AI-augmented teams</div>
+                <div class="case-stat-source">Meta engineering, 2024</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Klarna -->
+          <div class="case-slide">
+            <div>
+              <div class="case-company">Klarna</div>
+              <div class="case-headline">"Our AI assistant does the work of 700 full-time agents. We've stopped backfilling roles."</div>
+              <div class="case-pointers">
+                <div class="case-pointer">Klarna's AI handles 2/3 of all customer service chats — in the first month. The 700 roles it replaced were not rehired.</div>
+                <div class="case-pointer">Engineering headcount dropped from 5,000 to 3,800 in 12 months. Output stayed flat. Costs dropped.</div>
+                <div class="case-pointer">The remaining engineers are expected to own AI-integrated systems — not just maintain legacy ones.</div>
+              </div>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-stat-num">700</div>
+                <div class="case-stat-label">jobs replaced by AI in year one</div>
+                <div class="case-stat-source">Klarna press release, 2024</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-stat-num">$40<span>M</span></div>
+                <div class="case-stat-label">saved annually on headcount</div>
+                <div class="case-stat-source">Financial Times, 2024</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="case-controls">
+        <button class="case-arrow" id="caseLeft"><i class="ph ph-arrow-left"></i></button>
+        <div class="case-counter" id="caseCounter">01 / 04</div>
+        <button class="case-arrow" id="caseRight"><i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- 07 · TOOLS THAT 10× YOU (8 tools, 3 per row)      -->
+<!-- ════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">07 · Tools That 10× You</div>
+      <h2 class="section-title">9 tools that separate the 10× engineer from the rest.</h2>
+      <p class="section-subtitle">All have free tiers. Start using them this week.</p>
+    </div>
+
+    <div class="tools-grid-v2">
+      <div class="tool-card-v2">
+        <i class="ph ph-code"></i>
+        <div class="tool-v2-cat">Code 2× faster</div>
+        <div class="tool-v2-name">GitHub Copilot</div>
+        <div class="tool-v2-desc">Inline completions. ~45 min saved per feature.</div>
+      </div>
+      <div class="tool-card-v2">
+        <i class="ph ph-cursor-click"></i>
+        <div class="tool-v2-cat">AI-native IDE</div>
+        <div class="tool-v2-name">Cursor</div>
+        <div class="tool-v2-desc">Refactor entire files with a single instruction. The IDE engineers are quietly switching to.</div>
+      </div>
+      <div class="tool-card-v2">
+        <i class="ph ph-tree-structure"></i>
+        <div class="tool-v2-cat">System design</div>
+        <div class="tool-v2-name">ChatGPT + Excalidraw</div>
+        <div class="tool-v2-desc">Brainstorm tradeoffs, sketch architectures, walk into interviews ready.</div>
+      </div>
+      <div class="tool-card-v2">
+        <i class="ph ph-chart-line-up"></i>
+        <div class="tool-v2-cat">Debug faster</div>
+        <div class="tool-v2-name">Datadog Watchdog</div>
+        <div class="tool-v2-desc">Auto-links slow endpoints to recent deploys. Half the debug time.</div>
+      </div>
+      <div class="tool-card-v2">
+        <i class="ph ph-note-pencil"></i>
+        <div class="tool-v2-cat">Sound senior</div>
+        <div class="tool-v2-name">Notion AI</div>
+        <div class="tool-v2-desc">Bullet notes → polished RFC in 5 minutes flat.</div>
+      </div>
+      <div class="tool-card-v2">
+        <i class="ph ph-git-pull-request"></i>
+        <div class="tool-v2-cat">PR reviews</div>
+        <div class="tool-v2-name">CodeRabbit</div>
+        <div class="tool-v2-desc">AI reviews PRs before humans see them. Catches bugs you'd miss.</div>
+      </div>
+      <div class="tool-card-v2">
+        <i class="ph ph-magnifying-glass"></i>
+        <div class="tool-v2-cat">Research</div>
+        <div class="tool-v2-name">Perplexity</div>
+        <div class="tool-v2-desc">Cited answers that replace 20 Stack Overflow tabs.</div>
+      </div>
+      <div class="tool-card-v2">
+        <i class="ph ph-flow-arrow"></i>
+        <div class="tool-v2-cat">UI prototypes</div>
+        <div class="tool-v2-name">v0 / Bolt</div>
+        <div class="tool-v2-desc">Sketch → working UI in seconds. Side-project gold.</div>
+      </div>
+      <div class="tool-card-v2">
+        <i class="ph ph-terminal-window"></i>
+        <div class="tool-v2-cat">AI terminal</div>
+        <div class="tool-v2-name">Warp</div>
+        <div class="tool-v2-desc">Autocompletes shell commands, explains errors inline. Never Google a flag again.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- 08 · CAREER TRANSITIONS (trimmed)                  -->
+<!-- ════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">08 · Career Transitions</div>
+      <h2 class="section-title">Three roles you can realistically land from here.</h2>
+      <p class="section-subtitle">Pick your level of ambition. The path is clear for all three.</p>
+    </div>
+
+    <div class="transitions-grid">
+      <div class="transition-card featured">
+        <span class="transition-tag"><i class="ph ph-star"></i>&nbsp;Best fit</span>
+        <div class="transition-role">AI-Augmented Backend Engineer</div>
+        <div class="transition-level">Mid-level · Product Companies</div>
+        <div class="transition-divider"></div>
+        <div class="transition-milestones">
+          <div class="transition-milestone"><i class="ph ph-check"></i>200+ medium LeetCode problems</div>
+          <div class="transition-milestone"><i class="ph ph-check"></i>System design — caching, queues, scaling</div>
+          <div class="transition-milestone"><i class="ph ph-check"></i>2–3 production projects with AI integrations</div>
+          <div class="transition-milestone"><i class="ph ph-check"></i>5+ mock interviews</div>
+        </div>
+        <div class="transition-time"><span>Time to hired</span><strong>~14 mo</strong></div>
+      </div>
+
+      <div class="transition-card">
+        <span class="transition-tag"><i class="ph ph-arrow-up-right"></i>&nbsp;Push yourself</span>
+        <div class="transition-role">AI Platform Engineer</div>
+        <div class="transition-level">SDE-2 · FAANG &amp; Big Tech</div>
+        <div class="transition-divider"></div>
+        <div class="transition-milestones">
+          <div class="transition-milestone"><i class="ph ph-check"></i>300+ LeetCode incl. hard tier</div>
+          <div class="transition-milestone"><i class="ph ph-check"></i>Distributed systems &amp; real-time scale</div>
+          <div class="transition-milestone"><i class="ph ph-check"></i>3–4 production AI projects</div>
+          <div class="transition-milestone"><i class="ph ph-check"></i>10+ mock interviews</div>
+        </div>
+        <div class="transition-time"><span>Time to hired</span><strong>~18 mo</strong></div>
+      </div>
+
+      <div class="transition-card">
+        <span class="transition-tag"><i class="ph ph-lightning"></i>&nbsp;Quickest win</span>
+        <div class="transition-role">AI-Assisted Backend Engineer</div>
+        <div class="transition-level">Mid-level · Better Service Co.</div>
+        <div class="transition-divider"></div>
+        <div class="transition-milestones">
+          <div class="transition-milestone"><i class="ph ph-check"></i>100 medium LeetCode problems</div>
+          <div class="transition-milestone"><i class="ph ph-check"></i>REST APIs + DB design</div>
+          <div class="transition-milestone"><i class="ph ph-check"></i>1–2 demo-ready projects</div>
+          <div class="transition-milestone"><i class="ph ph-check"></i>3–5 mock interviews</div>
+        </div>
+        <div class="transition-time"><span>Time to hired</span><strong>~8 mo</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- URGENCY CTA                                       -->
+<!-- ════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-eyebrow"><i class="ph ph-warning"></i>One last thing</div>
+      <h2 class="cta-title">You've seen the report. <em>Now make the move.</em></h2>
+      <p class="cta-desc">30 minutes with a Scaler counsellor. They'll read your profile and tell you exactly what to do next.</p>
+      <div class="cta-chips">
+        <div class="cta-chip">Backend roles saw <strong>&nbsp;+22% competition&nbsp;</strong> in 2025</div>
+        <div class="cta-chip">AI-fluent devs earn <strong>&nbsp;1.4× more&nbsp;</strong></div>
+      </div>
+    </div>
+    <div class="cta-btn-wrap">
+      <button class="btn-cta-main">Get free consultation →</button>
+      <div class="cta-sub">30 min · No card · No pressure</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- STICKY BOTTOM BAR (replaces footer + float CTA)   -->
+<!-- ════════════════════════════════════════════════ -->
+<div class="sticky-bar">
+  <div class="sticky-bar-inner">
+    <div class="sticky-bar-text">
+      <strong>One move can change your trajectory.</strong>
+      <span>30 min with a senior Scaler mentor. Free. Tailored to your profile.</span>
+    </div>
+    <button class="sticky-bar-cta"><i class="ph ph-phone"></i>Get Free Career Consultation</button>
+  </div>
+</div>
+
+<script>
+  // ── Case studies carousel (1 visible) ──
+  (function () {
+    const track    = document.getElementById('caseTrack');
+    const left     = document.getElementById('caseLeft');
+    const right    = document.getElementById('caseRight');
+    const counter  = document.getElementById('caseCounter');
+    if (!track || !left || !right || !counter) return;
+    const slides = track.children.length;
+    let i = 0;
+    const pad = n => String(n).padStart(2, '0');
+    function render() {
+      track.style.transform = `translateX(-${i * 100}%)`;
+      counter.textContent = `${pad(i + 1)} / ${pad(slides)}`;
+      left.disabled  = i === 0;
+      right.disabled = i === slides - 1;
+    }
+    left.addEventListener('click',  () => { if (i > 0)          { i--; render(); } });
+    right.addEventListener('click', () => { if (i < slides - 1) { i++; render(); } });
+    render();
+  })();
+
+  // ── Peer carousel (3 visible on desktop, 1 on mobile, steps by one card) ──
+  (function () {
+    const track   = document.getElementById('peerTrack');
+    const left    = document.getElementById('peerLeft');
+    const right   = document.getElementById('peerRight');
+    const counter = document.getElementById('peerCounter');
+    if (!track || !left || !right || !counter) return;
+    const total   = track.children.length;
+    const mobileMq = window.matchMedia('(max-width: 960px)');
+    let p = 0;
+    const pad = n => String(n).padStart(2, '0');
+    function visibleCount() { return mobileMq.matches ? 1 : 3; }
+    function pageCount() { return Math.max(1, total - visibleCount() + 1); }
+    function render() {
+      const pages = pageCount();
+      if (p > pages - 1) p = pages - 1;
+      const cardW = track.children[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${p * cardW}px)`;
+      counter.textContent = `${pad(p + 1)} / ${pad(pages)}`;
+      left.disabled  = p === 0;
+      right.disabled = p >= pages - 1;
+    }
+    left.addEventListener('click',  () => { if (p > 0)                 { p--; render(); } });
+    right.addEventListener('click', () => { if (p < pageCount() - 1)   { p++; render(); } });
+    window.addEventListener('resize', render);
+    render();
+  })();
+
+  // ── Sticky bar — show after scrolling past hero ──
+  (function () {
+    const bar  = document.querySelector('.sticky-bar');
+    const hero = document.querySelector('.hero');
+    if (!bar || !hero) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      bar.classList.toggle('visible', !entry.isIntersecting);
+    }, { threshold: 0 });
+    observer.observe(hero);
+  })();
+</script>
+
+</body>
+</html>
