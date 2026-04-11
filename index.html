@@ -33,18 +33,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 i{display:inline-block}
 
 /* ── NAV ── */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;border-bottom:1px solid var(--line);background:var(--white);position:sticky;top:0;z-index:10}
-.logo{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
-.logo span{font-family:var(--mono);color:var(--ink4);font-weight:400;font-size:12px;margin-left:6px}
-.topbar-center{display:flex;align-items:center;gap:12px}
 .nav-back{width:38px;height:38px;border:1px solid var(--line2);background:var(--white);display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:var(--ink);transition:all .15s;flex-shrink:0}
 .nav-back:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
-.topbar-right{font-size:11px;color:var(--ink4);font-weight:500}
-.progress-track{position:absolute;bottom:-1px;left:0;right:0;height:2px;background:transparent}
-.progress-fill{height:100%;background:var(--accent);transition:width .4s ease-out}
+.sidebar-logo{font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-.02em;color:var(--white);margin-bottom:36px;display:flex;align-items:center}
+.sidebar-logo span{font-family:var(--mono);color:rgba(255,255,255,.45);font-weight:400;font-size:12px;margin-left:6px}
 
 /* ── PAGE ── */
-.page{display:grid;grid-template-columns:340px 1fr;min-height:calc(100vh - 57px)}
+.page{display:grid;grid-template-columns:340px 1fr;min-height:100vh}
 
 /* ── SIDEBAR ── */
 .sidebar{padding:48px 36px;border-right:1px solid rgba(255,255,255,.08);background:var(--navy);color:var(--white);display:flex;flex-direction:column}
@@ -138,9 +133,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  .topbar{padding:0 24px}
   .page{grid-template-columns:1fr}
-  .sidebar{border-right:none;border-bottom:1px solid var(--line);padding:32px 24px}
+  .sidebar{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:32px 24px}
+  .sidebar-logo{margin-bottom:24px}
   .content{padding:32px 24px}
   .options{grid-template-columns:1fr}
   .options.cards{grid-template-columns:1fr}
@@ -154,9 +149,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 <!-- SCREEN 1 -->
 <section id="screen-1" class="screen">
-  <header class="topbar"><div class="logo">Scaler</div><div class="topbar-right">Free · 3 mins</div><div class="progress-track"><div class="progress-fill" style="width:0%"></div></div></header>
   <div class="page">
     <aside class="sidebar">
+      <div class="sidebar-logo">Scaler<span>/ CPE</span></div>
       <div class="sidebar-eyebrow">Free · Takes 3 minutes</div>
       <h1 class="sidebar-title">Your AI Career Report</h1>
       <p class="sidebar-desc">Answer a few questions. Get a personalised report showing exactly where you stand — and what to do next.</p>
@@ -188,9 +183,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 <!-- TECH STEP 1 -->
 <section id="screen-t-1" class="screen">
-  <header class="topbar"><div class="logo">Scaler</div><div class="topbar-right">Step 1 of 4</div><div class="progress-track"><div class="progress-fill" style="width:25%"></div></div></header>
   <div class="page">
     <aside class="sidebar">
+      <div class="sidebar-logo">Scaler<span>/ CPE</span></div>
       <div class="sidebar-steps"><div class="sidebar-steps-label">Step 1 of 4</div><div class="sidebar-steps-track"><div class="sidebar-step-dot active"></div><div class="sidebar-step-dot"></div><div class="sidebar-step-dot"></div><div class="sidebar-step-dot"></div></div></div>
       <div class="sidebar-insight"><div class="sidebar-insight-eyebrow">Why we ask</div><div class="sidebar-insight-text">Your role shapes every gap, every recommendation, every alumni match in your report.</div><div class="sidebar-insight-sub">We use this to pull the right data — not a generic readiness score.</div></div>
       <div class="sidebar-footer"><div class="trusted-label">Alumni working at</div><div class="ticker-slot"></div></div>
@@ -207,9 +202,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 <!-- TECH STEP 2 -->
 <section id="screen-t-2" class="screen">
-  <header class="topbar"><div class="logo">Scaler</div><div class="topbar-right">Step 2 of 4</div><div class="progress-track"><div class="progress-fill" style="width:50%"></div></div></header>
   <div class="page">
     <aside class="sidebar">
+      <div class="sidebar-logo">Scaler<span>/ CPE</span></div>
       <div class="sidebar-steps"><div class="sidebar-steps-label">Step 2 of 4</div><div class="sidebar-steps-track"><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot active"></div><div class="sidebar-step-dot"></div><div class="sidebar-step-dot"></div></div></div>
       <div class="sidebar-insight"><div class="sidebar-insight-eyebrow">Why we ask</div><div class="sidebar-insight-text">Fundamentals are still what separates candidates at the final round.</div><div class="sidebar-insight-sub">Even in 2026, system design and problem solving come up in every senior interview.</div></div>
       <div class="sidebar-footer"><div class="trusted-label">Alumni working at</div><div class="ticker-slot"></div></div>
@@ -226,9 +221,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 <!-- TECH STEP 3 -->
 <section id="screen-t-3" class="screen">
-  <header class="topbar"><div class="logo">Scaler</div><div class="topbar-right">Step 3 of 4</div><div class="progress-track"><div class="progress-fill" style="width:75%"></div></div></header>
   <div class="page">
     <aside class="sidebar">
+      <div class="sidebar-logo">Scaler<span>/ CPE</span></div>
       <div class="sidebar-steps"><div class="sidebar-steps-label">Step 3 of 4</div><div class="sidebar-steps-track"><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot active"></div><div class="sidebar-step-dot"></div></div></div>
       <div class="sidebar-insight"><div class="sidebar-insight-eyebrow">Why we ask</div><div class="sidebar-insight-text">AI fluency is now a hard filter — not a bonus.</div><div class="sidebar-insight-sub">73% of backend roles in 2026 list AI as a requirement.</div></div>
       <div class="sidebar-footer"><div class="trusted-label">Alumni working at</div><div class="ticker-slot"></div></div>
@@ -244,9 +239,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 <!-- TECH STEP 4 -->
 <section id="screen-t-4" class="screen">
-  <header class="topbar"><div class="logo">Scaler</div><div class="topbar-right">Step 4 of 4</div><div class="progress-track"><div class="progress-fill" style="width:100%"></div></div></header>
   <div class="page">
     <aside class="sidebar">
+      <div class="sidebar-logo">Scaler<span>/ CPE</span></div>
       <div class="sidebar-steps"><div class="sidebar-steps-label">Step 4 of 4 — Last one</div><div class="sidebar-steps-track"><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot active"></div></div></div>
       <div class="sidebar-insight"><div class="sidebar-insight-eyebrow">Last step</div><div class="sidebar-insight-text">Your goal shapes the entire recommendation in your report.</div><div class="sidebar-insight-sub">We match you with the right alumni stories, salary targets, and path forward.</div></div>
       <div class="sidebar-footer"><div class="trusted-label">Alumni working at</div><div class="ticker-slot"></div></div>
@@ -263,9 +258,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 <!-- NON-TECH STEP 1 -->
 <section id="screen-nt-1" class="screen">
-  <header class="topbar"><div class="logo">Scaler</div><div class="topbar-right">Step 1 of 4</div><div class="progress-track"><div class="progress-fill" style="width:25%"></div></div></header>
   <div class="page">
     <aside class="sidebar">
+      <div class="sidebar-logo">Scaler<span>/ CPE</span></div>
       <div class="sidebar-steps"><div class="sidebar-steps-label">Step 1 of 4</div><div class="sidebar-steps-track"><div class="sidebar-step-dot active"></div><div class="sidebar-step-dot"></div><div class="sidebar-step-dot"></div><div class="sidebar-step-dot"></div></div></div>
       <div class="sidebar-insight"><div class="sidebar-insight-eyebrow">Why we ask</div><div class="sidebar-insight-text">Your background shapes the roadmap — not just your destination.</div><div class="sidebar-insight-sub">Career switchers from sales, finance, and design all have different strengths to leverage.</div></div>
       <div class="sidebar-footer"><div class="trusted-label">Alumni working at</div><div class="ticker-slot"></div></div>
@@ -282,9 +277,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 <!-- NON-TECH STEP 2 -->
 <section id="screen-nt-2" class="screen">
-  <header class="topbar"><div class="logo">Scaler</div><div class="topbar-right">Step 2 of 4</div><div class="progress-track"><div class="progress-fill" style="width:50%"></div></div></header>
   <div class="page">
     <aside class="sidebar">
+      <div class="sidebar-logo">Scaler<span>/ CPE</span></div>
       <div class="sidebar-steps"><div class="sidebar-steps-label">Step 2 of 4</div><div class="sidebar-steps-track"><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot active"></div><div class="sidebar-step-dot"></div><div class="sidebar-step-dot"></div></div></div>
       <div class="sidebar-insight"><div class="sidebar-insight-eyebrow">Why we ask</div><div class="sidebar-insight-text">Knowing where you are helps us show you the shortest path forward.</div><div class="sidebar-insight-sub">No worries if you're just getting started.</div></div>
       <div class="sidebar-footer"><div class="trusted-label">Alumni working at</div><div class="ticker-slot"></div></div>
@@ -301,9 +296,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 <!-- NON-TECH STEP 3 -->
 <section id="screen-nt-3" class="screen">
-  <header class="topbar"><div class="logo">Scaler</div><div class="topbar-right">Step 3 of 4</div><div class="progress-track"><div class="progress-fill" style="width:75%"></div></div></header>
   <div class="page">
     <aside class="sidebar">
+      <div class="sidebar-logo">Scaler<span>/ CPE</span></div>
       <div class="sidebar-steps"><div class="sidebar-steps-label">Step 3 of 4</div><div class="sidebar-steps-track"><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot active"></div><div class="sidebar-step-dot"></div></div></div>
       <div class="sidebar-insight"><div class="sidebar-insight-eyebrow">Why we ask</div><div class="sidebar-insight-text">AI tools are giving career switchers a real head start.</div><div class="sidebar-insight-sub">Knowing where you're stuck helps us point you to the right resources.</div></div>
       <div class="sidebar-footer"><div class="trusted-label">Alumni working at</div><div class="ticker-slot"></div></div>
@@ -320,9 +315,9 @@ body:not(:has(.screen:target)) #screen-1{display:block}
 
 <!-- NON-TECH STEP 4 -->
 <section id="screen-nt-4" class="screen">
-  <header class="topbar"><div class="logo">Scaler</div><div class="topbar-right">Step 4 of 4</div><div class="progress-track"><div class="progress-fill" style="width:100%"></div></div></header>
   <div class="page">
     <aside class="sidebar">
+      <div class="sidebar-logo">Scaler<span>/ CPE</span></div>
       <div class="sidebar-steps"><div class="sidebar-steps-label">Step 4 of 4 — Last one</div><div class="sidebar-steps-track"><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot done"></div><div class="sidebar-step-dot active"></div></div></div>
       <div class="sidebar-insight"><div class="sidebar-insight-eyebrow">Last step</div><div class="sidebar-insight-text">Tell us where you want to land — we'll show you who got there from where you are.</div><div class="sidebar-insight-sub">We match you with real alumni who made the same switch.</div></div>
       <div class="sidebar-footer"><div class="trusted-label">Alumni working at</div><div class="ticker-slot"></div></div>
