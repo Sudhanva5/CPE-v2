@@ -32,6 +32,7 @@
       --accent-light: #EEF2FF;
       --accent-mid: #3B82F6;
       --accent-eye: #D44E0A;
+      --navy: #011845;
       --serif: 'Clash Grotesk', 'Source Serif 4', Georgia, sans-serif;
       --sans: 'Plus Jakarta Sans', sans-serif;
       --mono: 'IBM Plex Mono', monospace;
@@ -121,14 +122,30 @@
       margin-left: 6px
     }
 
-    /* ── HERO (light) ── */
+    /* ── REPORT PAPER ── */
+    .report-paper {
+      max-width: var(--max);
+      margin: 32px auto;
+      background: var(--white);
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.02);
+    }
+
+    .report-paper .wrap {
+      max-width: 100%;
+      padding: 0 var(--gut);
+    }
+
+    /* ── HERO (navy) ── */
     .hero {
-      background: var(--bg);
-      color: var(--ink);
+      background: var(--navy);
+      color: var(--white);
       padding: 56px 0 64px;
       position: relative;
       overflow: hidden;
-      border-bottom: 1px solid var(--line)
+      border-bottom: none
     }
 
     .hero::before {
@@ -150,7 +167,7 @@
       font-weight: 500;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--accent-eye);
+      color: rgba(255,255,255,.45);
       margin-bottom: 20px
     }
 
@@ -164,13 +181,13 @@
       font-weight: 500;
       line-height: 1.06;
       letter-spacing: -.03em;
-      color: var(--ink);
+      color: var(--white);
       margin-bottom: 18px
     }
 
     .hero-sub {
       font-size: 14px;
-      color: var(--ink3);
+      color: rgba(255,255,255,.55);
       max-width: 44ch;
       line-height: 1.65;
       margin-bottom: 28px
@@ -188,18 +205,18 @@
       align-items: center;
       gap: 10px;
       padding: 14px 26px;
-      background: var(--accent);
-      color: var(--white);
+      background: var(--white);
+      color: var(--navy);
       font-size: 13px;
       font-weight: 700;
       border-radius: 2px;
       transition: all .2s;
-      border: 1px solid var(--accent)
+      border: 1px solid var(--white)
     }
 
     .btn-hero:hover {
-      background: #1D4ED8;
-      border-color: #1D4ED8
+      background: rgba(255,255,255,.88);
+      border-color: rgba(255,255,255,.88)
     }
 
     .btn-hero i {
@@ -208,7 +225,7 @@
 
     .hero-note {
       font-size: 11px;
-      color: var(--ink4);
+      color: rgba(255,255,255,.35);
       text-transform: uppercase;
       letter-spacing: .1em
     }
@@ -216,7 +233,7 @@
     .hero-meta {
       font-family: var(--mono);
       font-size: 11px;
-      color: var(--ink4);
+      color: rgba(255,255,255,.3);
       text-transform: uppercase;
       letter-spacing: .06em;
       margin-top: 4px
@@ -244,7 +261,7 @@
 
     .gauge-track {
       fill: none;
-      stroke: var(--line);
+      stroke: rgba(255,255,255,.12);
       stroke-width: 12
     }
 
@@ -265,7 +282,7 @@
       font-size: clamp(2.6rem, 4.5vw, 3.6rem);
       font-weight: 500;
       letter-spacing: -.04em;
-      color: var(--ink);
+      color: var(--white);
       line-height: 1
     }
 
@@ -274,7 +291,7 @@
       font-family: var(--sans);
       font-size: 12px;
       font-weight: 500;
-      color: var(--ink4);
+      color: rgba(255,255,255,.4);
       letter-spacing: .04em;
       margin-top: 4px
     }
@@ -285,8 +302,8 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: .08em;
-      color: var(--ink4);
-      border: 1px solid var(--line);
+      color: rgba(255,255,255,.45);
+      border: 1px solid rgba(255,255,255,.15);
       padding: 8px 16px
     }
 
@@ -297,9 +314,9 @@
     }
 
     .section-dark {
-      background: var(--white);
-      color: var(--ink);
-      border-bottom: 1px solid var(--line)
+      background: var(--navy);
+      color: var(--white);
+      border-bottom: none
     }
 
     .sec-eye {
@@ -317,7 +334,7 @@
     }
 
     .section-dark .sec-eye {
-      color: var(--accent-eye)
+      color: rgba(255,255,255,.4)
     }
 
     .sec-h {
@@ -331,7 +348,7 @@
     }
 
     .section-dark .sec-h {
-      color: var(--ink)
+      color: var(--white)
     }
 
     .sec-sub {
@@ -343,7 +360,7 @@
     }
 
     .section-dark .sec-sub {
-      color: var(--ink3)
+      color: rgba(255,255,255,.5)
     }
 
     /* ── 10X — off-white with monochrome gradients ── */
@@ -725,11 +742,11 @@
     .free-card:last-child { border-right: none }
 
     .free-card:hover {
-      background: var(--accent-light)
+      background: var(--bg)
     }
 
     .free-card-banner {
-      background: var(--bg);
+      background: #2A2A2A;
       height: 80px;
       display: flex;
       align-items: flex-end;
@@ -747,7 +764,7 @@
       font-family: var(--mono);
       font-size: 9px;
       font-weight: 500;
-      color: var(--ink4);
+      color: rgba(255,255,255,.5);
       text-transform: uppercase;
       letter-spacing: .08em;
       position: relative
@@ -793,6 +810,28 @@
       border-top: 1px solid var(--line)
     }
 
+    .free-card-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-top: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink3);
+      background: var(--bg);
+      transition: all .15s
+    }
+
+    .free-card:hover .free-card-cta {
+      background: #0055FF;
+      color: #fff;
+      border-color: #0055FF
+    }
+
     /* Masterclass mini-cards — visible-border grid */
     .mc-grid {
       display: grid;
@@ -812,12 +851,12 @@
     .mc-card:last-child { border-right: none }
 
     .mc-card:hover {
-      background: var(--accent-light)
+      background: var(--bg)
     }
 
     .mc-thumb {
-      background: var(--bg);
-      color: var(--ink3);
+      background: #2A2A2A;
+      color: rgba(255,255,255,.4);
       aspect-ratio: 16/9;
       display: flex;
       align-items: center;
@@ -859,13 +898,13 @@
     .mc-card-cta {
       border: none;
       border-top: 1px solid var(--line);
-      background: transparent;
-      color: var(--ink);
+      background: var(--bg);
+      color: var(--ink3);
       padding: 14px 16px;
       text-align: left;
       font-family: var(--mono);
       font-size: 10px;
-      font-weight: 500;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .06em;
       margin-top: auto;
@@ -881,9 +920,14 @@
       color: var(--ink4)
     }
 
-    .mc-card-cta:hover {
-      background: var(--accent);
-      color: var(--white)
+    .mc-card:hover .mc-card-cta {
+      background: #0055FF;
+      color: #fff;
+      border-color: #0055FF
+    }
+
+    .mc-card:hover .mc-card-cta::after {
+      color: #fff
     }
 
     .mc-card-cta:hover::after {
@@ -1234,10 +1278,38 @@
       flex: 0 0 50%;
       padding: 0;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: stretch;
       border: 1px solid var(--line);
       background: var(--white);
       margin-right: 14px
+    }
+
+    .peer-image {
+      flex: 0 0 200px;
+      background: #2A2A2A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-right: 1px solid var(--line);
+      position: relative;
+    }
+
+    .peer-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .peer-image-placeholder {
+      font-family: var(--serif);
+      font-size: 96px;
+      font-weight: 300;
+      color: rgba(255,255,255,.18);
+      user-select: none;
+      line-height: 1;
     }
 
     .peer-left {
@@ -1245,7 +1317,8 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      flex: 1
+      flex: 1;
+      min-width: 0;
     }
 
     .peer-avatar {
@@ -1253,32 +1326,6 @@
       align-items: center;
       gap: 14px;
       margin-bottom: 4px
-    }
-
-    .peer-photo {
-      width: 48px;
-      height: 48px;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0
-    }
-
-    .peer-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover
-    }
-
-    .peer-photo-placeholder {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--line2);
-      user-select: none
     }
 
     .peer-avatar-info {
@@ -1370,10 +1417,7 @@
       padding-top: 8px
     }
 
-    .peer-right {
-      display: none
-    }
-
+    .peer-right,
     .peer-initial {
       display: none
     }
@@ -1424,8 +1468,8 @@
 
     /* ── CASE CAROUSEL ── */
     .case-carousel {
-      border: 1px solid var(--line);
-      background: var(--white);
+      border: 1px solid rgba(255,255,255,.1);
+      background: #143063;
       overflow: hidden
     }
 
@@ -1453,7 +1497,7 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: var(--ink4);
+      color: rgba(255,255,255,.4);
       margin-bottom: 14px;
       display: flex;
       align-items: center;
@@ -1464,7 +1508,7 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--line);
+      background: rgba(255,255,255,.15);
       max-width: 80px
     }
 
@@ -1474,7 +1518,7 @@
       font-weight: 500;
       line-height: 1.2;
       letter-spacing: -.02em;
-      color: var(--ink);
+      color: var(--white);
       margin-bottom: 18px
     }
 
@@ -1489,7 +1533,7 @@
       align-items: flex-start;
       gap: 12px;
       font-size: 13px;
-      color: var(--ink3);
+      color: rgba(255,255,255,.55);
       line-height: 1.6
     }
 
@@ -1497,7 +1541,7 @@
       content: '';
       width: 16px;
       height: 1px;
-      background: var(--line2);
+      background: rgba(255,255,255,.25);
       margin-top: 10px;
       flex-shrink: 0
     }
@@ -1509,8 +1553,8 @@
     }
 
     .case-stat {
-      border: 1px solid var(--line);
-      background: var(--bg);
+      border: 1px solid rgba(255,255,255,.08);
+      background: #0A1F47;
       padding: 20px 18px
     }
 
@@ -1519,7 +1563,7 @@
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       font-weight: 400;
       letter-spacing: -.04em;
-      color: var(--ink);
+      color: var(--white);
       line-height: 1
     }
 
@@ -1532,7 +1576,7 @@
       font-family: var(--mono);
       font-size: 10px;
       font-weight: 500;
-      color: var(--ink4);
+      color: rgba(255,255,255,.45);
       text-transform: uppercase;
       letter-spacing: .06em;
       margin-top: 8px;
@@ -1541,7 +1585,7 @@
 
     .case-stat-source {
       font-size: 9px;
-      color: var(--ink4);
+      color: rgba(255,255,255,.35);
       margin-top: 6px;
       font-style: italic
     }
@@ -1552,16 +1596,16 @@
       justify-content: center;
       gap: 16px;
       padding: 16px;
-      border-top: 1px solid var(--line);
-      background: var(--bg)
+      border-top: 1px solid rgba(255,255,255,.1);
+      background: #0A1F47
     }
 
     .case-arrow {
       width: 38px;
       height: 38px;
-      border: 1px solid var(--line2);
-      background: var(--white);
-      color: var(--ink3);
+      border: 1px solid rgba(255,255,255,.18);
+      background: transparent;
+      color: rgba(255,255,255,.6);
       font-size: 15px;
       display: flex;
       align-items: center;
@@ -1571,13 +1615,13 @@
     }
 
     .case-arrow:hover {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent)
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--white)
     }
 
     .case-arrow:disabled {
-      opacity: .25;
+      opacity: .2;
       cursor: not-allowed
     }
 
@@ -1585,7 +1629,7 @@
       font-family: var(--mono);
       font-size: 10px;
       font-weight: 500;
-      color: var(--ink4);
+      color: rgba(255,255,255,.4);
       letter-spacing: .06em;
       min-width: 50px;
       text-align: center
@@ -1615,6 +1659,24 @@
 
     .tool-card:hover {
       background: var(--accent-light)
+    }
+
+    .brand-logo {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .brand-logo-lg {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: block;
+      margin-top: 2px;
     }
 
     .tool-card i {
@@ -1784,14 +1846,14 @@
 
     /* ── CTA ── */
     .cta-section {
-      background: var(--bg);
-      color: var(--ink);
+      background: var(--navy);
+      color: var(--white);
       padding: 56px 0;
-      border-bottom: 1px solid var(--line)
+      border-bottom: none
     }
 
     .cta-block {
-      background: #0041CA;
+      background: transparent;
       color: var(--white);
       padding: 56px 64px;
       text-align: center;
@@ -1868,7 +1930,7 @@
 
     .btn-cta-main {
       background: #fff;
-      color: #0041CA;
+      color: var(--navy);
       border: 1px solid #fff
     }
 
@@ -2018,6 +2080,11 @@
         --gut: 24px
       }
 
+      .report-paper {
+        margin: 0;
+        border: none;
+      }
+
       .hero-inner,
       .tenx-inner {
         grid-template-columns: 1fr;
@@ -2072,12 +2139,13 @@
       }
 
       .peer-card {
-        padding: 32px 28px;
-        gap: 28px
+        flex-direction: column;
       }
 
-      .peer-right {
-        min-height: 200px
+      .peer-image {
+        flex: 0 0 180px;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
       }
 
       .path-block {
@@ -2093,27 +2161,13 @@
       }
 
       /* Timeline mobile */
-      .tl-map {
+      .tl-grid {
         grid-template-columns: 1fr !important;
-        gap: 0 !important;
-      }
-
-      .tl-origin {
-        border-right: none !important;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 28px !important;
-      }
-
-      .tl-branches {
-        display: none !important;
-      }
-
-      .tl-paths {
-        padding-top: 24px !important;
+        gap: 16px !important;
       }
 
       .tl-card-head {
-        padding: 24px 20px 16px;
+        padding: 22px 20px 16px;
       }
 
       .tl-card-timebar {
@@ -2126,81 +2180,19 @@
     }
 
     /* ── CAREER TIMELINE ── */
-    .tl-map {
+    .tl-grid {
       display: grid;
-      grid-template-columns: 260px 120px 1fr;
-      gap: 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
       margin-top: 32px;
-      position: relative;
-    }
-
-    .tl-origin {
-      border: 1px solid var(--line);
-      background: var(--white);
-      padding: 28px 24px;
-      align-self: start;
-      position: relative;
-    }
-
-    .tl-origin-tag {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 9px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 3px 8px;
-      margin-bottom: 12px;
-    }
-
-    .tl-origin-role {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 500;
-      letter-spacing: -.02em;
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-
-    .tl-origin-detail {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: var(--ink3);
-      margin-bottom: 4px;
-    }
-
-    .tl-origin-detail i {
-      font-size: 14px;
-      color: var(--ink4);
-    }
-
-    /* SVG branch lines (middle column) */
-    .tl-branches {
-      position: relative;
-      min-height: 100%;
-    }
-
-    .tl-branches svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* Right column — stacked path cards */
-    .tl-paths {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
     }
 
     /* ── Timeline Card (matches screenshot) ── */
     .tl-card {
       border: 1px solid var(--line);
       background: var(--white);
+      display: flex;
+      flex-direction: column;
     }
 
     .tl-card.primary {
@@ -2208,7 +2200,7 @@
     }
 
     .tl-card-head {
-      padding: 22px 28px 16px;
+      padding: 22px 22px 16px;
     }
 
     .tl-card-eyebrow {
@@ -2252,7 +2244,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 10px 32px;
+      padding: 10px 22px;
       background: var(--bg);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -2283,10 +2275,11 @@
 
     /* Milestones — M1, M2, M3 */
     .tl-card-milestones {
-      padding: 20px 28px 24px;
+      padding: 20px 22px 24px;
       display: flex;
       flex-direction: column;
       gap: 16px;
+      flex: 1;
     }
 
     .tl-milestone {
@@ -2331,6 +2324,7 @@
     <div class="nav-inner"><a class="logo" href="#">Scaler<span>/ Career Report</span></a></div>
   </nav>
 
+  <div class="report-paper">
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
@@ -2399,7 +2393,7 @@
           <!-- Card 1: Growth chart -->
           <div class="tenx-stat-card">
             <div class="tenx-growth-header">
-              <div class="tenx-growth-eyebrow">Generative AI in job postings · LinkedIn</div>
+              <div class="tenx-growth-eyebrow"><img src="https://cdn.brandfetch.io/linkedin.com/w/64/h/64" alt="LinkedIn" class="brand-logo" style="margin-right:6px"> Generative AI in job postings · LinkedIn</div>
               <div class="tenx-growth-headline">4× growth</div>
               <div class="tenx-growth-sub">in job postings mentioning generative AI skills — since 2023</div>
             </div>
@@ -2439,7 +2433,7 @@
             <div class="tenx-growth-footer-num">66%</div>
             <div class="tenx-growth-footer-label">of hiring managers won't hire engineers without demonstrated AI skills
             </div>
-            <div class="tenx-growth-footer-source">LinkedIn Work Trend Index, 2024</div>
+            <div class="tenx-growth-footer-source"><img src="https://cdn.brandfetch.io/linkedin.com/w/64/h/64" alt="LinkedIn" class="brand-logo" style="width:12px;height:12px;margin-right:4px"> LinkedIn Work Trend Index, 2024</div>
           </div>
         </div>
       </div>
@@ -2516,6 +2510,7 @@
               <div class="free-card-reason">Learn how to design scalable systems — your foundation needs work.</div>
               <div class="free-card-meta">Self-paced · 12 hrs · Free</div>
             </div>
+            <div class="free-card-cta">Start learning → <i class="ph ph-arrow-up-right"></i></div>
           </a>
           <a class="free-card" href="#">
             <div class="free-card-banner">
@@ -2543,6 +2538,7 @@
               </div>
               <div class="free-card-meta">Self-paced · 8 hrs · Free</div>
             </div>
+            <div class="free-card-cta">Start learning → <i class="ph ph-arrow-up-right"></i></div>
           </a>
           <a class="free-card" href="#">
             <div class="free-card-banner">
@@ -2573,6 +2569,7 @@
                 closing.</div>
               <div class="free-card-meta">Self-paced · 16 hrs · Free</div>
             </div>
+            <div class="free-card-cta">Start learning → <i class="ph ph-arrow-up-right"></i></div>
           </a>
         </div>
         <div class="path-divider"></div>
@@ -2640,29 +2637,7 @@
       <p class="sec-eye">05 · Career Timeline</p>
       <h2 class="sec-h">Realistic timelines to achieve your target roles based on current skill gaps</h2>
 
-      <div class="tl-map" data-reveal>
-        <!-- LEFT — You Are Here -->
-        <div class="tl-origin">
-          <span class="tl-origin-tag">You Are Here</span>
-          <div class="tl-origin-role">swe-product</div>
-          <div class="tl-origin-detail"><i class="ph ph-buildings"></i> Non-Tech Background</div>
-          <div class="tl-origin-detail"><i class="ph ph-calendar-blank"></i> 0–2 years of experience</div>
-        </div>
-
-        <!-- MIDDLE — SVG Branch Lines -->
-        <div class="tl-branches">
-          <svg viewBox="0 0 120 520" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Primary path (green) -->
-            <path d="M0 50 C60 50, 60 60, 120 60" stroke="#10B981" stroke-width="3" fill="none"/>
-            <!-- Secondary path (blue) -->
-            <path d="M0 50 C40 50, 80 240, 120 240" stroke="#2563EB" stroke-width="3" fill="none"/>
-            <!-- Alt path (purple) -->
-            <path d="M0 50 C30 50, 70 440, 120 440" stroke="#A78BFA" stroke-width="3" fill="none"/>
-          </svg>
-        </div>
-
-        <!-- RIGHT — Stacked Path Cards -->
-        <div class="tl-paths">
+      <div class="tl-grid" data-reveal>
 
           <!-- Path 1 — Your Target Role -->
           <div class="tl-card primary">
@@ -2763,7 +2738,6 @@
             </div>
           </div>
 
-        </div>
       </div>
     </div>
   </section>
@@ -2778,9 +2752,9 @@
         <div class="peer-track-wrap">
           <div class="peer-track" id="peerTrack">
             <article class="peer-card">
+              <div class="peer-image"><span class="peer-image-placeholder">A</span></div>
               <div class="peer-left">
                 <div class="peer-avatar">
-                  <div class="peer-photo"><span class="peer-photo-placeholder">A</span></div>
                   <div class="peer-avatar-info">
                     <div class="peer-name">Ankur Prakash</div>
                     <div class="peer-role"><i class="ph ph-briefcase"></i>Senior Data Scientist at Fractal.AI</div>
@@ -2801,12 +2775,11 @@
                   friend who was already riding the wave."</p>
                 <div class="peer-stars">★★★★★</div>
               </div>
-              <div class="peer-right"><span class="peer-initial">A</span></div>
             </article>
             <article class="peer-card">
+              <div class="peer-image"><span class="peer-image-placeholder">P</span></div>
               <div class="peer-left">
                 <div class="peer-avatar">
-                  <div class="peer-photo"><span class="peer-photo-placeholder">P</span></div>
                   <div class="peer-avatar-info">
                     <div class="peer-name">Priya Nair</div>
                     <div class="peer-role"><i class="ph ph-briefcase"></i>SDE-2 at Amazon</div>
@@ -2826,12 +2799,11 @@
                   problems started feeling familiar. Amazon called two months after I finished the program."</p>
                 <div class="peer-stars">★★★★★</div>
               </div>
-              <div class="peer-right"><span class="peer-initial">P</span></div>
             </article>
             <article class="peer-card">
+              <div class="peer-image"><span class="peer-image-placeholder">R</span></div>
               <div class="peer-left">
                 <div class="peer-avatar">
-                  <div class="peer-photo"><span class="peer-photo-placeholder">R</span></div>
                   <div class="peer-avatar-info">
                     <div class="peer-name">Rahul Sharma</div>
                     <div class="peer-role"><i class="ph ph-briefcase"></i>Backend SDE-2 at Flipkart</div>
@@ -2851,12 +2823,11 @@
                   was the unlock — Flipkart called in month 8. I went from 8 LPA to 28 LPA."</p>
                 <div class="peer-stars">★★★★★</div>
               </div>
-              <div class="peer-right"><span class="peer-initial">R</span></div>
             </article>
             <article class="peer-card">
+              <div class="peer-image"><span class="peer-image-placeholder">S</span></div>
               <div class="peer-left">
                 <div class="peer-avatar">
-                  <div class="peer-photo"><span class="peer-photo-placeholder">S</span></div>
                   <div class="peer-avatar-info">
                     <div class="peer-name">Sneha Iyer</div>
                     <div class="peer-role"><i class="ph ph-briefcase"></i>Backend Engineer at Razorpay</div>
@@ -2876,7 +2847,6 @@
                   hiring-manager intro at Razorpay — no cold applications, no middlemen."</p>
                 <div class="peer-stars">★★★★★</div>
               </div>
-              <div class="peer-right"><span class="peer-initial">S</span></div>
             </article>
           </div>
         </div>
@@ -2900,7 +2870,7 @@
           <div class="case-track" id="caseTrack">
             <div class="case-slide">
               <div>
-                <div class="case-company">Google</div>
+                <div class="case-company"><img src="https://cdn.brandfetch.io/google.com/w/64/h/64" alt="Google" class="brand-logo" style="margin-right:8px"> Google</div>
                 <div class="case-headline">"In 2024, 25% of all new code at Google was written by AI — then reviewed and
                   shipped by engineers."</div>
                 <div class="case-pointers">
@@ -2940,7 +2910,7 @@
             </div>
             <div class="case-slide">
               <div>
-                <div class="case-company">Amazon</div>
+                <div class="case-company"><img src="https://cdn.brandfetch.io/amazon.com/w/64/h/64" alt="Amazon" class="brand-logo" style="margin-right:8px"> Amazon</div>
                 <div class="case-headline">"Amazon Q saved 4,500 developer-years of migration work — in just a few
                   months."</div>
                 <div class="case-pointers">
@@ -2979,7 +2949,7 @@
             </div>
             <div class="case-slide">
               <div>
-                <div class="case-company">Meta</div>
+                <div class="case-company"><img src="https://cdn.brandfetch.io/meta.com/w/64/h/64" alt="Meta" class="brand-logo" style="margin-right:8px"> Meta</div>
                 <div class="case-headline">"In 2025, AI will write code at the level of a mid-level engineer."</div>
                 <div class="case-pointers">
                   <div class="case-pointer">Zuckerberg said this on the Joe Rogan podcast (Jan 2025). Meta restructured
@@ -3020,7 +2990,7 @@
             </div>
             <div class="case-slide">
               <div>
-                <div class="case-company">Klarna</div>
+                <div class="case-company"><img src="https://cdn.brandfetch.io/klarna.com/w/64/h/64" alt="Klarna" class="brand-logo" style="margin-right:8px"> Klarna</div>
                 <div class="case-headline">"Our AI assistant does the work of 700 full-time agents. We've stopped
                   backfilling."</div>
                 <div class="case-pointers">
@@ -3078,63 +3048,63 @@
       <h2 class="sec-h">9 tools that separate the 10× engineer from the rest.</h2>
       <p class="sec-sub">All have free tiers. Start using them this week.</p>
       <div class="tools-grid" data-reveal>
-        <div class="tool-card"><i class="ph ph-code"></i>
+        <div class="tool-card"><img src="https://cdn.brandfetch.io/github.com/w/64/h/64" alt="GitHub" class="brand-logo-lg">
           <div class="tool-body">
             <div class="tool-name">GitHub Copilot</div>
             <div class="tool-cat">Code 2× faster</div>
             <div class="tool-desc">Inline completions. ~45 min saved per feature.</div>
           </div>
         </div>
-        <div class="tool-card"><i class="ph ph-cursor-click"></i>
+        <div class="tool-card"><img src="https://cdn.brandfetch.io/cursor.com/w/64/h/64" alt="Cursor" class="brand-logo-lg">
           <div class="tool-body">
             <div class="tool-name">Cursor</div>
             <div class="tool-cat">AI-native IDE</div>
             <div class="tool-desc">Refactor entire files with a single instruction.</div>
           </div>
         </div>
-        <div class="tool-card"><i class="ph ph-tree-structure"></i>
+        <div class="tool-card"><img src="https://cdn.brandfetch.io/openai.com/w/64/h/64" alt="ChatGPT" class="brand-logo-lg">
           <div class="tool-body">
             <div class="tool-name">ChatGPT + Excalidraw</div>
             <div class="tool-cat">System design</div>
             <div class="tool-desc">Brainstorm tradeoffs, sketch architectures.</div>
           </div>
         </div>
-        <div class="tool-card"><i class="ph ph-chart-line-up"></i>
+        <div class="tool-card"><img src="https://cdn.brandfetch.io/datadoghq.com/w/64/h/64" alt="Datadog" class="brand-logo-lg">
           <div class="tool-body">
             <div class="tool-name">Datadog Watchdog</div>
             <div class="tool-cat">Debug faster</div>
             <div class="tool-desc">Auto-links slow endpoints to recent deploys.</div>
           </div>
         </div>
-        <div class="tool-card"><i class="ph ph-note-pencil"></i>
+        <div class="tool-card"><img src="https://cdn.brandfetch.io/notion.so/w/64/h/64" alt="Notion" class="brand-logo-lg">
           <div class="tool-body">
             <div class="tool-name">Notion AI</div>
             <div class="tool-cat">Sound senior</div>
             <div class="tool-desc">Bullet notes → polished RFC in 5 minutes.</div>
           </div>
         </div>
-        <div class="tool-card"><i class="ph ph-git-pull-request"></i>
+        <div class="tool-card"><img src="https://cdn.brandfetch.io/coderabbit.ai/w/64/h/64" alt="CodeRabbit" class="brand-logo-lg">
           <div class="tool-body">
             <div class="tool-name">CodeRabbit</div>
             <div class="tool-cat">PR reviews</div>
             <div class="tool-desc">AI reviews PRs before humans see them.</div>
           </div>
         </div>
-        <div class="tool-card"><i class="ph ph-magnifying-glass"></i>
+        <div class="tool-card"><img src="https://cdn.brandfetch.io/perplexity.ai/w/64/h/64" alt="Perplexity" class="brand-logo-lg">
           <div class="tool-body">
             <div class="tool-name">Perplexity</div>
             <div class="tool-cat">Research</div>
             <div class="tool-desc">Cited answers that replace 20 SO tabs.</div>
           </div>
         </div>
-        <div class="tool-card"><i class="ph ph-flow-arrow"></i>
+        <div class="tool-card"><img src="https://cdn.brandfetch.io/v0.dev/w/64/h/64" alt="v0" class="brand-logo-lg">
           <div class="tool-body">
             <div class="tool-name">v0 / Bolt</div>
             <div class="tool-cat">UI prototypes</div>
             <div class="tool-desc">Sketch → working UI in seconds.</div>
           </div>
         </div>
-        <div class="tool-card"><i class="ph ph-terminal-window"></i>
+        <div class="tool-card"><img src="https://cdn.brandfetch.io/warp.dev/w/64/h/64" alt="Warp" class="brand-logo-lg">
           <div class="tool-body">
             <div class="tool-name">Warp</div>
             <div class="tool-cat">AI terminal</div>
@@ -3163,6 +3133,7 @@
       </div>
     </div>
   </section>
+  </div><!-- /report-paper -->
 
   <!-- STICKY BAR -->
   <div class="sticky-bar">
