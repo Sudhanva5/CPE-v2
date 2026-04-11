@@ -33,15 +33,15 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 i{display:inline-block}
 
 /* ── NAV ── */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;border-bottom:1px solid rgba(255,255,255,.08);background:var(--navy);position:sticky;top:0;z-index:10}
-.logo{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.02em;color:var(--white)}
-.logo span{font-family:var(--mono);color:rgba(255,255,255,.45);font-weight:400;font-size:12px;margin-left:6px}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;border-bottom:1px solid var(--line);background:var(--white);position:sticky;top:0;z-index:10}
+.logo{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.logo span{font-family:var(--mono);color:var(--ink4);font-weight:400;font-size:12px;margin-left:6px}
 .topbar-center{display:flex;align-items:center;gap:12px}
-.nav-back{width:38px;height:38px;border:1px solid rgba(255,255,255,.18);background:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.7);transition:all .15s;flex-shrink:0}
-.nav-back:hover{background:var(--white);color:var(--navy);border-color:var(--white)}
-.topbar-right{font-size:11px;color:rgba(255,255,255,.5);font-weight:500}
+.nav-back{width:38px;height:38px;border:1px solid var(--line2);background:var(--white);display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:var(--ink);transition:all .15s;flex-shrink:0}
+.nav-back:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.topbar-right{font-size:11px;color:var(--ink4);font-weight:500}
 .progress-track{position:absolute;bottom:-1px;left:0;right:0;height:2px;background:transparent}
-.progress-fill{height:100%;background:var(--white);transition:width .4s ease-out}
+.progress-fill{height:100%;background:var(--accent);transition:width .4s ease-out}
 
 /* ── PAGE ── */
 .page{display:grid;grid-template-columns:340px 1fr;min-height:calc(100vh - 57px)}
